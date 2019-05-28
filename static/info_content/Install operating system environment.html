@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>3A. Install operating system environment</title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">3A. Install operating system environment</h3>
+        <p>Installation is straightforward, as long as you pay attention to a few details.</p>
+        <h4 class="Heading4">Virtualization</h4>
+        <p>All Milestone components can be deployed in a virtual environment, with various advantages and disadvantages.</p>
+        <p>Virtualization is often used to utilize hardware resources better, because typically the different virtual servers running on the hardware host server do not load the virtual server extensively and often not at the same time. This is also true for the Management Server and its various dependencies.</p>
+        <p>By contrast, the XProtect Recording Server service that records all the cameras and streaming video to clients is a comparatively high resource-demanding service that will consistently put a high load on CPU, memory, network, and the storage system. </p>
+        <p>Therefore, a usual advantage of using virtualization to a large extent does not apply to a recording server because, in most cases, it will use all available resources all the time, leaving nothing for other virtual servers to use.</p>
+        <h4 class="Heading4">Microsoft<sup>®</sup> Windows</h4>
+        <p>Make sure the Windows version is supported for the component you are installing.</p>
+        <p>For recording servers, Milestone recommends setting the Windows Power Profile to “Full”, as the dynamic throttle mechanism may be slow to react and has been proven to be limiting Recording Server performance, especially in larger environments.</p>
+        <h4 class="Heading4">Windows server hostname</h4>
+        <p>The XProtect VMS uses the server hostname in several respects—for example, for SQL server requests, for all Management Server services, for mobile and recording server communication, and as the default name when installing Recording Servers. So, while it is possible to update the system if you change the hostname of a server, Milestone recommends setting the hostname as desired before installing any Milestone software or Microsoft SQL.</p>
+        <p>XProtect VMS server hostnames should comply with Microsoft NetBIOS Computer Naming Conventions and be limited to 15 characters or less. Hostnames containing more than 15 characters will be truncated, which may cause problems and system errors, as multiple servers may appear to have identical names.</p>
+        <p>Milestone also recommends avoiding the use of the underscore ( _ ) in hostnames, as this character is not supported by DNS servers.</p>
+        <p class="Seealso">See also: <a href="Test the network.html" class="MCXref_ParaTextOnly_0">1E. Test the network</a> &gt; Domain Name Server (DNS)</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Guidelines and recommendations for using Milestone XProtect in a virtual server environment</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Recording Server Virtualization</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone Product System Requirements</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Registered services</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; About updating the SQL server address</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; About moving the management server</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; About the Service Channel</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Recording servers &gt; Change/verify the basic configuration of a recording server</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Failover servers &gt; Change the management server address</li>
+        </ul>
+    </body>
+</html>

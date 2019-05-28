@@ -7,10 +7,27 @@ import { format as formatUrl } from 'url'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
-let mainWindow
+let mainWindow: BrowserWindow;
 
 function createMainWindow() {
-  const window = new BrowserWindow()
+  const window = new BrowserWindow({
+    icon: path.join(process.cwd(), 'static/icons/win/favicon.ico'),
+    minWidth: 896,
+    minHeight: 504,
+    title: 'Milestone Best Practice Deployment Checklist',
+    titleBarStyle: 'hidden',
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
+
+  //prevent app title from updating
+  window.on('page-title-updated', (evt): void => {
+    evt.preventDefault();
+  });
+
+  //disable the toolbar
+  window.setMenu(null);
 
   if (isDevelopment) {
     window.webContents.openDevTools()

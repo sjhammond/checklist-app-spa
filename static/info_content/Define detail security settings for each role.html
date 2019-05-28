@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>22H. Define detail security settings for each role</title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">22H. </span>Define detail security settings for each role</h3>
+        <p class="Notetext"><span class="span_3">Note:</span> This applies only to functions for which there is no defined (allow/deny) overall security setting.</p>
+        <h4 class="Heading4">Device access permissions</h4>
+        <p>Select device access permissions on the Security &gt; Roles &gt; Device tab for the role. </p>
+        <p>Only devices (cameras, microphones, speakers, inputs, outputs, and metadata) and device functions you explicitly permit access to will be available to users associated with the role.</p>
+        <p>You can select a device group to set permissions for all devices currently in that group. </p>
+        <p>There is no memory associated with a device group; it is simply a way to easily select a large group of devices. Thus, any change you make will be applied to the devices, no matter what the previous settings were. If the devices in the group currently have different values configured for specific settings, the value fields are shown as blank. If the value is a check box, it will show a square rather than a checkmark. </p>
+        <h4 class="Heading4">PTZ permissions and priority</h4>
+        <p>Select PTZ access permissions on the Security &gt; Roles &gt; PTZ tab for the role. </p>
+        <p>The PTZ permissions show up only on PTZ devices so when you a select a device group, the settings will automatically be applied only to the devices they are relevant for.</p>
+        <h4 class="Heading4">Speaker access and priority</h4>
+        <p>Select speaker access permissions on the Security &gt; Roles &gt; Speech tab for the role. </p>
+        <h4 class="Heading4">Smart Wall permissions</h4>
+        <p>Select XProtect Smart Wall permissions on the Security &gt; Roles &gt; Smart Wall tab for the role. </p>
+        <h4 class="Heading4">Event activation permissions</h4>
+        <p>Event permissions include both pre-defined events (i.e., events native to the XProtect VMS, such as RequestPlayAudio, RequestStartRecording, and RequestStopRecording) and user-defined events (i.e., events defined by you or other system administrators on the Rules and Events &gt; User-defined Events node).</p>
+        <p>Select event access permissions on the Security &gt; Roles &gt; External Events tab for the role. </p>
+        <h4 class="Heading4">View Group permissions</h4>
+        <p>Select View Group permissions on the Security &gt; Roles &gt; View Group node.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> View groups are defined on the Client &gt; View Groups node.</p>
+        <h4 class="Heading4">Matrix permissions</h4>
+        <p>Select Matrix permissions on the Security &gt; Roles &gt; Matrix node.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Matrix clients are defined on the Client &gt; Matrix node.</p>
+        <h4 class="Heading4">Alarm permissions</h4>
+        <p>Select Alarm viewing and handling permissions on the Security &gt; Roles &gt; Alarm</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Alarms are defined on the Alarms &gt; Alarm Definitions node.</p>
+        <p class="Seealso">See also: <a href="Define overall security settings for each role.html" class="MCXref_ParaTextOnly_0">22G. Define overall security settings for each role</a>, <a href="Create User-defined Events.html" class="MCXref_ParaTextOnly_0">19A. Create User-defined Events</a>; <a href="Create custom View Groups.html" class="MCXref_ParaTextOnly_0">18A. Create custom View Groups</a>; <a href="Configure Matrix recipient details.html" class="MCXref_ParaTextOnly_0">18C. Configure Matrix recipient details</a>; <a href="Define alarms.html" class="MCXref_ParaTextOnly_0">23. Define alarms</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Device tab (roles)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; PTZ tab (roles)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Speech tab (roles)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Smart Wall tab (roles)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; External Events tab (roles)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; View Group tab (roles)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Matrix tab (roles)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Alarms tab (roles)</li>
+        </ul>
+    </body>
+</html>

@@ -9,12 +9,17 @@
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "dependencies": {
+    "idb": "^4.0.3",
+    "jquery": "^3.4.1",
     "source-map-support": "^0.5.10"
   },
   "devDependencies": {
+    "@types/jquery": "^3.3.29",
     "electron": "4.0.1",
     "electron-builder": "20.38.4",
     "electron-webpack": "^2.6.2",
+    "electron-webpack-ts": "^3.2.0",
+    "typescript": "^3.4.5",
     "webpack": "4.28.4"
   }
 }

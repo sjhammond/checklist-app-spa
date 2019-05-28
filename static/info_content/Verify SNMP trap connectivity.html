@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>24C. Verify SNMP trap connectivity</title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">24C. </span>Verify SNMP trap connectivity</h3>
+        <p>The XProtect VMS supports Simple Network Management Protocol (SNMP), a standard protocol for monitoring and controlling network devices, managing their configuration, collecting statistics, and more. </p>
+        <p>The system acts as an SNMP agent which can generate an SNMP trap as a result of a triggered rule. A third-party SNMP management console can then receive information about the rule-triggering event and operators of the SNMP management console can configure their system for further action as required.</p>
+        <p>The implementation uses Microsoft<sup>®</sup> Windows<sup>®</sup> SNMP Service for triggering SNMP traps. This means that you must install the SNMP Service on recording servers. After configuring the SNMP Service through its own user interface, Recording Servers can send .mib (Management Information Base) files to the SNMP management console.</p>
+        <p>If the system design document requires sending SNMP traps, you must enable this in Windows if you did not already do that when you installed the server. Next, you must create rules to send SNMP traps, if you haven’t already done so.</p>
+        <p>Configure the third-party SNMP management system to receive SNMP traps from the XProtect VMS Management Server and verify everything works as intended by forcing errors or situations that will trigger an SNMP trap to be sent, received, and displayed.</p>
+        <p class="Seealso">See also: <a href="Enable SNMP traps.html" class="MCXref_ParaTextOnly_0">3J. Enable SNMP traps</a></p>
+    </body>
+</html>

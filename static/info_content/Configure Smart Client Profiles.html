@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>18B. Configure Smart Client Profiles</title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">18<span class="span_2">B. </span>Configure Smart Client Profiles</h3>
+        <p>Smart Client profiles allow system administrators to control how XProtect Smart Client should look and behave and what features and panes the XProtect Smart Client users in a specific role have access to.</p>
+        <p>A Smart Client Profile can be used by multiple roles so there is no need to create a profile for each role unless they will have access to different Smart Client menus and features. </p>
+        <h4 class="Heading4">Create Smart Client profile</h4>
+        <p>Unless you create specific Smart Client profiles for system administrators, you will typically want to keep the default Smart Client profile unchanged for that use.</p>
+        <p>Create any additional Smart Client profiles you need to meet the system user permission requirements under the Client &gt; Smart Client Profiles node.</p>
+        <p>Add a detailed description and any other useful information under the Info tab.</p>
+        <p class="Notetext"><span class="span_3">Not</span><span class="span_3">e:</span> Some product versions may have only a single or a limited number of Smart Client Profiles available.</p>
+        <h4 class="Heading4">Configure general and advanced settings and locks</h4>
+        <p>Configure the general behavior that roles associated with the Smart Client profile should experience on the Client &gt; Smart Client Profile &gt; General tab. In most cases, you will want to hide and disallow any settings the user does not realistically need to perform their job.</p>
+        <p>If required, configure advanced settings (such as decoding performance and time zone settings) on the Client &gt; Smart Client Profile &gt; Advanced tab.</p>
+        <p>Lock any settings you do not want users to be able to change.</p>
+        <h4 class="Heading4">Configure Live, Playback and Setup tab settings and locks</h4>
+        <p>On the Client &gt; Smart Client Profile &gt; Live / Playback / Setup tabs, configure whether the live, playback, and setup tabs should be available to roles associated with the Smart Client profile and configure which side pane menus under each of those tabs should be visible to the user.</p>
+        <p>Lock any settings you do not want users to be able to change.</p>
+        <h4 class="Heading4">Configure Export settings and locks</h4>
+        <p>On the Client &gt; Smart Client Profile &gt; Export tab, configure whether the export function should be available for roles associated with the Smart Client profile and configure what export options should be available. </p>
+        <p>Lock any settings you do not want users to be able to change.</p>
+        <h4 class="Heading4">Configure timeline and view layout settings and locks</h4>
+        <p>Configure the behavior of the Smart Client timeline for roles associated with the Smart Client profile on the Client &gt; Smart Client Profile &gt; Timeline tab.</p>
+        <p>Configure which view layouts you want users with permission to create views to be able to use on the Client &gt; Smart Client Profile &gt; View Layouts tab. This limitation is also carried over to users who use the XProtect Smart Wall function.</p>
+        <p>It is good practice to disable any views that contain more camera tiles than the client workstations are designed to be able to support. You might also disable any view layouts that do not match the available monitors. Lock any settings you do not want users to be able to change.</p>
+        <h4 class="Heading4">Configure Smart Map settings and locks</h4>
+        <p>Configure the behavior of the Smart Map for roles associated with the Smart Client profile on the<br />Client &gt; Smart Client Profile &gt; Smart Map tab. Lock any settings you do not want users to be able to change.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Not all XProtect VMS versions include Smart Client Profiles or are limited to a single profile.</p>
+        <p class="Seealso">See also: <a href="Create Roles.html" class="MCXref_ParaTextOnly_0">22C. Create Roles</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Smart Client profile properties</li>
+        </ul>
+    </body>
+</html>

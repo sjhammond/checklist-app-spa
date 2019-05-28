@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>6A. Download and run Milestone Mobile server software from the Management Server</title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">6A. Download and run Milestone Mobile server software from the Management Server</h3>
+        <p>Unless you are installing a single-server system, if you need to enable Mobile or Web client access to the system, you must download and run the Milestone Mobile server installer on the server(s) where you want to run the Milestone Mobile server. In a system with only limited mobile access from internal WiFi or via VPN, this may be the management server itself if the server performance allows.</p>
+        <p>In installations where there will be a lot of mobile use, the Milestone Mobile server is usually installed on a separate server, or even multiple servers, for best performance and in order for the mobile traffic not to impact the performance of the management server.</p>
+        <p>In installations where mobile users will access the system from the Internet directly (i.e., without a VPN), Milestone highly recommends locating the mobile server in the DMZ. The firewall should be configured to forward only the necessary ports originating from the mobile server to the XProtect VMS servers on the LAN.</p>
+        <p>The Milestone Mobile server installation file is available on the Management Server admin download page: <span class="span_5">http://&lt;management server&gt;/installation/admin</span></p>
+        <p>The typical installation option will install both the Milestone Mobile server as well as the Management Client plug-ins. While you need the plug-ins only if you also have a Management Client installed on the server, they do not do any harm or take up disk space, so you can safely use this option regardless.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> If the servers are running in a Workgroup environment, Milestone recommends you install the Mobile Server to run under the same user name as the Management Server. Alternatively, you can change the user running the Milestone Data Collector service after the installation completes to ensure the System Monitor function is able to receive performance data from the server.</p>
+        <p class="Seealso">See also: <a href="Run the Management Server installer.html" class="MCXref_ParaTextOnly_0">5B. Run the Management Server installer</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Download Manager/download web page</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Install Milestone Mobile server</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Milestone Mobile introduction</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/DMZ_(computing)">https://en.wikipedia.org/wiki/DMZ_(computing)</a>
+            </li>
+        </ul>
+    </body>
+</html>
