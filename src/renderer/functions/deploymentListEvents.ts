@@ -1,5 +1,7 @@
+import $ from 'jquery'; 
 import { renderDeploymentList } from "./deploymentListBuilder";
 import { dbPromise } from "../data/db";
+import { renderChecklist } from "./checklistBuilder";
 
 export const deleteDeployment = (id: number): any => {
 
@@ -43,4 +45,20 @@ export const deleteDeployment = (id: number): any => {
       }
       event.stopPropagation();
     }
+  }
+
+  export const addDeploymentListEventListeners = async () => {
+    //add delete functionality to each delete button in the table 
+    $('.delete-btn').click(async function (){
+      event.stopPropagation();
+      const deploymentId = parseInt(this.dataset.id);
+      deleteDeployment(deploymentId);
+    })
+  
+    //add the "go to Checklist" click event to each table row
+    $('.deployment').click(async function () {
+      const deploymentId = parseInt(this.dataset.id);
+      const id = deploymentId.toString();
+      renderChecklist(id);
+    })
   }

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <p class="p_1">&#160;</p>
+        <h3 class="Heading3"><span class="span_2">3F. </span>Check server time</h3>
+        <p>It is essential that the server is set to the correct time and time zone. Recording Servers use the time to timestamp all recordings, while the Management Server uses the time for the Service Channel and log entries. The time is converted to UTC time when stored, which allows the system to manage servers in different time zones seamlessly.</p>
+        <p>If you use a common time source for all servers (recommended), such as internet time or a local NTP time server, you should verify that the time updates correctly. If the server is on a domain, it will automatically synchronize to the domain server time.</p>
+        <p>Also note that if you log into the Management Server with the Management Client or Smart Client, and the workstation time deviates more than five minutes from the server time, the Service Channel will not work and the client will be denied access.</p>
+        <p class="Seealso">See also: <MadCap:xref href="Check Network Time Protocol (NTP) server.htm" class="ParaTextOnly">1F. Check Network Time Protocol (NTP) server</MadCap:xref></p>
+    </body>
+</html>

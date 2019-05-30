@@ -56,7 +56,7 @@ export const addCompleteStepEvents = async (id:string, db: IDBPDatabase<Mileston
 }
 
 export const addDisableStepEvents = async (id: string, db: IDBPDatabase<MilestoneDB>) => {
-    $('.disable-step').click(async function (e) {
+    $('.checklist-item__disable').click(async function (e) {
 
         //get event targets
         const stepId = parseInt(e.target.dataset.stepId);

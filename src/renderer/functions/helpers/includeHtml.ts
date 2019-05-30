@@ -6,6 +6,7 @@ export const includeHTML = (): void => {
     const elmnt = z[i];
     //if the info element has an include-html attribute...
     const file = elmnt.getAttribute('include-html');
+    console.log(file)
     if (file) {
       //...fetch the file using the attribute path and read its text
       fetch(file)

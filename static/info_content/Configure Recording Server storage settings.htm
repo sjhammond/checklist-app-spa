@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">12C. </span>Configure Recording Server storage settings</h3>
+        <p>Select a Recording Server in the Servers &gt; Recording Servers node and open the Storage tab to configure the storage settings.</p>
+        <p>In many cases, you can just edit the default storage to meet the specific requirements for the system. In other cases, you will need to create multiple different storage configurations to meet the different retention requirements of specific camera, microphone, speaker, and metadata groups.</p>
+        <h4 class="Heading4">Storage name and path</h4>
+        <p>For ease of service, make sure your storage name describes the function of the storage as closely as possible.</p>
+        <p>Verify the recording path is correct. The path must refer to a disk system that is directly and permanently attached to the recording server (i.e., not, for example, a network or USB drive). Milestone also recommends that you do not assign a storage area to the physical disks used by the operating system but use a dedicated storage system to get the best performance.</p>
+        <p>You must make sure the disk system is formatted per Milestone recommendations and that any anti-virus scanning meets the Milestone recommendations (see references below).</p>
+        <h4 class="Heading4">Storage retention, signing, and encryption</h4>
+        <p>Specify both the retention time and the maximum size you allow this storage to use on the disk.</p>
+        <p>With the exception of recordings that are protected by an Evidence Lock, whenever the configured retention time OR the maximum size is reached, the Recording Server will delete the oldest recording (first-in-first-out) or force an archiving if an archive exists (see the next step).</p>
+        <p>You can apply database signing and/or encryption if required by the system specification.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Not all XProtect VMS versions include database signing and encryption functionality.</p>
+        <p class="Seealso">See also: <MadCap:xref href="Add anti virus scan exceptions (Win Svr).htm" class="ParaTextOnly">3I. Add anti-virus scan exceptions</MadCap:xref>, <MadCap:xref href="Configure storage.htm" class="ParaTextOnly">4. Configure storage</MadCap:xref>, <MadCap:xref href="Create Evidence Lock profiles.htm" class="ParaTextOnly">10H. Create Evidence Lock profiles</MadCap:xref>, <MadCap:xref href="Configure archiving.htm" class="ParaTextOnly">12D. Configure archiving</MadCap:xref></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Storage tab (recording server)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Storage and Recording Settings properties</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Add a new recording storage</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Edit settings for a selected storage or archive</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Enable digital signing for export</li>
+        </ul>
+    </body>
+</html>

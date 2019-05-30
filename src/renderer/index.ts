@@ -1,5 +1,5 @@
 import { renderMainMenu } from "./functions/menuBuilder";
-import '../../static/css/app.css'
+import './css/app.css'
 
 const app = document.getElementById('app');
 app.innerHTML = `

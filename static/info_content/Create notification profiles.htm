@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">20C. </span>Create notification profiles</h3>
+        <p>Notification profiles allow you to set up email notifications that can be triggered by rules. You can include dynamic text (such as the Recording Server name or the trigger time) in both the subject and in the message text. You can also configure profiles to include still images and/or AVI video clips from the relevant camera with the email.</p>
+        <p>Create notification profiles as needed on the Rules and Events &gt; Rules and Events &gt; Notification Profiles node.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> You must configure the email server settings on the Tools &gt; Options &gt; Mail Server tab before you can use email notifications. Likewise, you must configure the AVI creation settings on the Tools &gt; Options &gt; AVI Generation tab before you can include AVI video clips with email notifications.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Notifications containing H.265 encoded video require that the server that runs the Management Server service supports hardware acceleration.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> To prevent flooding email recipients with email notifications, you can define a fixed minimum time between emails for an email notification for situations where you predict the system may generate a lot of notifications in a short time—for example, if you trigger the notification based on motion detection or hardware device communication failures.</p>
+        <p class="Seealso">See also: <MadCap:xref href="Configure email notification settings.htm" class="ParaTextOnly">10F. Configure email notification settings</MadCap:xref></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Notification profiles</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">eLearning: Configuring and Using Alarms and Notifications</li>
+        </ul>
+    </body>
+</html>

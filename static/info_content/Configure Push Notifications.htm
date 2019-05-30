@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">25<span class="span_2">G. </span>Configure Push Notifications</h3>
+        <p>You can enable Milestone Mobile to notify users when an event occurs, such as when an alarm triggers or something goes wrong with a device or server. Notifications are always delivered, regardless if the app is running or not. </p>
+        <p>Push notifications use cloud services from Apple (Apple Push Notification service, or APN), Google (Google Cloud Messaging Push Notification service), and Microsoft (Microsoft Azure Notification Hub).</p>
+        <p>Enable notifications if required by the system design document. As users log in for the first time, their devices are automatically added to the registered devices list. Once in the list, you can determine if the device should receive Push Notifications. Disable any devices that should NOT receive notifications.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Users can disable Push Notifications themselves globally in the Miscellaneous menu in the Mobile client app. Also, for each Milestone Mobile server a user has installed in their app, they can choose notification settings for each server under the Configuration &gt; Notification settings for that server. Here, the user can choose whether to receive no alarms, all alarms (default setting), or only alarms that are assigned to them. </p>
+        <p class="Notetext"><span class="span_3">Note:</span> There is a limit to the number of notifications that a system is allowed to send during a period of time. If your system exceeds the limit, it can send only one notification every 15 minutes during the next period. The notification contains a summary of the events that occurred during the 15 minutes. After the next period, the limitation is removed.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Push Notifications require the Mobile server to have access to the Internet (outbound connection), and the Software License Code (SLC) used to have a valid Milestone Care Plus subscription.</p>
+        <p class="Seealso">See also: <MadCap:xref href="Define alarm definitions.htm" class="ParaTextOnly">23C. Define alarm definitions</MadCap:xref></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Sending notifications (explained)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Mobile server settings &gt; Notifications</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">eLearning: Configuring and Using Push Notifications</li>
+        </ul>
+    </body>
+</html>

@@ -1,14 +1,13 @@
-import $ from 'jquery';
 import { ProductTier } from "../models/product-tier";
 import { dateOptions } from "./helpers/dateOptions";
 import { dbPromise } from "../data/db";
-import { deleteDeployment } from "./deploymentListEvents";
+import { addDeploymentListEventListeners } from "./deploymentListEvents";
 
 let deploymentData = '';
 let numberOfDeployments: number;
 
 export const renderDeploymentList = () => {
-
+    deploymentData = ''
     dbPromise().then(async db => {
         //get all deployment data
         const deployments = await db
@@ -72,21 +71,5 @@ export const finalizeDeploymentList = (data: string): string => {
         `
     }
 }
-
-const addDeploymentListEventListeners = async () => {
-    //add delete functionality to each delete button in the table 
-    $('.delete-btn').click(async function (){
-      event.stopPropagation();
-      const deploymentId = parseInt(this.dataset.id);
-      deleteDeployment(deploymentId);
-    })
-  
-    //add the "go to Checklist" click event to each table row
-    $('.deployment').click(async function () {
-      const deploymentId = parseInt(this.dataset.id);
-      const href = `./checklist.html?id=${deploymentId}`;
-      window.location.href = href;
-    })
-  }
 
   

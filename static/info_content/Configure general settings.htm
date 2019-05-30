@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">25<span class="span_2">B. </span>Configure general settings</h3>
+        <p>Access the general settings of the Milestone Mobile server on the Servers &gt; Mobile Servers &gt; General tab.</p>
+        <h4 class="Heading4">Verify mobile server name, description, and login method</h4>
+        <p>Make sure the name of the server is one that makes sense also when the system is serviced at a later date. Add a description of the location, intended use for the server, and anything else that may be useful months or years from now.</p>
+        <p>Specify what login method to allow—Windows authentication, basic authentication, or both (Automatic).</p>
+        <h4 class="Heading4">Configure mobile server features and log settings</h4>
+        <p class="Bulletlistheading">Configure the features you want the Milestone Mobile server to provide, or import and edit a configuration backup made from a different Mobile server:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph">Disable XProtect Web Client access if this is not a requirement for the installation.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph">The All cameras view is generally useful only in systems with a low number of cameras. In systems where you or the users themselves create customized views in the Smart Client, users have access to their normal Smart Client views in the Milestone Mobile client and the all cameras view can be disabled.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph">Disable the actions (output and events) if remote users should not be allowed to trigger those.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph">Enable keyframes if called for in the system design document, or if the bandwidth available to XProtect Web Client users is too limited for higher frame rates.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph">Disable the built-in Administrators role from access to the Mobile server unless you are installing a small system with only a few users. With the exception of smaller installations, where security and user tracking is perhaps less critical, users should not normally use an administrator account for Smart Client or mobile viewing access to the XProtect VMS.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph">For normal operations, you can usually ignore the Mobile server log (leave it at default settings).</li>
+        </ul>
+        <p>If you have multiple mobile servers, they are each configured separately. Depending on your system requirements, you can configure each server with identical settings—for example, if you are simply dividing users onto different servers to share the load or using different settings because you need a different quality profile for some users.</p>
+        <p>If you have multiple Mobile servers that should be configured identically, complete all the steps in this section on one server, export the mobile server configuration, then import it to each of the other servers.</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Mobile server settings &gt; General</li>
+        </ul>
+    </body>
+</html>

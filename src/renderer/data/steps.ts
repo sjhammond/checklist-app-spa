@@ -28,14 +28,14 @@ export const Steps: Step[] = [
     taskId: 1,
     title: 'Configure the Network',
     productTier: ProductTier.Essential,
-    infoPath: 'Configure the network'
+    infoPath: 'Configure the Network'
   },
   {
     id: 5,
     taskId: 1,
     title: 'Test the Network',
     productTier: ProductTier.Essential,
-    infoPath: 'Test the network'
+    infoPath: 'Test the Network'
   },
   {
     id: 6,
@@ -56,7 +56,7 @@ export const Steps: Step[] = [
     taskId: 1,
     title: 'Verify Microsoft SQL server access and permissions',
     productTier: ProductTier.Professional,
-    infoPath: 'Verify Microsoft SQL server access and permissions'
+    infoPath: 'VerifyMicrosoftSQLserveraccessandpermissions'
   },
   {
     id: 9,
@@ -147,7 +147,7 @@ export const Steps: Step[] = [
     taskId: 3,
     title: 'Check Server time',
     productTier: ProductTier.Essential,
-    infoPath: 'Check server time'
+    infoPath: 'Check Server time'
   },
   {
     id: 22,

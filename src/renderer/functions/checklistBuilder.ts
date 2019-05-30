@@ -16,20 +16,15 @@ import { toggleInfo } from "./helpers/toggleInfo";
 import { transformLinks } from "./helpers/transformLinks";
 import { renderChecklistMenu } from './menuBuilder';
 
-export const renderChecklist = () => {
+export const renderChecklist = (id:string) => {
     //declare global vars
     let deployment: Deployment;
     let phase: Phase;
     let mainContent = '';
     let dbContext: IDBPDatabase<MilestoneDB>;
 
-    //get the deployment id from the URL querystring
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id');
-
     dbPromise().then(async db => {
         dbContext = db;
-
         //get the current deployment
         deployment = await getDeployment(id, db);
 
@@ -87,6 +82,7 @@ export const renderChecklist = () => {
 
         //load icons
         $(".checklist-note__expand").load("./svg/note.svg")
+        $(".checklist-item__disable").load("./svg/disable.svg")
         $("#back_icon").load("./svg/backarrow.svg");
         $("#save_icon").load("./svg/save.svg");
         $("#my-deployments_icon").load("./svg/mydeployments.svg");
@@ -148,11 +144,11 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
                 </button>
                 <button class='checklist-note__expand' aria-label='Toggle Notes' title='Add note'>
                 </button>
-                <button id='step${step.id}__disable' class='disable-step${disableStatus}' title="This step doesn't apply" data-step-id='${step.id}'}>
+                <button class='checklist-item__disable' id='step${step.id}__disable' class='disable-step${disableStatus}' title="This step doesn't apply" data-step-id='${step.id}'}>
                 </button>
                 <div class='info-container'>
                     <span id='step${step.id}__status'>${buildStatus(item)}</span>
-                    <div class='info' include-html='../renderer/info_content/${step.infoPath}.html'></div>
+                    <div class='info' include-html='info_content/${step.infoPath}.html'></div>
                     <!--info content-->
                 </div>
                 <!--info container-->

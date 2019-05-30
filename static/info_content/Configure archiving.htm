@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">12D. </span>Configure archiving</h3>
+        <p>When you add an archive to a storage area, the recordings in that storage are automatically moved to an archive storage at intervals that you define. You can configure multiple archives for each storage (not supported in all product versions).</p>
+        <p>Archives are typically located on an external storage system but may also be located on the recording server hardware itself.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Milestone recommends you use archiving only if you need to physically move recordings to a different storage location for long-term storage or if the system requirements require grooming older recordings to save disk space.<br /><br />On larger systems, an ungraceful shutdown may, however, result in a prolonged recovery time as the Recording Server verifies and repairs the database.<br /><br />An ungraceful shutdown is any condition that prevents the Recording Server service from closing the database correctly. Typical examples are loss of power to a server not protected by a UPS, or forcefully killing the Recording Server service via the Windows Task Manager. Other examples include loss of communication with the disk system due to improper design (writing directly to a NAS) or due to hardware failure (for example, a disk controller failing).<br /><br />Upon restarting the server, the Recording Server service checks the integrity of each camera database and will initiate a repair routine if necessary. This usually takes only a few minutes, but in cases where the damage is so severe the database index has to be rebuilt, this can potentially take a long time. The risk of this, though small, can be minimized by using archiving to keep the database relatively small. Archiving once a day is typically sufficient for this purpose.</p>
+        <h4 class="Heading4">Archive name, path, and retention</h4>
+        <p>When you add an archive to a storage configuration, you will need to specify the drive and path, retention time, and maximum size on disk, just as for the recording storage itself. </p>
+        <p>The archive path can be a UNC path pointing to a network storage. If you use network storage, you must make sure the user account running the Recording Server service has full permissions on that path.</p>
+        <p>An archive must always have a longer retention time than the recording storage itself. If you have multiple archives for the storage, each subsequent archive must have a longer retention time than the previous archive.</p>
+        <p>All retention times are accumulative—for example, if the storage retention is 7 days, the first archive is 30 days, and the second archive is 12 months. This is also how the data will be stored on the respective storage systems (paths).</p>
+        <h4 class="Heading4">Archive frequency</h4>
+        <p>You must specify when the system should run the archive routine. Archiving can occur as frequently as you require, with a minimum of one hour between archiving.</p>
+        <p>Whenever an archive runs, only the data older than that specified for the storage or previous archive will be moved. You should therefore make sure that the storage or archive you will be archiving from has sufficient room to store the data stored within its specified retention time plus the data stored during the archive interval.</p>
+        <p>Archiving moves the data sequentially for one device at a time to achieve optimum performance from both the source and destination disk systems.</p>
+        <h4 class="Heading4">Archive grooming</h4>
+        <p>Grooming allows you to remove video frames from the recordings when moving data onto an archive, thus allowing more data to be stored longer than if the full recording was archived.</p>
+        <p>The effective grooming result depends on the recording format. Recordings made in a frame-based codec format (such as MJPEG) can be groomed to any frame rate, while recordings made in a streaming codec format (such as MPEG4, H.264, and H.265) will be groomed to the nearest lower keyframe (I-frame). </p>
+        <p class="Notetext"><span class="span_3">Note:</span> Not all XProtect VMS versions include grooming functionality.</p>
+        <p class="Seealso">See also: <MadCap:xref href="Add anti virus scan exceptions (Win Svr).htm" class="ParaTextOnly">3I. Add anti-virus scan exceptions</MadCap:xref>, <MadCap:xref href="Configure storage.htm" class="ParaTextOnly">4. Configure storage</MadCap:xref>, <MadCap:xref href="Download and run the XProtect Recording Server installer from the Management Server (Rec Svr).htm" class="ParaTextOnly">7B. Download and run the XProtect Recording Server installer from the Management Server</MadCap:xref>, <MadCap:xref href="Configure Recording Server storage settings.htm" class="ParaTextOnly">12C. Configure Recording Server storage settings</MadCap:xref></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; About storage and archiving</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Create an archive within a storage</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; About archive structure</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Archive Settings properties</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList">Milestone XProtect VMS Products - Administrator manual &gt; Back up archived recordings</li>
+        </ul>
+    </body>
+</html>
