@@ -1,12 +1,17 @@
 {
-  "name": "electron-webpack-quick-start",
-  "version": "0.0.0",
+  "name": "milestone-bpdc",
+  "version": "1.0.0",
   "license": "MIT",
+  "author": "Milestone Systems, Inc.",
+  "repository": "https://github.com/sjhammond/checklist-app-spa",
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "build": {
+    "productName": "Milestone Deployment Center"
   },
   "dependencies": {
     "idb": "^4.0.3",

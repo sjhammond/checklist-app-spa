@@ -1,8 +1,9 @@
 'use strict'
-
 import { app, BrowserWindow } from 'electron'
 import * as path from 'path'
 import { format as formatUrl } from 'url'
+
+declare const __static:string; 
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -11,7 +12,7 @@ let mainWindow: BrowserWindow;
 
 function createMainWindow() {
   const window = new BrowserWindow({
-    icon: path.join(process.cwd(), 'src/main/icons/win/favicon.ico'),
+    icon: path.join(__static + "/icons/win/favicon.ico"),
     minWidth: 800,
     minHeight: 600,
     title: 'Milestone Best Practice Deployment Checklist',

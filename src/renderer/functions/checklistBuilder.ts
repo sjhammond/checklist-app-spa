@@ -15,6 +15,7 @@ import { includeHTML } from "./helpers/includeHtml";
 import { toggleInfo } from "./helpers/toggleInfo";
 import { transformLinks } from "./helpers/transformLinks";
 import { renderMainMenu } from './menuBuilder';
+import { getStatic } from './helpers/getStatic';
 
 export const renderChecklist = (id:string) => {
     //declare global vars
@@ -82,10 +83,8 @@ export const renderChecklist = (id:string) => {
         transformLinks();
 
         //load icons
-        $(".checklist-note__expand").load("./svg/note.svg")
-        $(".checklist-item__disable").load("./svg/disable.svg")
-        $(".disable-step").load("./svg/disable.svg");
-
+        $(".checklist-note__expand").load(getStatic("/svg/note.svg"));
+        $(".checklist-item__disable").load(getStatic("/svg/disable.svg"));
     });
 }
 

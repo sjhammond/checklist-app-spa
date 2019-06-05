@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import { createDeployment } from './newDeploymentEvents';
+import { getStatic } from './helpers/getStatic';
 
 export const renderCreateDeployment = () => {
-
     const main = document.getElementById('main-content')
     main.innerHTML = `
         <form id="new-deployment__form">
@@ -64,11 +64,11 @@ export const renderCreateDeployment = () => {
     `
 
     //load svg images
-    $("#essential-icon").load("src/renderer/svg/essential.svg");
-    $("#express-icon").load("svg/express.svg");
-    $("#professional-icon").load("svg/professional.svg");
-    $("#expert-icon").load("svg/expert.svg");
-    $("#corporate-icon").load("svg/corporate.svg");
+    $("#essential-icon").load(getStatic("/svg/essential.svg"));
+    $("#express-icon").load(getStatic("/svg/express.svg"));
+    $("#professional-icon").load(getStatic("/svg/professional.svg"));
+    $("#expert-icon").load(getStatic("/svg/expert.svg"));
+    $("#corporate-icon").load(getStatic("/svg/corporate.svg"));
 
     //prevent default form submission (but keep form validation!)
     $('form').submit(e => e.preventDefault());
