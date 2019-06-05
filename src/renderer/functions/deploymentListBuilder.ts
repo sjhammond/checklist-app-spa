@@ -32,13 +32,19 @@ export const renderDeploymentList = () => {
             //otherwise, build a table row for each deployment in the store
             deploymentData += `
                 <div class="deployment" id="deployment${cursor.value.id}" data-id="${cursor.value.id}">
-                    <div>${cursor.value.name}</div>
-                    <div>${(cursor.value.productTier < 4) ? ProductTier[cursor.value.productTier] + "+" : ProductTier[cursor.value.productTier]}</div>
-                    <div>${cursor.value.integrator}</div>
-                    <div>Last Modified: ${(cursor.value.dateModified).toLocaleString('default', dateOptions)}</div>
-                    <div>Created: ${(cursor.value.dateCreated).toLocaleString('default', dateOptions)}</div>
-                    <button id="deployment${cursor.value.id}__edit" type="button" class="edit-btn" data-id="${cursor.value.id}">Edit</button>
-                    <button id="deployment${cursor.value.id}__delete" type="button" class="delete-btn" data-id="${cursor.value.id}">Delete</button>
+                    <div class="deployment-info">
+                        <div class="deployment-name">${cursor.value.name}</div>
+                        <div class="deployment-button-container">
+                            <button id="deployment${cursor.value.id}__edit" type="button" class="edit-btn" data-id="${cursor.value.id}">Edit</button>
+                            <button id="deployment${cursor.value.id}__delete" type="button" class="delete-btn" data-id="${cursor.value.id}">Delete</button>
+                        </div>
+                        <div class="deployment-product">XProtect ${(cursor.value.productTier < 4) ? ProductTier[cursor.value.productTier] + "+" : ProductTier[cursor.value.productTier]}</div>
+                        <div class="deployment-details">
+                            <div class="deployment-detail">Integrator:<span>${cursor.value.integrator}</span></div>
+                            <div class="deployment-detail">Last modified:<span>${(cursor.value.dateModified).toLocaleString('default', dateOptions)}</span></div>
+                            <div class="deployment-detail">Created on:<span>${(cursor.value.dateCreated).toLocaleString('default', dateOptions)}</span></div>
+                        </div>
+                    </div>    
                 </div>
             `
             //step through the cursor to the next item
@@ -55,18 +61,16 @@ export const finalizeDeploymentList = (data: string): string => {
     if (numberOfDeployments > 0) {
         return `
             <div id="deployment-list">
-                <div id="deployment-list">
-                    <span> Select a Deployment</span>
+                    <h1 class="title" id="deployment-list__title"> Select a Deployment</h1>
                     <div id="deployment-list__body">
                         ${data}
                     </div>
-                </div>
             </div>
         `
     } else {
         return `
             <div id="no-deployments">
-                No deployments found. Select <b>Create New Deployment</b> to get started.
+                <h2>No deployments found.</h2> Select <a id="new-deployment-link" href="#"><b>New Deployment</b></a> to get started.
             </div>
         `
     }

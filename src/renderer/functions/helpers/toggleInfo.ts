@@ -6,20 +6,20 @@ export const toggleInfo = () => {
 
   //toggle more information when clicking the "more info" icon
   $('.checklist-item__expand').on('click', function () {
-    $(this).parent().find('.info-container').slideToggle('slow');
-    $(this).find('.line').toggleClass('closed');
+    $(this).parent().parent().parent().find('.info-container').slideToggle('slow');
+    $(this).find('.line').toggleClass('active');
   });
 
   //also toggle more info when clicking the step title
   $('.checklist-item__title').on('click', function () {
-    $(this).parent().find('.info-container').slideToggle('slow');
-    $(this).parent().find('.line').toggleClass('closed');
+    $(this).parent().parent().find('.info-container').slideToggle('slow');
+    $(this).parent().parent().find('.line').toggleClass('active');
   });
 
   //toggle notes section when clicking the "note" icon
   $('.checklist-note__expand').on('click', function () {
-    $(this).parent().find('.note-container').slideToggle('slow');
-    $(this).find('.svg-note-icon').toggleClass('closed');
+    $(this).parent().parent().parent().find('.note-container').slideToggle('fast');
+    $(this).find('.svg-note-icon').toggleClass('active');
   });
 
   // add the 'hovering' class to the info-expander on hover 

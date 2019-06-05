@@ -6,7 +6,7 @@ export const renderCreateDeployment = () => {
     const main = document.getElementById('main-content')
     main.innerHTML = `
         <form id="new-deployment__form">
-            <h1 id="header-title">New Deployment</h1>
+            <h1 class="title">New Deployment</h1>
             <span>Select your XProtect product:</span>
             <div class="radio-tile-group">
                 <div class="input-container">
@@ -51,11 +51,15 @@ export const renderCreateDeployment = () => {
                 <!--radio-input-->
             </div>
             <!--radio-tile-group-->
-            <span>Name your deployment:</span>
-            <input id="deploymentName" type="text" required minlength="2" maxlength="96" />
-            <span>What is the name of the integrator working on this project?</span>
-            <input id="integratorName" type="text" required minlength="2" maxlength="96" />
-            <button id="newDeploymentBtn" class="primary-btn" type="submit">Create Checklist</button>
+            <div class="text-field">
+                <span>Name your deployment:</span>
+                <input id="deploymentName" type="text" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?]+"/>
+            </div>
+            <div class="text-field">
+                <span>Name the integrator working on this project:</span>
+                <input id="integratorName" type="text" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?]+"/>
+            </div>
+            <button id="newDeploymentBtn" class="primary-btn" type="submit">Create Deployment</button>
         </form>
     `
 

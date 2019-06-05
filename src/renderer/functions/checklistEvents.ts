@@ -55,28 +55,28 @@ export const addCompleteStepEvents = async (id:string, db: IDBPDatabase<Mileston
     });
 }
 
-export const addDisableStepEvents = async (id: string, db: IDBPDatabase<MilestoneDB>) => {
-    $('.checklist-item__disable').click(async function (e) {
+export const addDisableStepEvents = async (deploymentId: string, db: IDBPDatabase<MilestoneDB>) => {
+    $('.checklist-item__disable').click(async function () {
 
-        //get event targets
-        const stepId = parseInt(e.target.dataset.stepId);
+        //get stepId from data
+        const stepId = $(this).data('stepId');
+
+        //toggle selected class on disable icon
         $(`#step${stepId}__disable`).toggleClass('selected');
 
-        //get the deployment
-        const deployment = await getDeployment(id, db);
+        //get the deployment & checklist items associated with the deployment
+        const deployment = await getDeployment(deploymentId, db);
+        const deploymentItems = await getItemsByDeploymentId(deploymentId, db);
 
-        //get the checklist items associated with the deployment
-        const deploymentItems = await getItemsByDeploymentId(id, db);
-
-        //retrieve one deployment item associated with this step
+        //retrieve the deployment item associated with this step
         const item = deploymentItems.find(i => i.stepId == stepId)
 
-        //if status is checked, set to complete, otherwise set to incomplete
+        //get the corresponding checkbox and item status
         const checkbox = $(`#step${stepId}__checkbox`)
         let stepStatus: ItemState;
 
-        if ($(e.originalEvent.srcElement).hasClass('selected')) {
-            //set item stat to 'does not apply'
+        if ($(this).hasClass('selected')) {
+            //set item status to 'does not apply'
             stepStatus = ItemState.NotApplicable;
             //clear and disable the step checkbox
             checkbox.prop('checked', false);
@@ -89,20 +89,19 @@ export const addDisableStepEvents = async (id: string, db: IDBPDatabase<Mileston
 
         //define the data to put to the db
         //pass though all the item attributes that are unchanged
-        //just change the date, integrator, and status
         const data = {
             id: item.id,
             deploymentId: item.deploymentId,
             stepId: item.stepId,
-            itemState: stepStatus,
-            integrator: deployment.integrator,
-            date: new Date(),
+            itemState: stepStatus, //update
+            integrator: deployment.integrator, //update
+            date: new Date(), //update
             note: item.note,
             noteDate: item.noteDate,
             noteIntegrator: item.noteIntegrator
         }
 
-        //put the updated record in the db
+        //put the updated record in the db and update deployment mod date
         await updateDeploymentItem(data, db);
         await updateDeploymentModifiedDate(deployment, db);
 
@@ -113,6 +112,14 @@ export const addDisableStepEvents = async (id: string, db: IDBPDatabase<Mileston
 
 
 export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) => {
+
+    $('textarea[id$="__note"]').on('input selectionchange propertychange', function (e){
+         //get stepId from event target
+        const stepId = parseInt(e.target.dataset.stepId); 
+        const saveButton = $(`step${stepId}__save-note`);
+        saveButton.removeClass('disabled');
+    });
+
     $('button[id$="__save-note"]').click(async function (e) {
         
         //get stepId from event target
@@ -136,7 +143,6 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
         
             //define the data to put to the db
             //pass though all the item attributes that are unchanged
-            //just change the note, note integrator, note date
             const data = {
                 id: item.id,
                 deploymentId: item.deploymentId,
@@ -144,9 +150,9 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
                 itemState: item.itemState,
                 integrator: item.integrator,
                 date: item.date,
-                note: stepNote,
-                noteDate: new Date(),
-                noteIntegrator: deployment.integrator
+                note: stepNote, //update
+                noteDate: new Date(), //update
+                noteIntegrator: deployment.integrator //update
             };
 
             //put the updated record in the db
@@ -155,6 +161,15 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
 
             //update the note status html with data values
             $(`#step${stepId}__note-status`).html(buildNoteStatus(data));
+
+            //add ore remove the hasnote class on the note icon
+            const noteIcon = $(`#step${stepId}__checkbox`).parent().find('.checklist-button-container').find('.checklist-note__expand');
+            
+            if(stepNote == ''){
+                noteIcon.removeClass('hasnote');
+            } else {
+                noteIcon.addClass('hasnote');
+            }
         }
     });
 }

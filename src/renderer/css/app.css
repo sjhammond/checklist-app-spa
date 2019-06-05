@@ -1,11 +1,11 @@
-/*GENERAL*/
+/*
+****************************************************************************
+GENERAL
+****************************************************************************
+*/
 
 html {
 	line-height: 1.25;
-}
-
-section {
-	display: block;
 }
 
 *,
@@ -16,6 +16,7 @@ section {
 
 body {
 	font-family: "Open Sans", sans-serif;
+	font-size: .95em;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -30,23 +31,25 @@ body {
 	border-top: 1px solid #b0bdc6;
 }
 
+section {
+	display: block;
+}
+
 img {
 	border-style: none;
 }
 
+button {
+	padding: 0;
+}
 
 a {
-	-webkit-transition: all 0.2s ease;
-	transition: all 0.2s ease;
-	text-decoration: none;
 	color: #0099da;
-	border-bottom: 1px solid #0099da;
-	background-color: transparent;
-	-webkit-text-decoration-skip: objects;
+	transition: color 0.2s ease;
 }
 
 a:hover {
-	border-bottom: 2px solid #33ade1;
+	color: #0091cf; 
 }
 
 ::selection {
@@ -59,158 +62,11 @@ a::selection {
 	color: #ffe700;
 }
 
-/* DEPLOYMENT LIST */
-
-.deployment {
-	cursor: pointer;
-}
-
-#deployment-list__body tr { 
-	border: none;
-	cursor: pointer;
-}
-
-#deployment-list__body tr:nth-child(odd) { 
-	background-color : #ffffff; 
-}
-
-#deployment-list__body tr:nth-child(even) { 
-	background-color : #f6f8f9; 
-}
-
-#deployment-list__body tr:hover { 
-	background-color : #ccebf8; 
-}
-
-/* HEADER */ 
-
-.header{
-	padding-left: 48px;
-	height: 75px;
-	border-bottom: 2px solid #0099da;
-}
-
-.header-progress{
-	display: block;
-}
-
-.header-progress-border {
-	display: block;
-	border-bottom: 3px solid #0099da;
-}
-
-.header-progress-bar {
-	display: block;
-	height: 5px;
-	-webkit-transition: -webkit-transform 0.5s ease;
-	transition: -webkit-transform 0.5s ease;
-	transition: transform 0.5s ease;
-	transition: transform 0.5s ease, -webkit-transform 0.5s ease;
-	-webkit-transform: scaleX(0);
-	transform: scaleX(0);
-	-webkit-transform-origin: left;
-	transform-origin: left;
-	background-color: #80ccec;
-}
-
-.header-content{
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-between;	
-	padding-top: 8px;
-}
-
-#header-title {
-	align-self: center;
-	padding-left: 12px;
-	font-size: 2.25em;
-	font-weight: 100;
-	color: #303436;
-}
-
-.header-progress-reset{
-	align-self: center;
-	padding-right: 24px;
-}
-
-.header-progress-count {
-	font-family: "Open Sans" sans-serif;
-	font-size: 1.15em;
-	letter-spacing: 0.05em;
-}
-
-/* RADIO TILES */
-
-.radio-tile-group {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: center;
-}
-
-.input-container {
-	display: flex;
-	position: relative;
-	height:  10rem;
-	width:  10rem;
-	margin: 0.5rem;
-}
-
-.radio-button {
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	cursor: pointer;
-}
-
-.radio-tile {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	padding: 1rem;
-	transition: transform 300ms ease;
-}
-
-.icon {
-	width: 5em;
-	height: 5em;
-}
-
-.icon svg {
-	fill: #0099da;
-}
-
-.radio-tile-label {
-	text-align: center;
-	font-size: 0.75rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	color: #0099da;
-}
-
-.radio-button:checked ~ .radio-tile {
-	background-color: #0099da;
-	border: 2px solid #0099da;
-	color: white;
-	transform: scale(1.1, 1.1);
-}
-
-.radio-button:checked ~ .radio-tile .icon svg {
-	fill: white;
-}
-
-.radio-button:checked ~ .radio-tile .radio-tile-label {
-	color: white;
-}
-
-/* SIDE NAVIGATION */
+/* 
+****************************************************************************
+SIDE NAVIGATION
+****************************************************************************
+*/
 
 .sidenav{
 	height: 100%;
@@ -239,45 +95,30 @@ a::selection {
 	cursor: pointer;
 }
 
-.menu-icon svg{
-	fill: #303436;
-	height: 32px;
-	width: 32px;
-	transition: 200ms;
-	transition-timing-function: ease-in-out;
-	-webkit-transition: 200ms;
-	-webkit-transition-timing-function: ease-in-out;
+.menu-item:hover {
+	color: #0099da;
+	transition: color 0.2s ease;
 }
 
-.menu-icon svg:hover {
-	fill: #0099da;
-}
-
-#sidenav-back{
-	fill:#ffffff;
-}
-
-#sidenav-back:hover{
-	fill:#ced6db;
-}
-
-#settings-icon_bottom {
-	position: fixed;
-	left: 8px;
-	bottom: 8px;
-}
-
-
-/* MAIN CONTNET */
+/* 
+****************************************************************************
+MAIN CONTNET 
+****************************************************************************
+*/
 
 .container {
 	max-height: 100vh;
 	display: flex;
-	margin-left: 20%; 
+	margin-left: 250px; 
 	flex-direction: column;
 	align-items: center;
 	counter-reset: task;
 	overflow-y: auto;
+}
+
+.title {
+	font-size: 2em;
+	font-weight: 100;
 }
 
 .container::-webkit-scrollbar {
@@ -294,20 +135,246 @@ a::selection {
 	background:  #b0bdc6;
 }
 
-#whitespace{
-	width: 100%;
-	height: 300px;
+/* 
+****************************************************************************
+DEPLOYMENT LIST 
+****************************************************************************
+*/
+
+#deployment-list {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	width: 90%;
 }
 
-/*CREATE DEPLOYMENT*/
+#deployment-list__body {
+	width: 100%;
+}
 
+.deployment {
+	display: flex;
+	flex-flow: column wrap;
+	flex: 1 0 100%;
+	padding: 15px;
+	margin: 15px 0;
+	border: 1px solid #b0bdc6;
+	cursor: pointer;
+	transition: background 200ms ease;
+}
 
-/* CHECKLISTS */
+.deployment:hover {
+	background-color: #f6f8f9;
+}
+
+.deployment-info {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.deployment-button-container {
+	width: 100px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+.deployment-name {
+	width: 80%;
+	font-weight: 100;
+	font-size: 2em;
+	margin-bottom: 16px;
+}
+
+.deployment-product {
+	width: 100%;
+	font-size: 1em;
+	color: #0099da;
+	margin-bottom: 12px;
+}
+
+.deployment-details {
+	width: 100%;
+	font-size: .85em;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.deployment-detail {
+	font-size: 1em;
+	position: relative;
+	margin: 3px 0;
+}
+
+.deployment-info span {
+	position: absolute;
+	left: 150px;
+}
+
+#no-deployments {
+	flex: 1 0 100%;
+	width: 85%;
+	text-align: center;
+	background-color: #f6f8f9;
+	padding: 10px 0 40px 0; 
+	margin-top: 50px;
+}
+
+#no-deployments h2 {
+	font-size: 1.75em;
+	font-weight: 100;
+	color: #303436;
+}
+
+/*
+****************************************************************************
+NEW DEPLOYMENT
+****************************************************************************
+*/
+
+#new-deployment__form {
+	flex: 1 0 100%;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	width: 85%;
+	margin-bottom: 2rem;
+}
+
+.radio-tile-group {
+	width: 80%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin: 12px 0;
+}
+
+.input-container {
+	position: relative;
+	height:  8rem;
+	width:  8rem;
+	margin: .5rem;
+}
+
+.radio-button {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	cursor: pointer;
+}
+
+.radio-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	padding: 1rem;
+	transition: transform 300ms ease, background 0.2s ease;
+}
+
+.icon {
+	width: 5em;
+	height: 5em;
+}
+
+.icon svg {
+	fill: #0099da;
+}
+
+.radio-tile-label {
+	text-align: center;
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #0099da;
+}
+
+.radio-button:hover ~ .radio-tile {
+	background-color: #f6f8f9;
+}
+
+.radio-button:checked ~ .radio-tile {
+	background-color: #0099da;
+	color: white;
+	transform: scale(1.1, 1.1);
+}
+
+.radio-button:checked ~ .radio-tile .icon svg {
+	fill: white;
+}
+
+.radio-button:checked ~ .radio-tile .radio-tile-label {
+	color: white;
+}
+
+.text-field {
+	width: 100%;
+	align-items: center;
+	display: flex;
+	flex-flow: column;
+	margin: 12px;
+}
+
+.text-field input {
+	font-family: "Open Sans", sans-serif;
+	text-align: center;
+	font-size: 2em;
+	font-weight: 100;
+	min-width: 400px;
+	height: 2.5rem;
+	color: #303436;
+	width: 60%;
+	margin: 12px;
+	border: none;
+	border-bottom: 1px solid #303436; 
+	transition: all 0.2s ease;
+}
+
+.text-field input:focus {
+	outline: none;
+	background: #f6f8f9;
+	border-bottom: 2px solid #0099da;
+}
+
+#new-deployment__form button {
+	width: 300px;
+	background: #0099da;
+	color: #ffffff;
+	border: none; 
+	text-transform: uppercase;
+	font-family: "Open Sans", sans-serif;
+	font-size: .95em;
+	font-weight: 700;
+	padding: .75em;
+	transition: background 0.2s ease;
+}
+
+#new-deployment__form button:hover {
+	background-color: #0091cf;
+}
+
+/* 
+****************************************************************************
+CHECKLIST
+****************************************************************************
+*/
 
 .checklist {
-	padding-top: 30px;
-	width: 75%;
+	padding-top: 18px;
+	width: 90%;
 	counter-reset: step;
+}
+
+.checklist:first-of-type {
+	padding-top: 12px; 
 }
 
 .checklist:last-of-type{
@@ -315,7 +382,7 @@ a::selection {
 }
 
 .checklist__title {
-	font-size: 2.2em;
+	font-size: 2em;
 	font-weight: 100;
 	margin: 24px 0 16px 0;
 	color: #303436;
@@ -328,7 +395,7 @@ a::selection {
 
 .checklist__title-border {
 	display: block;
-	width: 500px;
+	width: 450px;
 	margin-top: 8px;
 	border-bottom: 2px solid #0099da;
 	-webkit-box-shadow: 0 15px 15px -15px rgba(33, 16, 118, 0.5);
@@ -337,7 +404,7 @@ a::selection {
 
 .checklist__percentage-border {
 	display: block;
-	width: 500px;
+	width: 450px;
 	height: 6px;
 	margin-bottom: 8px;
 	-webkit-transition: -webkit-transform 350ms ease;
@@ -352,27 +419,33 @@ a::selection {
 }
 
 .checklist-container {
-	margin: 0;
-	padding: 0 10px;
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column nowrap;
+	flex: 1 0 100%;
+	margin: 0;
+	padding: 10px 0;
 }
 
 .checklist-item {
 	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
+	flex-flow: column nowrap;
 	flex: 1 0 100%;
 	list-style-type: none;
-	margin: 15px 0;
+}
+
+.checklist-item-container {
+	flex: 1 1 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	margin-bottom: 12px;
 }
 
 .checklist-item__title {
-	flex: 1 0 80%;
+	flex: 1 0 65%;
 	cursor: pointer;
-	font-size: 1.3em;
-	line-height: 1.25;
-	margin-left: 12px;
+	font-size: 1.1em;
+	margin: 0 12px;
 	-webkit-transition: color 250ms ease;
 	transition: color 250ms ease;
 }
@@ -382,32 +455,153 @@ a::selection {
 	content: counter(task) counter(step, upper-alpha) ". ";
 }
 
-.checklist-note__expand, .checklist-item__disable {
-	width: 32px;
-	height: 32px;
-	cursor: pointer;
-	border: 0;
-	outline: 0;
-	background: 0 0;
+.checklist-button-container {
+	width: 100px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
 }
 
-.svg-note-icon, 
-.disable-step__icon {
-	fill: #303436;
+.info-container, .note-container{
+	max-width: inherit;
+	display: flex;
+	flex-flow: column nowrap;
+	flex: 1 0 100%;
+	border-bottom: 2px solid #ced6db;
+	margin-bottom: 18px;
+	padding-bottom: 12px; 
 }
 
-.svg-note-icon:hover,
-.disable-step__icon:hover {
-	fill: #0099da;
+.status {
+	font-size: .8em;
 }
 
-.checklist-item__expand {
+.note-field {
+	resize: none;
+	margin: 12px 0;
+	overflow-y: auto;
+}
+
+.note-field:focus {
+	outline: 2px solid #0099da
+}
+
+.note-controls {
+	flex: 1 0 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.save-note-btn {
+	width: 150px;
+	background: #0099da;
+	color: #ffffff;
+	border: none; 
+	text-transform: uppercase;
+	font-family: "Open Sans", sans-serif;
+	font-size: .95em;
+	font-weight: 700;
+	padding: 8px;
+	transition: background 0.2s ease;
+}
+
+.save-note-btn:focus {
+	outline: none;
+}
+
+.save-note-btn:hover {
+	background-color: #0091cf;
+}
+
+.info {
+	flex: 1 0 95%;
+	font-family: "Open Sans", sans-serif;
+	margin-top: 12px;
+	word-wrap: break-word;
+}
+
+/* 
+****************************************************************************
+FLARE CONTENT IMPORTS
+****************************************************************************
+*/
+
+.info *{
+	margin: 0; 
+}
+
+.Heading1,
+.Heading2,
+.Heading3,
+.Seealso {
+	display: none;
+}
+
+.Heading4 {
+	font-size: 1.5em;
+	font-weight: 200;
+	margin-top: 24px;
+	margin-bottom: 12px;
+}
+
+.Heading3 + .Heading4 {
+	margin-top: 0;
+}
+
+.info p {
+	margin-bottom: 12px; 
+	font-size: 1em;
+}
+
+.info ul {
+	padding-left: 24px;
+}
+
+.ListParagraph {
+	list-style-type: disc;
+	margin-bottom: 8px;
+}
+
+.Addtionalresources {
+	font-weight: 700;
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+
+.AddlResBulletedList {
+	margin-bottom: 8px;
+}
+
+.AddlResBulletedList span{
+	color: #303436;
+	font-size: 1em;
+}
+
+
+/* 
+****************************************************************************
+CHECKLIST ICONS 
+****************************************************************************
+*/
+
+.checklist-button-container button {
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
 	border: 0;
 	outline: 0;
 	background: 0 0;
+	margin: 0 5px;
+}
+
+.checklist-button-container svg {
+	fill: #303436;
+	transition: all 0.2s ease;
+}
+
+.checklist-button-container svg:hover {
+	fill: #0099da;
 }
 
 .line {
@@ -443,52 +637,39 @@ a::selection {
 	background: #0099da;
 }
 
-.closed.line {
+.active.line {
 	top: 45%;
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 	background: #0099da;
 }
 
-.closed.line:after {
+.active.line:after {
 	-webkit-transform: rotate(0);
 	transform: rotate(0);
 	background: 0 0;
 }
 
-.closed.svg-note-icon{
+.checklist-note__expand.hasnote > .svg-note-icon {
 	fill: #0099da;
 }
 
-.info-container { 
-	flex: 1 0 100%;
-	border-bottom: 2px solid #ced6db;
-	margin-bottom: 1.75em;
+.svg-note-icon.active {
+	fill: #0099da;
 }
 
-.info-container .info {
-	margin: 1.5em 2em;
-	font-family: "Open Sans", sans-serif;
-	overflow: hidden;
+.checklist-item__disable.selected > .disable-step__icon {
+	fill: red;
 }
 
-.info-container ul {
-	padding-left: 26px;
-	list-style-type: disc;
-}
-
-.info-container li {
-	margin-top: 0.25em;
-}
-
-.cheklist-note{
-	flex: 1 0 100%;
-}
-
-
-/* INPUTS */
+/* 
+****************************************************************************
+INPUTS 
+****************************************************************************
+*/
 
 .checkbox {
+	flex-shrink: 0;
 	position: relative;
 	top: 1px;
 	display: inline-block;
@@ -537,6 +718,18 @@ input[id$="__checkbox"]:checked ~ .checkbox:after {
 	opacity: 1;
 }
 
+input[id$="__checkbox"]:disabled ~ .checkbox {
+	-webkit-animation: wiggle 0.4s ease;
+	animation: wiggle 0.4s ease;
+	background: #ced6db;
+	border-color: #ced6db;
+}
+
+input[id$="__checkbox"]:disabled ~ .checklist-item__title {
+	color: #9dadb7;
+}
+
+
 .disable-step {
 	cursor: pointer; 
 }
@@ -555,10 +748,6 @@ input[id$="__disable"]:checked ~ .checklist-item__title {
 	-webkit-transition: all 175ms ease;
 	transition: all 175ms ease;
 	opacity: 0.5;
-}
-
-input[id$="__disable"]:checked ~ .disable-step svg {
-	fill: #0099da;
 }
 
 button,
@@ -596,21 +785,11 @@ html [type="button"] {
 	padding: 0;
 }
 
-
-/* FLARE CONTENT IMPORTS */
-
-.Heading1,
-.Heading2,
-.Heading3,
-.Seealso {
-	display: none;
-}
-
-.info-container .info p{
-	font-size: 1.5em;
-}
-
-/* ANIMATIONS */
+/* 
+****************************************************************************
+ANIMATIONS 
+****************************************************************************
+*/
 
 @-webkit-keyframes wiggle {
 	from {

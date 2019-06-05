@@ -3,6 +3,7 @@ import { renderDeploymentList } from './deploymentListBuilder';
 import { renderCreateDeployment } from './newDeploymentBuilder';
 
 export const renderMainMenu = () => {
+    //render the main menu html
     const menu = document.getElementById('menu'); 
     menu.innerHTML = `
         <div id="inner-menu">
@@ -14,7 +15,7 @@ export const renderMainMenu = () => {
             </ul>
         </div> 
     `
-
+    //attach event listeners
     $('#menu_deployment-list').click(() => renderDeploymentList());
     $('#menu_new-deployment').click(() => renderCreateDeployment());
 }

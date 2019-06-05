@@ -14,7 +14,7 @@ import { addCompleteStepEvents, addDisableStepEvents, addNoteEvents } from "./ch
 import { includeHTML } from "./helpers/includeHtml";
 import { toggleInfo } from "./helpers/toggleInfo";
 import { transformLinks } from "./helpers/transformLinks";
-import { renderChecklistMenu } from './menuBuilder';
+import { renderMainMenu } from './menuBuilder';
 
 export const renderChecklist = (id:string) => {
     //declare global vars
@@ -68,7 +68,8 @@ export const renderChecklist = (id:string) => {
 
     }).then(() => {
 
-        renderChecklistMenu();
+        //render menu
+        renderMainMenu();
 
         //load event listeners
         addCompleteStepEvents(id, dbContext);
@@ -97,13 +98,15 @@ export const renderChecklist = (id:string) => {
 const buildTasks = (deployment: Deployment, task: Task, steps: Step[], items: DeploymentItem[]): string => {
     return `
       <section class='checklist'>
-          <h2 class='checklist__title'>${task.title}</h2>
-          <span class='checklist__title-border'></span><span class='checklist__percentage-border'></span>
-          ${steps
-            .filter(step => step.productTier.valueOf() <= deployment.productTier.valueOf())
-            .map(step => { return buildSteps(step, items) })
-            .join('')
-        }
+        <h2 class='checklist__title'>${task.title}</h2>
+        <span class='checklist__title-border'></span><span class='checklist__percentage-border'></span>
+        <ul class='checklist-container'>
+            ${steps
+                .filter(step => step.productTier.valueOf() <= deployment.productTier.valueOf())
+                .map(step => { return buildSteps(step, items) })
+                .join('')
+            }
+        </ul>
       </section>
     `
 }
@@ -134,32 +137,34 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
 
     //build the step using both step and item data in the db
     return `
-        <ul class='checklist-container'>
-            <li class='checklist-item'>
+        <li class='checklist-item'>
+            <div class='checklist-item-container'>
                 <input id='step${step.id}__checkbox' type='checkbox' data-step-id='${step.id}' ${checkboxStatus}/>
                 <label for='step${step.id}__checkbox' class='checkbox'></label>
-                <span class='checklist-item__title'>${step.title}</span>
-                <button class='checklist-item__expand' aria-label='Toggle Info' title='Show more information'>
-                    <span class='line'></span>
-                </button>
-                <button class='checklist-note__expand' aria-label='Toggle Notes' title='Add note'>
-                </button>
-                <button class='checklist-item__disable' id='step${step.id}__disable' class='disable-step${disableStatus}' title="This step doesn't apply" data-step-id='${step.id}'}>
-                </button>
-                <div class='info-container'>
-                    <span id='step${step.id}__status'>${buildStatus(item)}</span>
-                    <div class='info' include-html='info_content/${step.infoPath}.html'></div>
-                    <!--info content-->
+                <div class='checklist-item__title'>${step.title}</div>
+                <div class='checklist-button-container'>
+                    <button class='checklist-item__expand' aria-label='Toggle Info' title='Show more information'>
+                        <span class='line'></span>
+                    </button>
+                    <button class='checklist-note__expand${item.note == undefined || item.note == '' ? '' : ' hasnote'}' aria-label='Toggle Notes' title='Add note'>
+                    </button>
+                    <button class='checklist-item__disable' id='step${step.id}__disable' class='disable-step${disableStatus}' title="This step doesn't apply" data-step-id='${step.id}'}>
+                    </button>
                 </div>
-                <!--info container-->
-                <div class='note-container'>
-                    <span id='step${step.id}__note-status'>${buildNoteStatus(item)}</span>
-                    <input type='text' id='step${step.id}__note' name='step${step.id}__note' value='${item.note == undefined || item.note == '' ? '' : item.note}'/>
-                    <button id="step${step.id}__save-note" type="button" data-step-id="${step.id}">Save</button>
+            </div>
+            <div class='note-container'>
+                <textarea class="note-field" rows="6" cols="1" id='step${step.id}__note' name='step${step.id}__note' data-step-id='${step.id}'>${item.note == undefined || item.note == '' ? '' : item.note}</textarea>
+                <div class="note-controls">
+                    <span class="status" id='step${step.id}__note-status'>${buildNoteStatus(item)}</span>
+                    <button class="save-note-btn disabled" id="step${step.id}__save-note" type="button" data-step-id="${step.id}">Save Note</button>
                 </div>
-                <!--note container-->
-            </li>
-        </ul>
+            </div>
+            <div class='info-container'>
+                <span class="status" id='step${step.id}__status'>${buildStatus(item)}</span>
+                <div class='info' include-html='info_content/${step.infoPath}.htm'>
+                </div>
+            </div>
+        </li>
     `
 }
 
@@ -167,8 +172,8 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
 export const buildStatus = (data: DeploymentItem): string => {
     if (data.integrator != undefined) {
         return `Marked
-            <strong> ${data.itemState != ItemState.NotApplicable ? ItemState[data.itemState] : "Does Not Apply"} </strong>
-            by ${data.integrator} on ${data.date.toLocaleString('default', dateOptions)}
+            <em> ${data.itemState != ItemState.NotApplicable ? ItemState[data.itemState] : "Does Not Apply"} </em>
+            by <strong>${data.integrator}</strong> on ${data.date.toLocaleString('default', dateOptions)}
         `;
     } else {
         return '';
@@ -179,7 +184,7 @@ export const buildStatus = (data: DeploymentItem): string => {
 export const buildNoteStatus = (data: DeploymentItem): string => {
     if (data.noteIntegrator != undefined && data.note != '') {
         return `Written by 
-            ${data.noteIntegrator} 
+            <strong>${data.noteIntegrator}</strong> 
             on ${data.noteDate != undefined ? data.noteDate.toLocaleString('default', dateOptions) : ''}
         `;
     } else {

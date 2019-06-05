@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { renderDeploymentList } from "./deploymentListBuilder";
 import { dbPromise } from "../data/db";
 import { renderChecklist } from "./checklistBuilder";
+import { renderCreateDeployment } from './newDeploymentBuilder';
 
 export const deleteDeployment = (id: number): any => {
 
@@ -60,5 +61,9 @@ export const deleteDeployment = (id: number): any => {
       const deploymentId = parseInt(this.dataset.id);
       const id = deploymentId.toString();
       renderChecklist(id);
+    })
+
+    $('#new-deployment-link').click(async function() {
+      renderCreateDeployment();
     })
   }
