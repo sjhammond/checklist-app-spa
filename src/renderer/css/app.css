@@ -70,7 +70,7 @@ SIDE NAVIGATION
 
 .sidenav{
 	height: 100%;
-	width: 250px;
+	width: 200px;
 	position: fixed;
 	z-index: 5;
 	top: 0;
@@ -106,32 +106,28 @@ MAIN CONTNET
 ****************************************************************************
 */
 
-.container {
+#main-content {
 	max-height: 100vh;
 	display: flex;
-	margin-left: 250px; 
+	margin-left: 200px; 
 	flex-direction: column;
 	align-items: center;
 	counter-reset: task;
 	overflow-y: auto;
+	padding-top: 32px;
 }
 
-.title {
-	font-size: 2em;
-	font-weight: 100;
-}
-
-.container::-webkit-scrollbar {
+#main-content::-webkit-scrollbar {
 	border-left: 1px solid #ced6db;     
 	background-color: #ffffff;
 	width: .8em
 }
 
-.container::-webkit-scrollbar-thumb {
+#main-content::-webkit-scrollbar-thumb {
 	background:  #ced6db;
 }
 
-.container::-webkit-scrollbar-thumb:hover{
+#main-content::-webkit-scrollbar-thumb:hover{
 	background:  #b0bdc6;
 }
 
@@ -146,6 +142,13 @@ DEPLOYMENT LIST
 	flex-flow: column nowrap;
 	align-items: center;
 	width: 90%;
+}
+
+#deployment-list > .title {
+	font-size: 2em;
+	font-weight: 100;
+	margin-top: 0;
+	margin-bottom: 18px;
 }
 
 #deployment-list__body {
@@ -181,7 +184,7 @@ DEPLOYMENT LIST
 }
 
 .deployment-name {
-	width: 80%;
+	width: calc(100% - 100px);
 	font-weight: 100;
 	font-size: 2em;
 	margin-bottom: 16px;
@@ -218,7 +221,6 @@ DEPLOYMENT LIST
 	text-align: center;
 	background-color: #f6f8f9;
 	padding: 10px 0 40px 0; 
-	margin-top: 50px;
 }
 
 #no-deployments h2 {
@@ -240,6 +242,13 @@ NEW DEPLOYMENT
 	align-items: center;
 	width: 85%;
 	margin-bottom: 2rem;
+}
+
+#new-deployment__form > .title {
+	margin: 0;
+	margin-bottom: 18px; 
+	font-size: 2em;
+	font-weight: 100;
 }
 
 .radio-tile-group {
@@ -368,13 +377,13 @@ CHECKLIST
 */
 
 .checklist {
-	padding-top: 18px;
+	padding-top: 24px;
 	width: 90%;
 	counter-reset: step;
 }
 
 .checklist:first-of-type {
-	padding-top: 12px; 
+	padding-top: 0; 
 }
 
 .checklist:last-of-type{
@@ -382,9 +391,10 @@ CHECKLIST
 }
 
 .checklist__title {
+	margin-top: 0;
+	margin-bottom: 12px;
 	font-size: 2em;
 	font-weight: 100;
-	margin: 24px 0 16px 0;
 	color: #303436;
 }
 

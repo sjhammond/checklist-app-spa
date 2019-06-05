@@ -64,11 +64,11 @@ export const renderCreateDeployment = () => {
     `
 
     //load svg images
-    $("#essential-icon").load("./svg/essential.svg");
-    $("#express-icon").load("./svg/express.svg");
-    $("#professional-icon").load("./svg/professional.svg");
-    $("#expert-icon").load("./svg/expert.svg");
-    $("#corporate-icon").load("./svg/corporate.svg");
+    $("#essential-icon").load("src/renderer/svg/essential.svg");
+    $("#express-icon").load("svg/express.svg");
+    $("#professional-icon").load("svg/professional.svg");
+    $("#expert-icon").load("svg/expert.svg");
+    $("#corporate-icon").load("svg/corporate.svg");
 
     //prevent default form submission (but keep form validation!)
     $('form').submit(e => e.preventDefault());

@@ -11,7 +11,7 @@ let mainWindow: BrowserWindow;
 
 function createMainWindow() {
   const window = new BrowserWindow({
-    icon: path.join(process.cwd(), 'static/icons/win/favicon.ico'),
+    icon: path.join(process.cwd(), 'src/main/icons/win/favicon.ico'),
     minWidth: 800,
     minHeight: 600,
     title: 'Milestone Best Practice Deployment Checklist',

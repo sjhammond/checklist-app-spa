@@ -84,11 +84,6 @@ export const renderChecklist = (id:string) => {
         //load icons
         $(".checklist-note__expand").load("./svg/note.svg")
         $(".checklist-item__disable").load("./svg/disable.svg")
-        $("#back_icon").load("./svg/backarrow.svg");
-        $("#save_icon").load("./svg/save.svg");
-        $("#my-deployments_icon").load("./svg/mydeployments.svg");
-        $("#add-new_icon").load("./svg/new.svg");
-        $("#settings_icon").load("./svg/settings.svg");
         $(".disable-step").load("./svg/disable.svg");
 
     });
