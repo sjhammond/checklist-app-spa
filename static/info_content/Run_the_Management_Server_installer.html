@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" />
+        <link href="../../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" type="text/css" /><title>5B. Run the Management Server installer</title>
+        <link href="../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">5B. </span>Run the Management Server installer</h3>
+        <p class="Bulletlistheading">When you run the installer on the management server, you have three options:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Single Computer</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Distributed</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Custom</li>
+        </ul>
+        <p class="Bulletlistheading">Single Computer:</p>
+        <p>Chose <span class="span_1">Single Computer</span> only if you are installing a single computer system or a small multi-server system where the management server will double as a Recording Server (this is generally not recommended). The installer will install SQL Express and give you the option to run the configuration wizard to set up a basic working system (first time installations only).</p>
+        <p>If you are installing the Management Server in a multi-server system, the best option depends on whether you will need to run the Management Server service under a specific user account or if it is sufficient to run under the NETWORK SERVICE system user account.</p>
+        <p class="Bulletlistheading">Distributed:</p>
+        <p>Choose <span class="span_1">Distributed</span> to install the Management Server to run under the NETWORK SERVICE system user account in a multi-server system.</p>
+        <p class="Bulletlistheading">This is generally recommended if:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The servers are part of a Windows domain.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The servers are running in a Workgroup environment, and the product version you are installing does not include the System Monitor or Customer Dashboard features—or this installation will not be using those functions—and none of the situations described under the Custom option apply.</li>
+        </ul>
+        <p class="Bulletlistheading">Custom:</p>
+        <p>Choose <span class="span_1">Custom</span> to install the Management Server to run under a specific user account in a multi-server system.</p>
+        <p class="Bulletlistheading">This is the required option if any of these situations apply:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The servers are running in a Workgroup environment and you will be using the System Monitor or Customer Dashboard functions.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The servers are running in a Workgroup environment and you will be using Failover Recording Servers.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">You are using an existing SQL server on another server and need the Management Server service to run under a specific user to access the SQL server.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The system will be part of a Milestone Federated Architecture (MFA) system.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The Custom option is also recommended if any of the situations above may apply in the future.</li>
+        </ul>
+        <p class="Bulletlistheading">Additional considerations when installing in a multi-server environment:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Workgroup</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Milestone Federated Architecture</li>
+        </ul>
+        <p class="Bulletlistheading">Workgroup:</p>
+        <p>In a Workgroup environment, Milestone generally recommends that all servers (Management Server, Recording and Failover Recording Servers, and Mobile servers) are installed to run under the same user name (for example, administrator), if possible. </p>
+        <p>The user must be a member of the administrators group in Windows user management on the server. </p>
+        <p>The reason for this is that the Data Collector service, which is installed along with all XProtect VMS servers, does not have permission to send data to the Management Server when running under the NETWORK SERVICE user in a Workgroup environment. This, in turn, results in the System Monitor and Customer Dashboard features (if available) not being able to monitor and display the health and performance of those servers.</p>
+        <p>If it is not possible to install a server (for example, a Recording Server) to run under the same user name as the Management Server, you should still install the Management Server to run under a specific user account (you can change the user running the Data Collector service later).</p>
+        <p class="Bulletlistheading">Milestone Federated Architecture (MFA):</p>
+        <p>In an MFA system, all Management Servers must be installed to run under the same user name (for example, administrator). If you are installing in a Windows domain environment, the user must be a domain user and must be a member of the administrators group in Windows user management on the server.</p>
+        <p>If you are using an <span class="span_3">existing SQL server</span>, make sure to run the Management Server installer under a user that has sysadmin permissions on the SQL server. </p>
+        <p class="Notetext">Note: In rare situations, the system design document may specify that you install the Event Server or Log Server on a separate server for performance reasons. In these cases, make sure the users running those services have permissions to access the both the Management Server and the SQL database.</p>
+        <p class="Seealso">See also: <a href="Add_and_verify_user_accounts_and_passwords.html" class="MCXref_ParaTextOnly_0">3D. Add and verify user accounts and passwords</a>, <a href="Verify_Microsoft_SQL_server_access_and_permissions.html" class="MCXref_ParaTextOnly_0">1H. Verify Microsoft SQL server access and permissions</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Installation method</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Install the system</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Select service account</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">System Architecture Guide for IT Professionals &gt; Server components</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">XProtect<sup>®</sup> Advanced VMS 2016 – System Architecture Document</li>
+        </ul>
+    </body>
+</html>

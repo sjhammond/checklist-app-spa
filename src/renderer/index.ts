@@ -6,6 +6,6 @@ app.innerHTML = `
 
     <nav id="menu" class="sidenav"></nav>
     <main id="main-content" class="container"></main>
-
+    
 `
 renderMainMenu();

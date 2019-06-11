@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { Task } from "../models/task";
 import { Step } from "../models/step";
 import { DeploymentItem } from "../models/deployment-item";
@@ -15,7 +14,7 @@ import { includeHTML } from "./helpers/includeHtml";
 import { toggleInfo } from "./helpers/toggleInfo";
 import { transformLinks } from "./helpers/transformLinks";
 import { renderMainMenu } from './menuBuilder';
-import { getStatic } from './helpers/getStatic';
+import { loadInfoContent } from "./helpers/loadInfoContent";
 
 export const renderChecklist = (id:string) => {
     //declare global vars
@@ -68,7 +67,6 @@ export const renderChecklist = (id:string) => {
         document.getElementById('main-content').innerHTML = mainContent;
 
     }).then(() => {
-
         //render menu
         renderMainMenu();
 
@@ -81,10 +79,6 @@ export const renderChecklist = (id:string) => {
         includeHTML();
         toggleInfo();
         transformLinks();
-
-        //load icons
-        $(".checklist-note__expand").load(getStatic("/svg/note.svg"));
-        $(".checklist-item__disable").load(getStatic("/svg/disable.svg"));
     });
 }
 
@@ -141,8 +135,15 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
                         <span class='line'></span>
                     </button>
                     <button class='checklist-note__expand${item.note == undefined || item.note == '' ? '' : ' hasnote'}' aria-label='Toggle Notes' title='Add note'>
+                        <svg class='svg-note-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 197.99 197.99'>
+                            <path d='M33.94,96.17,0,198l101.82-33.94,77.29-77.29L111.23,18.88ZM45.42,167,31,152.57,45.8,108,90,152.19Z'/>
+                            <rect x='149.8' y='-8.16' width='16.69' height='96' transform='translate(18.15 123.5) rotate(-45)'/>
+                        </svg>
                     </button>
                     <button class='checklist-item__disable' id='step${step.id}__disable' class='disable-step${disableStatus}' title="This step doesn't apply" data-step-id='${step.id}'}>
+                        <svg class="disable-step__icon" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1568 1021q0-161-87-295l-754 753q137 89 297 89 111 0 211.5-43.5t173.5-116.5 116-174.5 43-212.5zm-999 299l755-754q-135-91-300-91-148 0-273 73t-198 199-73 274q0 162 89 299zm1223-299q0 157-61 300t-163.5 246-245 164-298.5 61-298.5-61-245-164-163.5-246-61-300 61-299.5 163.5-245.5 245-164 298.5-61 298.5 61 245 164 163.5 245.5 61 299.5z"/>
+                        </svg>  
                     </button>
                 </div>
             </div>
@@ -155,8 +156,7 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
             </div>
             <div class='info-container'>
                 <span class="status" id='step${step.id}__status'>${buildStatus(item)}</span>
-                <div class='info' include-html='info_content/${step.infoPath}.htm'>
-                </div>
+                <div class='info' include-html='${loadInfoContent(step.infoPath)}'></div>
             </div>
         </li>
     `

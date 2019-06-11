@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" />
+        <link href="../../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" type="text/css" /><title>3F. Check server time</title>
+        <link href="../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <p class="p_1">&#160;</p>
+        <h3 class="Heading3"><span class="span_2">3F. </span>Check server time</h3>
+        <p>It is essential that the server is set to the correct time and time zone. Recording Servers use the time to timestamp all recordings, while the Management Server uses the time for the Service Channel and log entries. The time is converted to UTC time when stored, which allows the system to manage servers in different time zones seamlessly.</p>
+        <p>If you use a common time source for all servers (recommended), such as internet time or a local NTP time server, you should verify that the time updates correctly. If the server is on a domain, it will automatically synchronize to the domain server time.</p>
+        <p>Also note that if you log into the Management Server with the Management Client or Smart Client, and the workstation time deviates more than five minutes from the server time, the Service Channel will not work and the client will be denied access.</p>
+        <p class="Seealso">See also: <a href="Check_Network_Time_Protocol__NTP__server.html" class="MCXref_ParaTextOnly_0">1F. Check Network Time Protocol (NTP) server</a></p>
+    </body>
+</html>

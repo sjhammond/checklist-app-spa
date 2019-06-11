@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" />
+        <link href="../../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" type="text/css" /><title>32B. Move a hardware device to another Recording Server</title>
+        <link href="../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">32B. </span>Move a hardware device to another Recording Server</h3>
+        <p>If you need to move a hardware device to a different Recording Server, the Move Hardware wizard allows you to do so while retaining all settings and all recordings.</p>
+        <p>On the Servers &gt; Recording Servers node in the Management Client, select the Recording Server the hardware device is currently installed to. Right-click on the device and select Move Hardware to start the wizard.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> When moving a device, any users viewing the live feed from that device may experience a short interruption until the Service Channel updates the client with the new location of the device.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Existing recordings are not moved. When a user accesses those recordings, the new recording server connects to the original recording server via port 5210 and streams the recordings to the user client.</p>
+        <p class="Seealso">See also: <a href="Configure_Recording_Server_storage_settings.html" class="MCXref_ParaTextOnly_0">12C. Configure Recording Server storage settings</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Moving hardware (explained)</li>
+        </ul>
+    </body>
+</html>

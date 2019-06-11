@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" type="text/css" /><title>1H. Verify Microsoft SQL server access and permissions</title>
+        <link href="../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">1H. </span>Verify Microsoft SQL server access and permissions</h3>
+        <p>Milestone uses an SQL server to store system configuration and log data. The system installer includes Microsoft SQL Server Express, which is free to use and typically supports up to 300 cameras. </p>
+        <p>For installations over 300 cameras, Milestone recommends using Microsoft SQL Server Essentials, Standard or Enterprise edition, on a dedicated server. These editions can handle databases over 10 GB in size, support multiple CPU cores and more than 1 GB memory per instance, and offer more comprehensive management and monitoring options, including scheduled backup functionality.</p>
+        <p>If you are using an existing SQL server for the installation, you should verify the connectivity and credentials to access the database. When installing or upgrading the Milestone XProtect software, the user account running the Management Server installer must have sysadmin credentials on the SQL. For normal operation (i.e., the user account used for the Management Server service itself), db_owner permissions are sufficient.</p>
+        <p>Because the entire system configuration is stored in the SQL server, Milestone recommends you configure a regular backup of the VMS configuration database to ensure you always have a backup that includes the latest changes. Further, Milestone recommends you implement a transaction log backup and shrink schedule, or change the SQL database backup type to Simple, to avoid continuous buildup of transaction logs.</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">System Architecture Guide for IT Professionals</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Determine SQL server type</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server">https://en.wikipedia.org/wiki/Microsoft_SQL_Server</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://msdn.microsoft.com/en-us/library/bb669065(v=vs.110).aspx">https://msdn.microsoft.com/en-us/library/bb669065(v=vs.110).aspx</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://www.milestonesys.com/files/White%20papers/XProtect_Expert_and_XProtect_Corporate-System_Architecture_Guide_for_IT_Professionals-2015_Final.pdf">XProtect Expert and XProtect Corporate – System Architecture Guide for IT Professionals</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://www.milestonesys.com/support/resources/system-requirements">https://www.milestonesys.com/support/resources/system-requirements</a>
+            </li>
+        </ul>
+    </body>
+</html>

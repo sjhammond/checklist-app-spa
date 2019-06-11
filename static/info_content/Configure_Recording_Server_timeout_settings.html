@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" type="text/css" /><title>10D. Configure Recording Server timeout settings</title>
+        <link href="../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">10<span class="span_2">D. </span>Configure Recording Server timeout settings</h3>
+        <p>On the Tools &gt; Options &gt; General tab you can specify several general behaviors for all Recording Servers connected to this Management Server.</p>
+        <h4 class="Heading4">PTZ timeout settings</h4>
+        <p>If you will be using PTZ cameras in the system, you can specify your preferred default PTZ timeout settings. These settings will apply unless you explicitly specify something else under the device properties for a specific PTZ camera.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> The XProtect VMS will resume control of the PTZ camera from the user at the end of the timeout, which may not always be what the user expects. Milestone recommends the timeout values be determined in cooperation with the daily users to best set and meet their expectations.</p>
+        <h4 class="Heading4">Hardware device communication timeout settings</h4>
+        <p>If some of your hardware devices (such as cameras) are located remotely from the Recording Server they are installed on, you may get an excessive number of communication timeout error messages due to the increased latency. To counter this, you can specify how long a communication error may exist before the system logs it as an error and triggers the Communication Error event.</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Recording server</li>
+        </ul>
+    </body>
+</html>

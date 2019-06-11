@@ -3,8 +3,6 @@ import { app, BrowserWindow } from 'electron'
 import * as path from 'path'
 import { format as formatUrl } from 'url'
 
-declare const __static:string; 
-
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
@@ -12,7 +10,7 @@ let mainWindow: BrowserWindow;
 
 function createMainWindow() {
   const window = new BrowserWindow({
-    icon: path.join(__static + "/icons/win/favicon.ico"),
+    icon: path.join(__dirname, "/icons/win/favicon.ico"),
     minWidth: 800,
     minHeight: 600,
     title: 'Milestone Best Practice Deployment Checklist',
@@ -30,9 +28,9 @@ function createMainWindow() {
   //disable the toolbar
   window.setMenu(null);
 
-  if (isDevelopment) {
+  //if (isDevelopment) {
     window.webContents.openDevTools()
-  }
+ // }
 
   if (isDevelopment) {
     window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`)

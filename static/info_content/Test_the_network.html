@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" />
+        <link href="../../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" type="text/css" /><title>1E. Test the network</title>
+        <link href="../Resources/Stylesheets/XProtect_VMS_deployment_best_practice_v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">1E. </span>Test the network</h3>
+        <h4 class="Heading4">Internet access</h4>
+        <p class="Bulletlistheading">Internet access may be relevant in several respects with a Milestone XProtect system for:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Software license registration</li>
+            <li class="ListParagraph" value="2">Mobile client access (Mobile devices and browser-based access) from outside the LAN</li>
+            <li class="ListParagraph" value="3">Smart Client or Management Client access from outside the LAN</li>
+            <li class="ListParagraph" value="4">Access to devices (such as cameras) or recording servers located in other locations</li>
+        </ul>
+        <p class="Bulletlistheading">Software license registration:</p>
+        <p>If possible, the Management Server should be set up so it can access the Internet to enable online/automatic authentication of the license and the configuration. If this is not possible, manual offline authentication is possible.</p>
+        <p class="Bulletlistheading">Mobile client access:</p>
+        <p>If users should be able to access the system from mobile devices on the Internet, port forwarding must be set up to allow the incoming connection to the Milestone Mobile server. In this case, Milestone highly recommends the Milestone Mobile server service be installed on a server in the DMZ for network security reasons.</p>
+        <p class="Bulletlistheading">Smart Client and Management Client access:</p>
+        <p>It is possible to set up access for these clients from the Internet by configuring the necessary port forward rules in the edge router/firewall. However, because doing this will inevitably make the system vulnerable to unauthorized access, Milestone highly recommends using a secure VPN solution rather than simple port forwarding in these situations.</p>
+        <p class="Bulletlistheading">Remote devices or recording servers:</p>
+        <p>As with Smart Client access, it is possible to set up access to remote cameras or recording servers. In the case of remote devices, this requires configuring the necessary port forward rules in the edge router/firewall where the remote devices are located. For remote recording servers, port forwards are required at both ends. Because doing this will inevitably make the system vulnerable to unauthorized access, Milestone highly recommends using a secure VPN solution rather than simple port forwarding in these situations.</p>
+        <p class="Seealso">See also: <a href="Configure_the_network.html" class="MCXref_ParaTextOnly_0">1D. Configure the network</a>.</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; License information</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">System Architecture Guide for IT Professionals</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/DMZ_(computing)">https://en.wikipedia.org/wiki/DMZ_(computing)</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Virtual_private_network">https://en.wikipedia.org/wiki/Virtual_private_network</a>
+            </li>
+        </ul>
+        <h4 class="Heading4">Dynamic Host Configuration Protocol (DHCP)</h4>
+        <p>In an XProtect VMS installation DHCP is typically used only on the client network but, in some cases, it may also be beneficial, or simply required by the customer, to use DHCP-assigned IP addresses on hardware devices (such as cameras). </p>
+        <p>If any IP addresses are assigned dynamically (i.e., by a DHCP server), it is important to verify the hostname resolves correctly from the DNS server or through NetBIOS, as relevant, before proceeding to install software or devices.</p>
+        <p>Note that Microsoft does not support NetBIOS for IPv6 and that NetBIOS does not resolve across different networks.</p>
+        <p>Milestone recommends using a static IP address in a dedicated range for hardware devices, unless there are specific requirements to do otherwise. Doing this makes troubleshooting easier and allows you to search and add cameras faster.</p>
+        <p>Milestone recommends always using static IP addresses for servers, per standard IT practice.</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone Fundamentals of IP Surveillance Systems</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Benefits of connecting your XProtect<sup>®</sup> system to the Internet</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="http://whatismyipaddress.com/dynamic-static">http://whatismyipaddress.com/dynamic-static</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Hostname">https://en.wikipedia.org/wiki/Hostname</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/NetBIOS">https://en.wikipedia.org/wiki/NetBIOS</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="http://www.techrepublic.com/article/how-netbios-name-resolution-really-works/">http://www.techrepublic.com/article/how-netbios-name-resolution-really-works/</a>
+            </li>
+        </ul>
+        <h4 class="Heading4">Domain Name Server (DNS)</h4>
+        <p>If the installation depends on resolving device hostnames through a DNS server, you should verify that hostnames resolve correctly from the recording server before proceeding to install the device in the XProtect VMS. If the recording server cannot resolve the device IP address from the hostname, it will not be able to install the device.</p>
+        <p>It is possible to force a host (such as a workstation or server) to override the DNS lookup and resolve a domain- or hostname to a specific IP address. In Windows this is done by adding the domain- or hostname and IP address to the HOSTS file in %SystemRoot%\System32\drivers\etc\hosts. (Doing this requires administrator-level privileges.)</p>
+        <p class="Seealso">See also: 1E Test the network &gt; Dynamic Host Configuration Protocol (DHCP)</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Domain_Name_System">https://en.wikipedia.org/wiki/Domain_Name_System</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Hosts_(file)">https://en.wikipedia.org/wiki/Hosts_(file)</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="http://www.thewindowsclub.com/elevated-privileges-windows">http://www.thewindowsclub.com/elevated-privileges-windows</a>
+            </li>
+        </ul>
+    </body>
+</html>

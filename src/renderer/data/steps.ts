@@ -7,7 +7,7 @@ export const Steps: Step[] = [
     taskId: 1,
     title: "Confirm passwords and settings on existing network and server equipment",
     productTier: ProductTier.Essential,
-    infoPath: "Confirm passwords and settings on existing network and server equipment"
+    infoPath: "Confirm_passwords_and_settings_on_existing_network_and_server_equipment"
   },
   {
     id: 2,
