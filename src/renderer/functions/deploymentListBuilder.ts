@@ -2,18 +2,22 @@ import { ProductTier } from "../models/product-tier";
 import { dateOptions } from "./helpers/dateOptions";
 import { dbPromise } from "../data/db";
 import { addDeploymentListEventListeners } from "./deploymentListEvents";
+import { getAllFromObjectStore } from "./helpers/dbFunctions";
+import { scrollToTop } from "./helpers/scrollToTop";
 
 let deploymentData = '';
 let numberOfDeployments: number;
 
 export const renderDeploymentList = () => {
-    deploymentData = ''
+    
+    //reset scroll postiion of main-content component
+    scrollToTop(); 
+
+    deploymentData = '';
+    
     dbPromise().then(async db => {
         //get all deployment data
-        const deployments = await db
-            .transaction('deployments', 'readonly')
-            .objectStore('deployments')
-            .getAll();
+        const deployments = await getAllFromObjectStore('deployments', db)
         //get the number of deployments
         numberOfDeployments = deployments.length;
         //open a cusrsor in deployments to iterate through the data
@@ -36,6 +40,7 @@ export const renderDeploymentList = () => {
                         <div class="deployment-name">${cursor.value.name}</div>
                         <div class="deployment-button-container">
                             <button id="deployment${cursor.value.id}__edit" type="button" class="edit-btn" data-id="${cursor.value.id}">Edit</button>
+                            <button id="deployment${cursor.value.id}__print" type="button" class="print-btn" data-id="${cursor.value.id}">Print</button>
                             <button id="deployment${cursor.value.id}__delete" type="button" class="delete-btn" data-id="${cursor.value.id}">Delete</button>
                         </div>
                         <div class="deployment-product">XProtect ${(cursor.value.productTier < 4) ? ProductTier[cursor.value.productTier] + "+" : ProductTier[cursor.value.productTier]}</div>

@@ -1,7 +1,7 @@
-import { IDBPDatabase } from "idb";
 import { MilestoneDB } from "../../models/milestone-db";
 import { DeploymentItem } from "../../models/deployment-item";
 import { Deployment } from "../../models/deployment";
+import { IDBPDatabase } from "idb";
 
 export const getDeployment = (id:string, db:IDBPDatabase<MilestoneDB>) => {
     return db    
@@ -41,4 +41,10 @@ export const updateDeploymentModifiedDate = (deployment:Deployment, db:IDBPDatab
         .objectStore('deployments')
         .put(data)
 }
-    
+
+export const getAllFromObjectStore = (store:any, db:IDBPDatabase<MilestoneDB>) => {
+    return db
+        .transaction(store, 'readonly')
+        .objectStore(store)
+        .getAll()
+}

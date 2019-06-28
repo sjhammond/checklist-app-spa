@@ -62,6 +62,6 @@ export const createDeployment = async (product: string, name: string, integrator
     })
         //go to deployment checklist
         .then(id => {
-            renderChecklist(id); 
+            renderChecklist(id);
         });
 }

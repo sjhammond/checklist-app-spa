@@ -4,7 +4,6 @@ import { DeploymentItem } from "../models/deployment-item";
 import { ItemState } from "../models/item-state";
 import { dateOptions } from "./helpers/dateOptions";
 import { Deployment } from "../models/deployment";
-import { Phase } from "../models/phase";
 import { IDBPDatabase } from "idb";
 import { MilestoneDB } from "../models/milestone-db";
 import { dbPromise } from "../data/db";
@@ -13,15 +12,22 @@ import { addCompleteStepEvents, addDisableStepEvents, addNoteEvents } from "./ch
 import { includeHTML } from "./helpers/includeHtml";
 import { toggleInfo } from "./helpers/toggleInfo";
 import { transformLinks } from "./helpers/transformLinks";
-import { renderMainMenu } from './menuBuilder';
 import { loadInfoContent } from "./helpers/loadInfoContent";
+import { renderChecklistMenu } from "./menuBuilder";
+import { scrollToTop } from "./helpers/scrollToTop";
 
 export const renderChecklist = (id:string) => {
     //declare global vars
     let deployment: Deployment;
-    let phase: Phase;
+    let tasks:Task[];
     let mainContent = '';
     let dbContext: IDBPDatabase<MilestoneDB>;
+
+    //render menu
+    renderChecklistMenu(id); 
+
+    //reset scroll postiion of main-content component
+    scrollToTop(); 
 
     dbPromise().then(async db => {
         dbContext = db;
@@ -29,13 +35,14 @@ export const renderChecklist = (id:string) => {
         deployment = await getDeployment(id, db);
 
         //get the current phase for this deployment
-        phase = await db
+        
+        const phase = await db
             .transaction('phases', 'readonly')
             .objectStore('phases')
             .get(deployment.currentPhaseId);
 
-        //get all the tasks for this phase
-        const tasks = await db
+            //get all the tasks for this phase
+            tasks = await db
             .transaction('tasks', 'readonly')
             .objectStore('tasks')
             .index('phaseId')
@@ -67,9 +74,6 @@ export const renderChecklist = (id:string) => {
         document.getElementById('main-content').innerHTML = mainContent;
 
     }).then(() => {
-        //render menu
-        renderMainMenu();
-
         //load event listeners
         addCompleteStepEvents(id, dbContext);
         addDisableStepEvents(id, dbContext);
@@ -166,22 +170,21 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
 export const buildStatus = (data: DeploymentItem): string => {
     if (data.integrator != undefined) {
         return `Marked
-            <em> ${data.itemState != ItemState.NotApplicable ? ItemState[data.itemState] : "Does Not Apply"} </em>
-            by <strong>${data.integrator}</strong> on ${data.date.toLocaleString('default', dateOptions)}
+            <strong> ${data.itemState != ItemState.NotApplicable ? ItemState[data.itemState] : "Does Not Apply"} </strong>
+            by ${data.integrator} on ${data.date.toLocaleString('default', dateOptions)}
         `;
     } else {
-        return '';
+        return `<em>This step has not been completed.</em>`;
     }
 }
 
 //build the note status html
 export const buildNoteStatus = (data: DeploymentItem): string => {
     if (data.noteIntegrator != undefined && data.note != '') {
-        return `Written by 
-            <strong>${data.noteIntegrator}</strong> 
+        return `Written by ${data.noteIntegrator}
             on ${data.noteDate != undefined ? data.noteDate.toLocaleString('default', dateOptions) : ''}
         `;
     } else {
-        return '';
+        return `<em>No notes.</em>`;
     }
 }

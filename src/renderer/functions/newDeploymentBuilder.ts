@@ -1,7 +1,13 @@
 import $ from 'jquery';
 import { createDeployment } from './newDeploymentEvents';
+import { scrollToTop } from './helpers/scrollToTop';
 
 export const renderCreateDeployment = () => {
+
+    //reset scroll postiion of main-content component
+    scrollToTop(); 
+
+    //render the create deployment form html
     const main = document.getElementById('main-content')
     main.innerHTML = `
         <form id="new-deployment__form">
@@ -98,7 +104,7 @@ export const renderCreateDeployment = () => {
             <button id="newDeploymentBtn" class="primary-btn" type="submit">Create Deployment</button>
         </form>
     `
-    //prevent default form submission (but keep form validation!)
+    //prevent default form submission (but keep form validation)
     $('form').submit(e => e.preventDefault());
 
     // on click, create a new deployment using the params from the html form

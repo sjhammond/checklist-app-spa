@@ -3,8 +3,10 @@ import { renderDeploymentList } from "./deploymentListBuilder";
 import { dbPromise } from "../data/db";
 import { renderChecklist } from "./checklistBuilder";
 import { renderCreateDeployment } from './newDeploymentBuilder';
+import { renderPrintView } from './printViewBuilder';
 
-export const deleteDeployment = (id: number): any => {
+export const deleteDeployment = (id:string): any => {
+    let deploymentId = parseInt(id);
 
     //confirm delete
     const c = confirm('Are you sure you want to delete this deployment?')
@@ -17,14 +19,14 @@ export const deleteDeployment = (id: number): any => {
         await db
           .transaction('deployments', 'readwrite')
           .objectStore('deployments')
-          .delete(id);
+          .delete(deploymentId);
   
         //get the items associated with the deployment
         const items = await db
           .transaction('deployment-items', 'readwrite')
           .objectStore('deployment-items')
           .index('deploymentId')
-          .getAllKeys(id);
+          .getAllKeys(deploymentId);
   
         //delete each item for the deployment from deployment-items db store
         for (const item of items) {
@@ -52,15 +54,20 @@ export const deleteDeployment = (id: number): any => {
     //add delete functionality to each delete button in the table 
     $('.delete-btn').click(async function (){
       event.stopPropagation();
-      const deploymentId = parseInt(this.dataset.id);
+      const deploymentId = this.dataset.id;
       deleteDeployment(deploymentId);
+    })
+
+    $('.print-btn').click(async function (){
+      event.stopPropagation();
+      const deploymentId = this.dataset.id;
+      renderPrintView(deploymentId);
     })
   
     //add the "go to Checklist" click event to each table row
     $('.deployment').click(async function () {
-      const deploymentId = parseInt(this.dataset.id);
-      const id = deploymentId.toString();
-      renderChecklist(id);
+      const deploymentId = this.dataset.id;
+      renderChecklist(deploymentId);
     })
 
     $('#new-deployment-link').click(async function() {
