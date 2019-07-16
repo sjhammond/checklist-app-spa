@@ -20,9 +20,6 @@ export const renderPrintView = (id:string) => {
     let items:DeploymentItem[]; 
     let mainContent = '';
     
-    //render print menu
-    renderPrintMenu();
-
     //reset scroll postiion of main-content component
     scrollToTop();
 
@@ -30,6 +27,9 @@ export const renderPrintView = (id:string) => {
 
         //get the deployment
         deployment = await getDeployment(id, db);
+
+        //render print menu
+        renderPrintMenu(deployment);
 
         //start with the print heading HTML
         mainContent = buildPrintHeader(deployment); 
@@ -55,6 +55,10 @@ export const renderPrintView = (id:string) => {
         //when the loop completes, return the html
         return mainContent;
     }).then(mainContent => {
+
+        //add a closing div tag for print-view
+        mainContent += `</div>`
+
         //render html in the app container
         document.getElementById('main-content').innerHTML = mainContent;
     })
@@ -62,23 +66,24 @@ export const renderPrintView = (id:string) => {
 
 const buildPrintHeader = (deployment:Deployment) => {
     return `
-        <section>
-            <div> 
-                ${deployment.name}
-            </div>
-            <div>
-                XProtect ${(deployment.productTier < 4) ? ProductTier[deployment.productTier] + "+" : ProductTier[deployment.productTier]}
-            </div>
-            <div>
-                Last modified:<span>${(deployment.dateModified).toLocaleString('default', dateOptions)}</span>
-            </div>
-            <div>
-                Integrator:<span>${deployment.integrator}</span>
-            </div>
-            <div>
-                Printed on: ${new Date().toLocaleString('default', dateOptions)}
-            </div>
-        </section>
+        <div id="print-view">
+            <header id="pv__deployment-info">
+                <div id="pv__deployment-name"> 
+                    Deployment Name:<span>${deployment.name}</span>
+                </div>
+                <div id="pv__deployment-product">
+                    Product:<span>XProtect&reg; ${(deployment.productTier < 4) ? ProductTier[deployment.productTier] + "+" : ProductTier[deployment.productTier]}</span>
+                </div>
+                <div id="pv__deployment-modified">
+                    Last modified:<span>${(deployment.dateModified).toLocaleString('default', dateOptions)}</span>
+                </div>
+                <div id="pv__deployment-integrator">
+                    Integrator:<span>${deployment.integrator}</span>
+                </div>
+                <div id="pv__print-date">
+                    Printed on:<span>${new Date().toLocaleString('default', dateOptions)}</span>
+                </div>
+            </header>
     `
 }
 
@@ -86,17 +91,15 @@ const buildPhaseForPrint = (phase:Phase, tasks:Task[], steps:Step[], items:Deplo
     const phaseTasks = tasks.filter(task => task.phaseId == phase.id); 
 
     return `
-        <section>
-            <div> 
-                <h1>${phase.title}</h1>
-                <ul>
-                    ${phaseTasks
-                        .map(task => {return buildTaskForPrint(task, steps, items)})
-                        .join('')
-                    }
-                </ul>
-            </div>
-        </section>
+        <div class="pv__phase">
+            <div class="pv__phase-title">${phase.title}</div>
+            <ul class="pv__phase-tasks">
+                ${phaseTasks
+                    .map(task => {return buildTaskForPrint(task, steps, items)})
+                    .join('')
+                }
+            </ul>
+        </div>
     `
 }
 
@@ -104,16 +107,15 @@ const buildTaskForPrint = (task:Task, steps:Step[], items:DeploymentItem[]) => {
     const taskSteps = steps.filter(step => step.taskId == task.id); 
 
     return `
-        <li>
-            <div>
-                <h2>${task.title}</h2>
-                <ul>
-                    ${taskSteps
-                        .map(step => buildStepForPrint(step, items))
-                        .join('')
-                    }
-                </ul>
-            </div>
+        <li class="pv__task">
+            <div class="pv__task-title">${task.title}</div>
+            <span class="pv__task-line"></span>
+            <ul class="pv__task-steps">
+                ${taskSteps
+                    .map(step => buildStepForPrint(step, items))
+                    .join('')
+                }
+            </ul>
         </li>
     `
 }
@@ -122,14 +124,43 @@ const buildStepForPrint = (step:Step, items:DeploymentItem[]) => {
     const stepData = items.find(item => item.stepId == step.id);
 
     return `
-        <li>
-            <h3>${step.title}</h3>
-            <div>
-                ${buildStatus(stepData)}
+        <li class="pv__step">
+            <div class="pv__title-container">
+                <svg class="pv__not-done" ${stepData.itemState == 0 && stepData.integrator == undefined ? "" : `style="display:none"`}xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 13H5v-2h14v2z"/>
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                </svg>
+                <svg class="pv__incomplete" ${stepData.itemState == 0 && stepData.integrator != undefined ? "" : `style="display:none"`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                </svg>
+                <svg class="pv__complete" ${stepData.itemState == 1 ? "" : `style="display:none"`}xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                <svg class="pv__not-applicable" ${stepData.itemState == 2 ? "" : `style="display:none"`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z"/>
+                </svg>
+                <span class="pv__step-title">${step.title}</span>
             </div>
-            <div>
-                <span>Notes:</span> ${stepData.note == undefined || stepData.note == '' ? '' : stepData.note} (${buildNoteStatus(stepData)})
+            <div class="pv__status-container">
+                <div class="pv__step-status">${buildStatus(stepData)}</div>
+                ${buildNotesForPrint(stepData)}
             </div>
         </li>
     `
+}
+
+const buildNotesForPrint = (stepData: DeploymentItem) => {
+    if (stepData.note == undefined || stepData.note == '') {
+        return ''
+    } else {
+        return `
+        <div class="pv__step-notes">
+            <div>Integrator note:</div> ${stepData.note} 
+            <div>${buildNoteStatus(stepData)}</div>
+         </div>
+        `
+    }
 }

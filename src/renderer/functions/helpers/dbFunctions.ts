@@ -3,29 +3,42 @@ import { DeploymentItem } from "../../models/deployment-item";
 import { Deployment } from "../../models/deployment";
 import { IDBPDatabase } from "idb";
 
-export const getDeployment = (id:string, db:IDBPDatabase<MilestoneDB>) => {
-    return db    
+
+//get a deployment by its id
+export const getDeployment = (id: string, db: IDBPDatabase<MilestoneDB>) => {
+    return db
         .transaction('deployments', 'readonly')
         .objectStore('deployments')
         .get(parseInt(id));
 }
 
-export const getItemsByDeploymentId = (id:string, db:IDBPDatabase<MilestoneDB>) => {
+//get all the deployment items for a given deployment id 
+export const getItemsByDeploymentId = (id: string, db: IDBPDatabase<MilestoneDB>) => {
     return db
         .transaction('deployment-items', 'readonly')
         .objectStore('deployment-items')
         .index('deploymentId')
-        .getAll(parseInt(id)); 
+        .getAll(parseInt(id));
 }
 
-export const updateDeploymentItem = (data:DeploymentItem, db:IDBPDatabase<MilestoneDB>) => {
+//update a deployment-item
+export const updateDeploymentItem = (data: DeploymentItem, db: IDBPDatabase<MilestoneDB>) => {
     return db
         .transaction('deployment-items', 'readwrite')
         .objectStore('deployment-items')
         .put(data);
 }
 
-export const updateDeploymentModifiedDate = (deployment:Deployment, db:IDBPDatabase<MilestoneDB>) => {
+//update a deployment
+export const updateDeployment = (data: Deployment, db: IDBPDatabase<MilestoneDB>) => {
+    return db
+        .transaction('deployments', 'readwrite')
+        .objectStore('deployments')
+        .put(data);
+}
+
+//update the modified date of the deployment (should be done whenver a change is made)
+export const updateDeploymentModifiedDate = (deployment: Deployment, db: IDBPDatabase<MilestoneDB>) => {
     const data = {
         id: deployment.id,
         name: deployment.name,
@@ -33,18 +46,19 @@ export const updateDeploymentModifiedDate = (deployment:Deployment, db:IDBPDatab
         integrator: deployment.integrator,
         currentPhaseId: deployment.currentPhaseId,
         dateCreated: deployment.dateCreated,
-        dateModified: new Date() 
+        dateModified: new Date() //update date
     }
 
     return db
-        .transaction('deployments','readwrite')
+        .transaction('deployments', 'readwrite')
         .objectStore('deployments')
-        .put(data)
+        .put(data);
 }
 
-export const getAllFromObjectStore = (store:any, db:IDBPDatabase<MilestoneDB>) => {
+//get all the items from the specified object store
+export const getAllFromObjectStore = (store: any, db: IDBPDatabase<MilestoneDB>) => {
     return db
         .transaction(store, 'readonly')
         .objectStore(store)
-        .getAll()
+        .getAll();
 }

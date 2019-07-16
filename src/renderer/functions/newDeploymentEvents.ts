@@ -2,6 +2,7 @@ import { ProductTier } from "../models/product-tier";
 import { Deployment } from "../models/deployment";
 import { dbPromise } from "../data/db";
 import { renderChecklist } from "./checklistBuilder";
+import { renderChecklistMenu } from "./menuBuilder";
 
 export const createDeployment = async (product: string, name: string, integrator: string) => {
     //declare id for function-level scope
@@ -63,5 +64,6 @@ export const createDeployment = async (product: string, name: string, integrator
         //go to deployment checklist
         .then(id => {
             renderChecklist(id);
+            renderChecklistMenu(id);
         });
 }

@@ -3,7 +3,9 @@ import { IDBPDatabase } from 'idb';
 import { MilestoneDB } from '../models/milestone-db';
 import { ItemState } from '../models/item-state';
 import { buildStatus, buildNoteStatus } from './checklistBuilder';
-import { getDeployment, getItemsByDeploymentId, updateDeploymentItem, updateDeploymentModifiedDate } from './helpers/dbFunctions';
+import { getDeployment, getItemsByDeploymentId, updateDeploymentItem, updateDeploymentModifiedDate, getAllFromObjectStore } from './helpers/dbFunctions';
+import { Step } from '../models/step';
+import { DeploymentItem } from '../models/deployment-item';
 
 export const addCompleteStepEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) => {
     $('input[id$="__checkbox"]').click(async function (e) {
@@ -52,10 +54,12 @@ export const addCompleteStepEvents = async (id:string, db: IDBPDatabase<Mileston
 
         //update the signature html with data values
         $(`#step${stepId}__status`).html(buildStatus(data));
+
+        updateChecklistMenuPercentage(id, db); 
     });
 }
 
-export const addDisableStepEvents = async (deploymentId: string, db: IDBPDatabase<MilestoneDB>) => {
+export const addDisableStepEvents = async (id: string, db: IDBPDatabase<MilestoneDB>) => {
     $('.checklist-item__disable').click(async function () {
 
         //get stepId from data
@@ -65,8 +69,8 @@ export const addDisableStepEvents = async (deploymentId: string, db: IDBPDatabas
         $(`#step${stepId}__disable`).toggleClass('selected');
 
         //get the deployment & checklist items associated with the deployment
-        const deployment = await getDeployment(deploymentId, db);
-        const deploymentItems = await getItemsByDeploymentId(deploymentId, db);
+        const deployment = await getDeployment(id, db);
+        const deploymentItems = await getItemsByDeploymentId(id, db);
 
         //retrieve the deployment item associated with this step
         const item = deploymentItems.find(i => i.stepId == stepId)
@@ -107,17 +111,25 @@ export const addDisableStepEvents = async (deploymentId: string, db: IDBPDatabas
 
         //update the signature html with data values
         $(`#step${stepId}__status`).html(buildStatus(data));
+
+        updateChecklistMenuPercentage(id, db); 
     });
 }
 
 
 export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) => {
 
-    $('textarea[id$="__note"]').on('input selectionchange propertychange', function (e){
-         //get stepId from event target
-        const stepId = parseInt(e.target.dataset.stepId); 
-        const saveButton = $(`step${stepId}__save-note`);
-        saveButton.removeClass('disabled');
+    //declare save button for global scope use
+    let saveButton:JQuery<HTMLElement>;
+
+    //when the note field changes 
+    $('textarea[id$="__note"]').keyup(function (e){
+        //get stepId from event target
+        const stepId = parseInt(e.target.dataset.stepId);
+        //use stepId to get the proper save button
+        saveButton = $(`#step${stepId}__save-note`);
+        //enable the save button
+        saveButton.removeAttr('disabled');
     });
 
     $('button[id$="__save-note"]').click(async function (e) {
@@ -162,7 +174,7 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
             //update the note status html with data values
             $(`#step${stepId}__note-status`).html(buildNoteStatus(data));
 
-            //add ore remove the hasnote class on the note icon
+            //add or remove the hasnote class on the note icon
             const noteIcon = $(`#step${stepId}__checkbox`).parent().find('.checklist-button-container').find('.checklist-note__expand');
             
             if(stepNote == ''){
@@ -171,5 +183,88 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
                 noteIcon.addClass('hasnote');
             }
         }
+
+        //disable the save button when done
+        saveButton.attr('disabled', 'disabled');
     });
 }
+
+const updateChecklistMenuPercentage = async (id:string, db:IDBPDatabase<MilestoneDB>) => {
+    const deployment = await getDeployment(id, db);
+    const currentPhase = deployment.currentPhaseId;
+    const tasks = await getAllFromObjectStore('tasks', db);
+    const steps = await getAllFromObjectStore('steps', db);
+    const items = await getItemsByDeploymentId(id, db);
+    const phaseTasks = tasks.filter(task => task.phaseId == currentPhase && task.productTier <= deployment.productTier);
+    
+    let phaseSteps:Step[] = [];
+    let phaseData:DeploymentItem[] = [];
+    
+    //filter the steps for task in the phase (also filtered by product)
+    phaseTasks.forEach(task => {
+        let partialArray = steps.filter(step => step.taskId == task.id && step.productTier <= deployment.productTier);
+        phaseSteps = phaseSteps.concat(partialArray); 
+    });
+
+    //filter the corresponding item data for each step in the phase
+    phaseSteps.forEach(step => {
+        let partialArray = items.filter(item => item.stepId == step.id);
+        phaseData = phaseData.concat(partialArray);
+    });
+
+    //create a separate array of completed items
+    let phaseItemsComplete = phaseData.filter(item => item.itemState == ItemState.Complete || item.itemState == ItemState.NotApplicable);
+
+    //compute the percentage of steps completed per phase
+    let phaseCompletionPercent = Math.round((phaseItemsComplete.length / phaseData.length) * 100);
+
+    //update the percentage displayed for the phase
+    document.getElementById(`menu__phase-${currentPhase}-pct`).innerHTML = `${phaseCompletionPercent}%`
+}
+
+export const progressBarEvents = () => {
+    //get all the task progress bars
+    const progressBars = Array.from(document.querySelectorAll('.checklist__percentage-border'));
+
+    //for each bar
+    progressBars.forEach(bar => {
+        //get the tasklist it realtes to
+        const taskList = bar.parentNode;
+        //update the progress bar
+        updateTaskProgress(taskList); 
+    })
+
+    //when a checkbox status changes
+	$('input[type="checkbox"]').change(function(){
+        //get the tasklist it realtes to
+        const taskList = this.parentNode.parentNode.parentNode.parentNode;
+        //update the progress bar
+        updateTaskProgress(taskList);
+    })
+
+    //when you disable a step
+    $('.checklist-item__disable').click(function(){
+        //get the task list it realtes to
+        const taskList = this.parentNode.parentNode.parentNode.parentNode.parentNode;
+        //update the progress bar
+        updateTaskProgress(taskList);
+    })
+}
+
+const updateTaskProgress = (taskList:Node & ParentNode) => {
+    //take the sum of completed and disabled steps and divide it by the total number of steps in the task list
+    const pct = (taskList.querySelectorAll('input:checked').length + taskList.querySelectorAll('.checklist-item__disable.selected').length) / taskList.querySelectorAll(".checklist-item").length;
+    
+    //get the progress bar and cast it as an HTMLElement to manipulate its style
+    const progressBar = taskList.querySelector('.checklist__percentage-border') as HTMLElement; 
+
+    //update the progress bar to reflect the percentage (cap it at 100%)
+    if (pct <= 1){
+        progressBar.style.transform = `scaleX(${pct})`;
+    }
+    
+    if (pct >= 1){
+        progressBar.style.background = `#0099da`
+    }
+}
+

@@ -12,7 +12,7 @@ export const renderCreateDeployment = () => {
     main.innerHTML = `
         <form id="new-deployment__form">
             <h1 class="title">New Deployment</h1>
-            <span>Select your XProtect product:</span>
+            <span>Select your XProtect&reg; product:</span>
             <div class="radio-tile-group">
                 <div class="input-container">
                     <input id="essential-plus" class="radio-button" type="radio" name="radio" value="1" required />
@@ -95,11 +95,11 @@ export const renderCreateDeployment = () => {
             <!--radio-tile-group-->
             <div class="text-field">
                 <span>Name your deployment:</span>
-                <input id="deploymentName" type="text" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?]+"/>
+                <input id="deploymentName" type="text" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+"/>
             </div>
             <div class="text-field">
                 <span>Name the integrator working on this project:</span>
-                <input id="integratorName" type="text" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?]+"/>
+                <input id="integratorName" type="text" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?\']+"/>
             </div>
             <button id="newDeploymentBtn" class="primary-btn" type="submit">Create Deployment</button>
         </form>
