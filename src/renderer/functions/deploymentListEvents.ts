@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import { renderChecklist } from "./checklistBuilder";
 import { renderPrintView } from './printViewBuilder';
-import { renderChecklistMenu } from './menuBuilder';
+import { renderChecklistMenu, renderPrintMenu } from './menuBuilder';
 import { showModal } from './modalBuilder';
 
 
@@ -11,7 +11,7 @@ export const addDeploymentListEventListeners = async () => {
   $('.edit-btn').click(async function () {
     event.stopPropagation();
     const deploymentId = this.dataset.id;
-    showModal(deploymentId, "edit");
+    showModal(deploymentId, "edit", "deploymentList");
   })
 
   //add delete functionality to each delete button in the table 
@@ -26,6 +26,7 @@ export const addDeploymentListEventListeners = async () => {
     event.stopPropagation();
     const deploymentId = this.dataset.id;
     renderPrintView(deploymentId);
+    renderPrintMenu(deploymentId, "deploymentList");
   })
 
   //add the "go to Checklist" click event to each table row

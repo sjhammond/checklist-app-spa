@@ -8,7 +8,6 @@ import { Step } from "../models/step";
 import { ProductTier } from "../models/product-tier";
 import { dateOptions } from "./helpers/dateOptions";
 import { buildStatus, buildNoteStatus } from "./checklistBuilder";
-import { renderPrintMenu } from "./menuBuilder";
 import { scrollToTop } from "./helpers/scrollToTop";
 
 
@@ -27,9 +26,6 @@ export const renderPrintView = (id:string) => {
 
         //get the deployment
         deployment = await getDeployment(id, db);
-
-        //render print menu
-        renderPrintMenu(deployment);
 
         //start with the print heading HTML
         mainContent = buildPrintHeader(deployment); 
@@ -76,9 +72,6 @@ const buildPrintHeader = (deployment:Deployment) => {
                 </div>
                 <div id="pv__deployment-modified">
                     Last modified:<span>${(deployment.dateModified).toLocaleString('default', dateOptions)}</span>
-                </div>
-                <div id="pv__deployment-integrator">
-                    Integrator:<span>${deployment.integrator}</span>
                 </div>
                 <div id="pv__print-date">
                     Printed on:<span>${new Date().toLocaleString('default', dateOptions)}</span>

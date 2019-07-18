@@ -1,10 +1,26 @@
+import $ from 'jquery';
 import { ProductTier } from "../models/product-tier";
 import { Deployment } from "../models/deployment";
 import { dbPromise } from "../data/db";
 import { renderChecklist } from "./checklistBuilder";
 import { renderChecklistMenu } from "./menuBuilder";
 
-export const createDeployment = async (product: string, name: string, integrator: string) => {
+export const addNewDeploymentEvents = () => {
+    //prevent default form submission (but keep form validation)
+    $('form').submit(e => e.preventDefault());
+
+    // on click, create a new deployment using the params from the html form
+    $('#newDeploymentBtn').on('click', () => {
+        const product = document.querySelector('input[name="radio"]:checked') as HTMLInputElement;
+        const name = document.getElementById('deploymentName') as HTMLInputElement;
+        const integrator = document.getElementById('integratorName') as HTMLInputElement;
+        if (product != null && name.checkValidity() && integrator.checkValidity()) {
+            createDeployment(product.value, name.value, integrator.value);
+        }
+    })
+}
+
+const createDeployment = async (product: string, name: string, integrator: string) => {
     //declare id for function-level scope
     let id: number;
 

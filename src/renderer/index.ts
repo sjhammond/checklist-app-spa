@@ -10,7 +10,8 @@ app.innerHTML = `
             </div>
         </div>
     </div>
-    <nav id="menu" class="sidenav">d</nav>
+    <div id="topbar" class="topnav"></div>
+    <div id="menu" class="sidenav"></div>
     <main id="main-content" class="container">
         <div id="splash-screen">
             <div id="splash-content">

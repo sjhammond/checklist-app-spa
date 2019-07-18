@@ -16,7 +16,7 @@ function createMainWindow() {
     icon: path.join(__static, "./icons/win/favicon.ico"),
     minWidth: 800,
     minHeight: 600,
-    title: 'Milestone Best Practice Deployment Checklist',
+    title: 'Milestone Deployment Assistant',
     titleBarStyle: 'hidden',
     webPreferences: {
       nodeIntegration: true

@@ -189,6 +189,6 @@ export const buildNoteStatus = (data: DeploymentItem): string => {
         return `${data.noteIntegrator} - ${data.noteDate != undefined ? data.noteDate.toLocaleString('default', dateOptions) : ''}
         `;
     } else {
-        return `<em>No notes.</em>`;
+        return ``;
     }
 }

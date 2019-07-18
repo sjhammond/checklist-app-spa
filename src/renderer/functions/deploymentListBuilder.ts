@@ -2,8 +2,11 @@ import { ProductTier } from "../models/product-tier";
 import { dateOptions } from "./helpers/dateOptions";
 import { dbPromise } from "../data/db";
 import { addDeploymentListEventListeners } from "./deploymentListEvents";
-import { getAllFromObjectStore } from "./helpers/dbFunctions";
+import { getAllFromObjectStore, getItemsByDeploymentId } from "./helpers/dbFunctions";
 import { scrollToTop } from "./helpers/scrollToTop";
+import { Deployment } from "../models/deployment";
+import { Step } from "../models/step";
+import { DeploymentItem } from "../models/deployment-item";
 
 let deploymentData = '';
 let numberOfDeployments: number;
@@ -56,7 +59,9 @@ export const renderDeploymentList = () => {
                                 </svg>
                             </button>
                         </div>
-                        <div class="deployment-product">XProtect&reg; ${(cursor.value.productTier < 4) ? ProductTier[cursor.value.productTier] + "+" : ProductTier[cursor.value.productTier]}</div>
+                        <div class="deployment-product">
+                            XProtect&reg; ${(cursor.value.productTier < 4) ? ProductTier[cursor.value.productTier] + "+" : ProductTier[cursor.value.productTier]} - <span id="completion-pct__${cursor.value.id}"></span>% complete
+                        </div>
                         <div class="deployment-details">
                             <div class="deployment-detail">Integrator:<span>${cursor.value.integrator}</span></div>
                             <div class="deployment-detail">Last modified:<span>${(cursor.value.dateModified).toLocaleString('default', dateOptions)}</span></div>
@@ -65,6 +70,8 @@ export const renderDeploymentList = () => {
                     </div>    
                 </div>
             `
+            calculateCompletion(cursor.value); 
+
             //step through the cursor to the next item
             cursor = await cursor.continue();
         }
@@ -94,4 +101,24 @@ export const finalizeDeploymentList = (data: string): string => {
     }
 }
 
-  
+const calculateCompletion = async (cursor:Deployment) => {
+
+    dbPromise().then(async db => {
+        let totalItemsForProduct: DeploymentItem [] = [];
+        const steps = await getAllFromObjectStore("steps", db) as Step[]; 
+        const items = await getItemsByDeploymentId(cursor.id.toString(), db);
+        const stepsForProduct = steps.filter(step => step.productTier <= cursor.productTier)
+
+        stepsForProduct.forEach(step => {
+            let partialArray = items.filter(item => item.stepId == step.id);
+            totalItemsForProduct = totalItemsForProduct.concat(partialArray);
+        })
+
+        const completedItemsForProduct = totalItemsForProduct.filter(item => item.itemState != 0);
+        const pct = Math.round((completedItemsForProduct.length / totalItemsForProduct.length) * 100).toString();
+        return pct;
+    }).then(pct => {
+        const span = document.getElementById(`completion-pct__${cursor.id}`);
+        span.innerHTML += pct; 
+    })
+}

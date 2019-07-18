@@ -1,6 +1,5 @@
-import $ from 'jquery';
-import { createDeployment } from './newDeploymentEvents';
 import { scrollToTop } from './helpers/scrollToTop';
+import { addNewDeploymentEvents } from './newDeploymentEvents';
 
 export const renderCreateDeployment = () => {
 
@@ -12,7 +11,7 @@ export const renderCreateDeployment = () => {
     main.innerHTML = `
         <form id="new-deployment__form">
             <h1 class="title">New Deployment</h1>
-            <span>Select your XProtect&reg; product:</span>
+            <span class="select-product">Select your XProtect&reg; product:</span>
             <div class="radio-tile-group">
                 <div class="input-container">
                     <input id="essential-plus" class="radio-button" type="radio" name="radio" value="1" required />
@@ -104,16 +103,6 @@ export const renderCreateDeployment = () => {
             <button id="newDeploymentBtn" class="primary-btn" type="submit">Create Deployment</button>
         </form>
     `
-    //prevent default form submission (but keep form validation)
-    $('form').submit(e => e.preventDefault());
 
-    // on click, create a new deployment using the params from the html form
-    $('#newDeploymentBtn').on('click', () => {
-        const product = document.querySelector('input[name="radio"]:checked') as HTMLInputElement;
-        const name = document.getElementById('deploymentName') as HTMLInputElement;
-        const integrator = document.getElementById('integratorName') as HTMLInputElement;
-        if (product != null && name.checkValidity() && integrator.checkValidity()) {
-            createDeployment(product.value, name.value, integrator.value);
-        }
-    })
+    addNewDeploymentEvents();
 }

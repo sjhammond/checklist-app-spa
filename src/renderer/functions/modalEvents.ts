@@ -1,22 +1,85 @@
 import $ from 'jquery'
 import { dbPromise } from '../data/db';
 import { renderDeploymentList } from './deploymentListBuilder';
+import { Deployment } from '../models/deployment';
+import { updateDeployment } from './helpers/dbFunctions';
+import { renderMainMenu, renderChecklistMenu } from './menuBuilder';
+import { renderChecklist } from './checklistBuilder';
 
-export const addModalEventListeners = (id: string) => {
+
+//DELETE MODAL EVENTS 
+
+export const addDeleteModalEvents = (id: string) => {
 
     //delete event
-    $('#modal__delete-button').click(async function () {
+    $('#modal__delete').click(async function () {
         const modal = document.getElementById("modal");
         await deleteDeployment(id);
         modal.style.display = 'none';
-
     })
 
-    //close modal on cancel
-    $('#modal__cancel-button').click(function () {
+    //close delete modal on cancel
+    $('#modal__cancel-delete').click(function () {
         const modal = document.getElementById("modal");
         modal.style.display = 'none';
     })
+}
+
+//EDIT MODAL EVENTS 
+
+export const addEditModalEvents = (deployment:Deployment, context:string) => {
+    //prevent form refresh
+    $('form').submit(e => e.preventDefault());
+
+    //enable save button on change
+
+
+    //update deployment info on save
+    $('#modal__save-edit').click(function() {
+        
+        const modal = document.getElementById("modal");
+        const name = document.getElementById('edit__deployment-name') as HTMLInputElement;
+        const product = document.getElementById('edit__product') as HTMLSelectElement;
+        const integrator = document.getElementById('edit__integrator') as HTMLInputElement;
+
+        const data = {
+                id: deployment.id,
+                name: name.value, //update
+                productTier: parseInt(product.value), //update
+                integrator: integrator.value, //update
+                currentPhaseId: deployment.currentPhaseId,
+                dateCreated: deployment.dateCreated,
+                dateModified: deployment.dateModified   
+        }
+
+        if(name.checkValidity() && integrator.checkValidity()){
+            dbPromise().then(async db => {
+                await updateDeployment(data, db);
+                switch(context) {
+                    case "deploymentList": 
+                        renderMainMenu();
+                        renderDeploymentList();
+                        modal.style.display = 'none';
+                        break;
+                    case "checklist":
+                        renderChecklistMenu(deployment.id.toString());
+                        renderChecklist(deployment.id.toString());
+                        modal.style.display = 'none';
+                } 
+            })
+        }
+    })
+    
+    //close edit modal on cancel
+    $('#modal__cancel-edit').click(function (e) {
+        e.preventDefault();
+        const modal = document.getElementById("modal");
+        modal.style.display = 'none';
+        if(context == "checklist"){
+            renderChecklistMenu(deployment.id.toString());
+        }
+    })
+
 }
 
 const deleteDeployment = (id: string) => {
