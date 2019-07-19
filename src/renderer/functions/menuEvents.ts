@@ -4,11 +4,12 @@ import { renderCreateDeployment } from "./newDeploymentBuilder";
 import { renderMainMenu, renderPrintMenu, renderChecklistMenu } from "./menuBuilder";
 import { dbPromise } from '../data/db';
 import { Deployment } from '../models/deployment';
-import { updateDeployment } from './helpers/dbFunctions';
+import { updateDeployment, getItemsByDeploymentId } from './helpers/dbFunctions';
 import { renderChecklist } from './checklistBuilder';
 import {ipcRenderer} from 'electron';
 import { showModal } from './modalBuilder';
 import { renderPrintView } from './printViewBuilder';
+import { renderImportDeployment } from './importDeploymentBuilder';
 
 
 //MAIN MENU EVENTS
@@ -16,6 +17,7 @@ export const loadMainMenuEvents = () => {
 
     $('#menu_deployment-list').click(() => renderDeploymentList()); 
     $('#menu_new-deployment').click(() => renderCreateDeployment()); 
+    $('#menu_deployment-import').click(() => renderImportDeployment());
     
     highlightSelectedMenuItems();
 }
@@ -42,8 +44,17 @@ export const loadPrintMenuEvents = (id:string, context:String) => {
                 });
     }
 
-    $('#print-pdf').click(() => ipcRenderer.send('print-to-pdf'));
+    //when clicking print to pdf, send a print to pdf command to execute in the main process
+    $('#print-pdf').click(() => {
+        const title = document.getElementById('pdf-title').innerHTML; 
+        ipcRenderer.send('print-to-pdf', title)
+    });
 
+    ipcRenderer.on('print-done', () => {
+        $('#print-pdf').removeClass('current-menu-item');
+    });
+
+    highlightSelectedMenuItems();
 }
 
 //CHECKLIST MENU EVENTS
@@ -81,9 +92,14 @@ export const loadChecklistMenuEvents = async (deployment:Deployment) => {
             })
     });
 
+    //show the edit moadal when clicking the edit details button and pass in the checklist context
     $('#menu-edit').click(async function(){
         await showModal(id, "edit", "checklist");
     });
+
+    $('#menu-export').click(async function(){
+        await exportDeploymentData(deployment);
+    })
 
     $('#menu-print').click(async function() {
         await renderPrintView(id); 
@@ -100,4 +116,55 @@ const highlightSelectedMenuItems = () => {
         $(this).siblings('.current-menu-item').removeClass('current-menu-item');
         $(this).addClass('current-menu-item');
     });
+}
+
+const exportDeploymentData = async (deployment:Deployment) => {
+
+    let itemData = await generateItemDataForExport(deployment.id.toString());
+
+    let data = `
+        { "deployment":
+            {
+                "name": ${JSON.stringify(deployment.name)},
+                "productTier": ${JSON.stringify(deployment.productTier)},
+                "integrator": ${JSON.stringify(deployment.integrator)},
+                "currentPhaseId": ${JSON.stringify(deployment.currentPhaseId)},
+                "dateCreated": ${JSON.stringify(deployment.dateCreated)},
+                "dateModified": ${JSON.stringify(deployment.dateModified)}
+            },
+
+        "deploymentItems": [
+                ${itemData}
+            ]
+        }
+    `
+    ipcRenderer.send('export-data', data, deployment.name);
+    ipcRenderer.on('export-done', () => {
+        renderChecklistMenu(deployment.id.toString());
+    })
+    
+}
+
+const generateItemDataForExport = (id:string) => {
+    
+    return dbPromise().then(async db => {
+       
+        let itemData = '';
+        const items = await getItemsByDeploymentId(id, db); 
+        
+        items.forEach((item, index, array) => {
+            itemData += `
+                {
+                    "stepId": ${JSON.stringify(item.stepId)},
+                    "itemState": ${JSON.stringify(item.itemState)},
+                    "itegrator": ${JSON.stringify(item.integrator)},
+                    "date": ${JSON.stringify(item.date)},
+                    "note": ${JSON.stringify(item.note)},
+                    "noteDate": ${JSON.stringify(item.noteDate)},
+                    "noteIntegrator": ${JSON.stringify(item.noteIntegrator)}
+                }${index === (array.length - 1) ? '' : ','}
+            `
+        })
+        return itemData;
+    })
 }

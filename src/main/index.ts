@@ -1,11 +1,10 @@
 'use strict'
-import { app, BrowserWindow, ipcMain, shell} from 'electron'
-import os from 'os'
+import { app, BrowserWindow, ipcMain, shell, dialog } from 'electron'
 import fs from 'fs'
 import * as path from 'path'
 import { format as formatUrl } from 'url'
 
-declare const __static:string; 
+declare const __static: string;
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
@@ -31,10 +30,12 @@ function createMainWindow() {
   //disable the toolbar
   window.setMenu(null);
 
+  //open devtools in development
   if (isDevelopment) {
     window.webContents.openDevTools()
   }
 
+  //run webpack server in development 
   if (isDevelopment) {
     window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`)
   }
@@ -80,17 +81,41 @@ app.on('ready', () => {
   mainWindow = createMainWindow()
 })
 
-ipcMain.on('print-to-pdf', event => {
-  const pdfPath = path.join(os.tmpdir(), "deployment.pdf")
+//print to PDF
+ipcMain.on('print-to-pdf', (event: { sender: Electron.WebContents; }, filename: string) => {
+
   const win = BrowserWindow.fromWebContents(event.sender)
 
-  win.webContents.printToPDF({pageSize: "Letter"}, (error, data) => {
-    if (error) return console.log(error.message);
+  //open save dialog, pass in the filename and restrict filetype to PDF
+  dialog.showSaveDialog({
+    defaultPath: `${filename}.pdf`,
+    filters: [{ name: 'PDF', extensions: ['pdf'] }]
+  }, pdfPath => {
+    if (pdfPath) {
+      win.webContents.printToPDF({ pageSize: "Letter" }, (error, data) => {
+        if (error) return console.log(error.message);
 
-    fs.writeFile(pdfPath, data, err => {
-      if (err) return console.log(err.message);
-      shell.openExternal(`file://${pdfPath}`);
-    })
+        fs.writeFile(pdfPath, data, err => {
+          if (err) return console.log(err.message);
+          shell.openExternal(`file://${pdfPath}`);
+        });
+      });
+    }
+    event.sender.send('print-done');
+  });
+});
+
+ipcMain.on('export-data', (event: { sender: { send: (arg0: string) => void; }; }, data: string, filename: string) => {
+
+  dialog.showSaveDialog({
+    defaultPath: `${filename}.mddata`,
+    filters: [{ name: 'Milestone Deployment Data', extensions: ['mddata'] }]
+  }, filePath => {
+    if(filePath){
+      fs.writeFile(filePath, data, err => {
+        if (err) return console.log(err.message);
+      });
+    }
+    event.sender.send('export-done');
   })
-
 });

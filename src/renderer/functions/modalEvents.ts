@@ -19,7 +19,7 @@ export const addDeleteModalEvents = (id: string) => {
     })
 
     //close delete modal on cancel
-    $('#modal__cancel-delete').click(function () {
+    $('#modal__cancel-delete, #modal-close').click(function () {
         const modal = document.getElementById("modal");
         modal.style.display = 'none';
     })
@@ -71,7 +71,7 @@ export const addEditModalEvents = (deployment:Deployment, context:string) => {
     })
     
     //close edit modal on cancel
-    $('#modal__cancel-edit').click(function (e) {
+    $('#modal__cancel-edit, #modal-close').click(function (e) {
         e.preventDefault();
         const modal = document.getElementById("modal");
         modal.style.display = 'none';

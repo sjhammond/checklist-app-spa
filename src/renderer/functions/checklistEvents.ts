@@ -151,7 +151,7 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
         const stepNote = noteInput.value; 
 
         //if the note is different, save the updated note
-        if (item.note == undefined || stepNote != item.note){
+        if (item.note == null || stepNote != item.note){
         
             //define the data to put to the db
             //pass though all the item attributes that are unchanged

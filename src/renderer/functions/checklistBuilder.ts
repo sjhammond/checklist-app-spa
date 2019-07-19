@@ -146,7 +146,7 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
                     <button class='checklist-item__expand' aria-label='Toggle Info' title='Show more information'>
                         <span class='line'></span>
                     </button>
-                    <button class='checklist-note__expand${item.note == undefined || item.note == '' ? '' : ' hasnote'}' aria-label='Toggle Notes' title='Add note'>
+                    <button class='checklist-note__expand${item.note == null || item.note == '' ? '' : ' hasnote'}' aria-label='Toggle Notes' title='Add note'>
                         <svg class="svg-note-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM17 11h-4v4h-2v-4H7V9h4V5h2v4h4v2z"/>
                         </svg>
@@ -159,7 +159,7 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
                 </div>
             </div>
             <div class='note-container'>
-                <textarea class="note-field" rows="6" cols="1" id='step${step.id}__note' name='step${step.id}__note' data-step-id='${step.id}'>${item.note == undefined || item.note == '' ? '' : item.note}</textarea>
+                <textarea class="note-field" rows="6" cols="1" maxlength="1000" id='step${step.id}__note' name='step${step.id}__note' data-step-id='${step.id}'>${item.note == null || item.note == '' ? '' : item.note}</textarea>
                 <div class="note-controls">
                     <span class="status" id='step${step.id}__note-status'>${buildNoteStatus(item)}</span>
                     <button class="save-note-btn" id="step${step.id}__save-note" type="button" data-step-id="${step.id}" disabled>Save Note</button>
@@ -175,7 +175,7 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
 
 //build the step status html
 export const buildStatus = (data: DeploymentItem): string => {
-    if (data.integrator != undefined) {
+    if (data.integrator != null) {
         return `<b>${data.itemState != ItemState.NotApplicable ? ItemState[data.itemState] : "Does Not Apply"}</b> &#183; ${data.integrator} &#183; ${data.date.toLocaleString('default', dateOptions)}
         `;
     } else {
@@ -185,8 +185,8 @@ export const buildStatus = (data: DeploymentItem): string => {
 
 //build the note status html
 export const buildNoteStatus = (data: DeploymentItem): string => {
-    if (data.noteIntegrator != undefined && data.note != '') {
-        return `${data.noteIntegrator} - ${data.noteDate != undefined ? data.noteDate.toLocaleString('default', dateOptions) : ''}
+    if (data.noteIntegrator != null && data.note != '') {
+        return `${data.noteIntegrator} - ${data.noteDate != null ? data.noteDate.toLocaleString('default', dateOptions) : ''}
         `;
     } else {
         return ``;

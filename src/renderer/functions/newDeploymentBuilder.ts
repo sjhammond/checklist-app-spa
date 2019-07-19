@@ -94,13 +94,13 @@ export const renderCreateDeployment = () => {
             <!--radio-tile-group-->
             <div class="text-field">
                 <span>Name your deployment:</span>
-                <input id="deploymentName" type="text" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+"/>
+                <input id="deploymentName" type="text" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+"/>
             </div>
             <div class="text-field">
                 <span>Name the integrator working on this project:</span>
-                <input id="integratorName" type="text" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?\']+"/>
+                <input id="integratorName" type="text" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?\']+"/>
             </div>
-            <button id="newDeploymentBtn" class="primary-btn" type="submit">Create Deployment</button>
+            <button id="newDeploymentBtn" class="primary-btn" type="submit" disabled>Create Deployment</button>
         </form>
     `
 

@@ -6,17 +6,26 @@ import { renderChecklist } from "./checklistBuilder";
 import { renderChecklistMenu } from "./menuBuilder";
 
 export const addNewDeploymentEvents = () => {
+
+    const name = document.getElementById('deploymentName') as HTMLInputElement;
+    const integrator = document.getElementById('integratorName') as HTMLInputElement;
+
+    $('input').on('change', () => {
+        const product = document.querySelector('input[name="radio"]:checked') as HTMLInputElement;
+        if (product != null && name.value.length >= 1 && integrator.value.length >= 1) {
+            $('#newDeploymentBtn').removeAttr('disabled');    
+        }
+    })
+
     //prevent default form submission (but keep form validation)
     $('form').submit(e => e.preventDefault());
 
     // on click, create a new deployment using the params from the html form
     $('#newDeploymentBtn').on('click', () => {
         const product = document.querySelector('input[name="radio"]:checked') as HTMLInputElement;
-        const name = document.getElementById('deploymentName') as HTMLInputElement;
-        const integrator = document.getElementById('integratorName') as HTMLInputElement;
         if (product != null && name.checkValidity() && integrator.checkValidity()) {
             createDeployment(product.value, name.value, integrator.value);
-        }
+       }
     })
 }
 
@@ -68,11 +77,11 @@ const createDeployment = async (product: string, name: string, integrator: strin
                     deploymentId: id,
                     stepId: step.id,
                     itemState: 0,
-                    integrator: undefined,
-                    date: new Date(),
-                    note: undefined,
-                    noteIntegrator: undefined,
-                    noteDate: undefined
+                    integrator: null,
+                    date: null,
+                    note: null,
+                    noteIntegrator: null,
+                    noteDate: null
                 });
         }
         return id.toString();

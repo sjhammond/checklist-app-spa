@@ -4,11 +4,11 @@ import { getDeployment } from "./helpers/dbFunctions";
 
 export const showModal = (id: string, modalType: string, context?:string) => {
 
-    //get the modal elements
+    //get the modal elements in the app
     const modal = document.getElementById("modal");
-    const modalClose = document.getElementById("modal-close");
     const modalText = document.getElementById("modal-content");
 
+    //render the modal depending on the modalType
     switch (modalType) {
 
         //DELETE MODAL
@@ -24,11 +24,6 @@ export const showModal = (id: string, modalType: string, context?:string) => {
             //show the modal
             modal.style.display = "flex";
 
-            // When the user clicks on X or cancel, close the modal
-            modalClose.onclick = function () {
-                modal.style.display = "none";
-            }
-
             //add event listeners
             addDeleteModalEvents(id);
 
@@ -40,11 +35,11 @@ export const showModal = (id: string, modalType: string, context?:string) => {
             .then(async db => {
                 const deployment = await getDeployment(id, db); 
                 modalText.innerHTML = `
-                    <div id="modal__title">Edit Deployment</div>
+                    <div id="modal__title">Edit Deployment Details</div>
                     <form>
                         <div class="modal__input-container">
                             <label for="edit__deployment-name">Deployment Name</label>
-                            <input type="text" id="edit__deployment-name" value="${deployment.name}" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+" />
+                            <input type="text" id="edit__deployment-name" value="${deployment.name}" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+" />
                         </div>
                         <div class="modal__input-container">
                             <label for="edit__product">XProtect&reg; Product</label>
@@ -58,7 +53,7 @@ export const showModal = (id: string, modalType: string, context?:string) => {
                         </div>
                         <div class="modal__input-container">
                             <label for="edit__integrator">Integrator Name</label>
-                            <input type="text" id="edit__integrator" value="${deployment.integrator}" required minlength="2" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+"/>
+                            <input type="text" id="edit__integrator" value="${deployment.integrator}" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+"/>
                         </div>
                         <div id="modal__button-container">
                             <button id="modal__save-edit" type="submit">Save Changes</button>
@@ -66,17 +61,13 @@ export const showModal = (id: string, modalType: string, context?:string) => {
                         </div>
                     </form>
                 `
-                
+
                 //show the modal
                 modal.style.display = "flex";
 
-                // When the user clicks on X or cancel, close the modal
-                modalClose.onclick = function () {
-                    modal.style.display = "none";
-                }
-
                 //add event listeners
                 addEditModalEvents(deployment, context);
+
             }
         )
     }

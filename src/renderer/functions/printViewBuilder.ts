@@ -65,7 +65,7 @@ const buildPrintHeader = (deployment:Deployment) => {
         <div id="print-view">
             <header id="pv__deployment-info">
                 <div id="pv__deployment-name"> 
-                    Deployment Name:<span>${deployment.name}</span>
+                    Deployment Name:<span id='pdf-title'>${deployment.name}</span>
                 </div>
                 <div id="pv__deployment-product">
                     Product:<span>XProtect&reg; ${(deployment.productTier < 4) ? ProductTier[deployment.productTier] + "+" : ProductTier[deployment.productTier]}</span>
@@ -119,11 +119,11 @@ const buildStepForPrint = (step:Step, items:DeploymentItem[]) => {
     return `
         <li class="pv__step">
             <div class="pv__title-container">
-                <svg class="pv__not-done" ${stepData.itemState == 0 && stepData.integrator == undefined ? "" : `style="display:none"`}xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <svg class="pv__not-done" ${stepData.itemState == 0 && stepData.integrator == null ? "" : `style="display:none"`}xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M19 13H5v-2h14v2z"/>
                     <path d="M0 0h24v24H0z" fill="none"/>
                 </svg>
-                <svg class="pv__incomplete" ${stepData.itemState == 0 && stepData.integrator != undefined ? "" : `style="display:none"`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <svg class="pv__incomplete" ${stepData.itemState == 0 && stepData.integrator != null ? "" : `style="display:none"`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none"/>
                     <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
                 </svg>
@@ -146,7 +146,7 @@ const buildStepForPrint = (step:Step, items:DeploymentItem[]) => {
 }
 
 const buildNotesForPrint = (stepData: DeploymentItem) => {
-    if (stepData.note == undefined || stepData.note == '') {
+    if (stepData.note == null || stepData.note == '') {
         return ''
     } else {
         return `

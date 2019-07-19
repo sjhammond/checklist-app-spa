@@ -20,7 +20,7 @@ export const renderMainMenu = () => {
             <ul class="menu-list" id="main-menu">
                 <li class="menu-item" id="menu_new-deployment">New Deployment</li>
                 <li class="menu-item" id="menu_deployment-list">Load Deployment</li>
-                <li class="menu-item" id="menu_deployment-list">Import Deployment</li>
+                <li class="menu-item" id="menu_deployment-import">Import Deployment</li>
                 <li class="menu-item" id="menu_about">About</li>
             </ul>
         </div> 
@@ -100,15 +100,9 @@ export const renderChecklistMenu = (id:string) => {
                         .join('')
                         }
                     <li class="menu-subhead">Actions</li>
-                    <li class="menu-item" id="menu-edit">
-                        <span>Edit Details</span>
-                    </li>
-                    <li class="menu-item" id="menu-export">
-                        <span>Export Deployment</span>
-                    </li>
-                    <li class="menu-item" id="menu-print">
-                        <span>Print View</span>
-                    </li>
+                    <li class="menu-item" id="menu-edit">Edit Details</li>
+                    <li class="menu-item" id="menu-print">Print View</li>
+                    <li class="menu-item" id="menu-export">Export</li>
                 </ul>
             </div> 
         `
