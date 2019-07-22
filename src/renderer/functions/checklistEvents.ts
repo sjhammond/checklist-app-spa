@@ -43,7 +43,7 @@ export const addCompleteStepEvents = async (id:string, db: IDBPDatabase<Mileston
             itemState: checkboxStatus,
             integrator: deployment.integrator,
             date: new Date(),
-            note: item.note,
+            note: encodeURIComponent(item.note),
             noteDate: item.noteDate,
             noteIntegrator: item.noteIntegrator
         }
@@ -100,7 +100,7 @@ export const addDisableStepEvents = async (id: string, db: IDBPDatabase<Mileston
             itemState: stepStatus, //update
             integrator: deployment.integrator, //update
             date: new Date(), //update
-            note: item.note,
+            note: encodeURIComponent(item.note),
             noteDate: item.noteDate,
             noteIntegrator: item.noteIntegrator
         }
@@ -162,7 +162,7 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
                 itemState: item.itemState,
                 integrator: item.integrator,
                 date: item.date,
-                note: stepNote, //update
+                note: encodeURIComponent(stepNote), //update
                 noteDate: new Date(), //update
                 noteIntegrator: deployment.integrator //update
             };

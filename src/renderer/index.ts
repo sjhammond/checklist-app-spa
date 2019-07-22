@@ -1,8 +1,9 @@
 import { renderMainMenu } from "./functions/menuBuilder";
+import { remote } from 'electron';
 import './css/app.css'
 
-const app = document.getElementById('app');
-app.innerHTML = `
+const myApp = document.getElementById('app');
+myApp.innerHTML = `
     <div id="modal">
         <div id="modal-container">
             <span id="modal-close">&times;</span>
@@ -34,6 +35,7 @@ app.innerHTML = `
                 <span id="splash-title">Deployment Assistant</span>
             </div>
             <div id="copyright">&copy; 2019 Milestone Systems, Inc.</div>
+            <div id="version">Version ${remote.app.getVersion()}</div>
         <div>
     </main>
 `

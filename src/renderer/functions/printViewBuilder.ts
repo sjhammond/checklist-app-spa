@@ -151,7 +151,7 @@ const buildNotesForPrint = (stepData: DeploymentItem) => {
     } else {
         return `
         <div class="pv__step-notes">
-            <div>Integrator note:</div> ${stepData.note} 
+            <div>Integrator note:</div> ${decodeURIComponent(stepData.note)} 
             <div>${buildNoteStatus(stepData)}</div>
          </div>
         `

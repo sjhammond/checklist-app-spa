@@ -329,15 +329,14 @@ SIDE NAVIGATION
 	color: #0099da;
 }
 
-.menu-item:after {
-	background: none repeat scroll 0 0 transparent;
-	content: "";
-	display: block;
-	height: 1px;
-	position: absolute;
-	background: #0099da;
-	transition: width 0.5s ease 0s, left 0.2s ease 0s;
-	width: 0;
+#menu_feedback {
+	width:100%;
+	cursor: pointer;
+	align-self: flex-end;
+	padding: 0;
+	padding-bottom: 8px;
+	padding-left: 16px;
+	font-size: .85em;
 }
 
 #menu-title {
@@ -443,6 +442,13 @@ SPLASH SCREEN
 #copyright{
 	display: flex;
 	margin-top: 32px;
+	font-size: .8em;
+	color: #9dadb7;
+}
+
+#version{
+	display: flex;
+	margin-top: 4px;
 	font-size: .8em;
 	color: #9dadb7;
 }
@@ -576,7 +582,7 @@ NEW DEPLOYMENT
 }
 
 .select-product {
-	margin-top: 24px;
+	margin-top: 16px;
 }
 
 .radio-tile-group {
@@ -712,22 +718,21 @@ IMPORT DEPLOYMENT
 */
 
 #import-deployment__form {
-	flex: 1 0 100%;
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	width: 100%;
 	margin-bottom: 2rem;
+	width: 100%;
 }
 
 #import-deployment__form > span{
-	margin-top: 24px;
+	margin-top: 16px;
 }
 
 #select-file-container {
 	display: flex;
 	flex-flow: row nowrap;
-	width: 80%;
+	width: 75%;
 	max-width: 550px;
 	height: 36px;
 	margin-top: 20px;
@@ -754,14 +759,16 @@ IMPORT DEPLOYMENT
 
 #file-name{
 	padding: 8px 0 0 12px;
-	flex: 1 0 70%;
+	flex: 1 0 60%;
 	border: 1px solid #0099da;
 	font-size: 1em;
 	font-weight: 200;
 }
 
 input[type="file"]{
-	display: none;
+	flex: 1 0 0;
+	visibility: hidden;
+	width: 0;
 }
 
 #importDeploymentBtn {
@@ -787,6 +794,109 @@ input[type="file"]{
 #importDeploymentBtn:hover {
 	background-color: #0091cf;
 }
+
+#status-text {
+	margin-top: 12px;
+}
+
+#import_complete{
+	vertical-align: middle;
+	height: 24px;
+	width: 24px;
+	fill: green;
+}
+
+#status_complete{
+	vertical-align: middle;
+	color: green;
+}
+
+#import_error {
+	vertical-align: middle;
+	height: 24px;
+	width: 24px;
+	fill: red;
+}
+
+#status_error {
+	vertical-align: middle;
+	color: red;
+}
+
+#error_text {
+	margin-top: 8px;
+	text-align: center;
+	font-size: .75em;
+}
+
+/* 
+****************************************************************************
+ABOUT & HELP
+****************************************************************************
+*/
+
+#help-container{
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	width: 90%;
+	margin-bottom: 32px;
+}
+
+#help_subhead {
+	margin-top: 16px;
+	margin-bottom: 12px;
+}
+
+.help-topic {
+	display: block; 
+	width: 100%;
+	margin-top: 18px;
+}
+
+.topic-selector {
+	display: flex;
+	flex-flow: row nowrap; 
+	width: 100%;
+}
+
+.topic-selector button {
+	height: 1.6em;
+	width: 20px;
+	cursor: pointer;
+	border: 0;
+	outline: 0;
+	background: 0 0;
+	margin-right: 8px;
+}
+
+.help-topic__title {
+	font-size: 1.5em;
+	font-weight: 100;
+	width: 90%;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.help-content {
+	display: flex;
+	flex-flow: column nowrap;
+	width: 100%;
+	padding-left: 30px;
+	padding-bottom: 8px;
+	margin-top: 12px;
+	border-bottom: 2px solid #ced6db;
+}
+
+.help-content p {
+	margin: 6px 0;
+}
+
+.help-content ul {
+	margin-left: 18px;
+}
+
+
 
 /* 
 ****************************************************************************

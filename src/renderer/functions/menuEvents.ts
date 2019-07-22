@@ -10,6 +10,8 @@ import {ipcRenderer} from 'electron';
 import { showModal } from './modalBuilder';
 import { renderPrintView } from './printViewBuilder';
 import { renderImportDeployment } from './importDeploymentBuilder';
+import { encryptDecryptData } from './helpers/encryption';
+import { renderHelpPage } from './helpBuilder';
 
 
 //MAIN MENU EVENTS
@@ -18,6 +20,7 @@ export const loadMainMenuEvents = () => {
     $('#menu_deployment-list').click(() => renderDeploymentList()); 
     $('#menu_new-deployment').click(() => renderCreateDeployment()); 
     $('#menu_deployment-import').click(() => renderImportDeployment());
+    $('#menu_about').click(() => renderHelpPage());
     
     highlightSelectedMenuItems();
 }
@@ -138,7 +141,8 @@ const exportDeploymentData = async (deployment:Deployment) => {
             ]
         }
     `
-    ipcRenderer.send('export-data', data, deployment.name);
+    const encryptedData = encryptDecryptData(data, 'encrypt'); 
+    ipcRenderer.send('export-data', encryptedData, deployment.name);
     ipcRenderer.on('export-done', () => {
         renderChecklistMenu(deployment.id.toString());
     })
@@ -146,7 +150,7 @@ const exportDeploymentData = async (deployment:Deployment) => {
 }
 
 const generateItemDataForExport = (id:string) => {
-    
+       
     return dbPromise().then(async db => {
        
         let itemData = '';

@@ -21,9 +21,10 @@ export const renderMainMenu = () => {
                 <li class="menu-item" id="menu_new-deployment">New Deployment</li>
                 <li class="menu-item" id="menu_deployment-list">Load Deployment</li>
                 <li class="menu-item" id="menu_deployment-import">Import Deployment</li>
-                <li class="menu-item" id="menu_about">About</li>
+                <li class="menu-item" id="menu_about">About & Help</li>
             </ul>
-        </div> 
+        </div>
+        <span id="menu_feedback">Send Feedback</span>
     `
     loadMainMenuEvents(); 
 }

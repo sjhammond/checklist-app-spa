@@ -159,7 +159,7 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
                 </div>
             </div>
             <div class='note-container'>
-                <textarea class="note-field" rows="6" cols="1" maxlength="1000" id='step${step.id}__note' name='step${step.id}__note' data-step-id='${step.id}'>${item.note == null || item.note == '' ? '' : item.note}</textarea>
+                <textarea class="note-field" rows="6" cols="1" maxlength="1000" id='step${step.id}__note' name='step${step.id}__note' data-step-id='${step.id}'>${item.note == null || item.note == '' ? '' : decodeURIComponent(item.note)}</textarea>
                 <div class="note-controls">
                     <span class="status" id='step${step.id}__note-status'>${buildNoteStatus(item)}</span>
                     <button class="save-note-btn" id="step${step.id}__save-note" type="button" data-step-id="${step.id}" disabled>Save Note</button>

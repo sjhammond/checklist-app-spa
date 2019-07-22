@@ -14,7 +14,9 @@ export const renderImportDeployment = () => {
             <span>Select a Milestone deployment data (.mddata) file to import:</span>
             <div id="select-file-container">
                 <label for="select-file" id="file-browser">Browse</label>
-                <span id="file-name"><em>No file selected.</em></span>
+                <div id="file-name">
+                    <em>No file selected.</em>
+                </div>
                 <input id="select-file" type="file" accept=".mddata"/>
             </div>
             <button id="importDeploymentBtn" class="primary-btn" type="submit" disabled>Import Deployment</button>
