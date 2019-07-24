@@ -9,6 +9,7 @@ import { ProductTier } from "../models/product-tier";
 import { dateOptions } from "./helpers/dateOptions";
 import { buildStatus, buildNoteStatus } from "./checklistBuilder";
 import { scrollToTop } from "./helpers/scrollToTop";
+import { createStaticPath } from "./helpers/createStaticPath";
 
 
 export const renderPrintView = (id:string) => {
@@ -63,20 +64,29 @@ export const renderPrintView = (id:string) => {
 const buildPrintHeader = (deployment:Deployment) => {
     return `
         <div id="print-view">
-            <header id="pv__deployment-info">
-                <div id="pv__deployment-name"> 
-                    Deployment Name:<span id='pdf-title'>${deployment.name}</span>
+            <div id="print-header">
+                <div id="header-image-container">
+                    <span class="image-align-helper"></span>
+                    <img id='pv__header-image' src="${deployment.headerImage != null ? deployment.headerImage : createStaticPath('./images/logo.png')}">
                 </div>
-                <div id="pv__deployment-product">
-                    Product:<span>XProtect&reg; ${(deployment.productTier < 4) ? ProductTier[deployment.productTier] + "+" : ProductTier[deployment.productTier]}</span>
+                <div id="pv__deployment-info">
+                    <div id="pv__deployment-name"> 
+                        Deployment Name: <span id='pdf-title' class="pv__header-span">${deployment.name}</span>
+                    </div>
+                    <div id="pv__deployment-product">
+                        Product: <span class="pv__header-span">XProtect&reg; ${(deployment.productTier < 4) ? ProductTier[deployment.productTier] + "+" : ProductTier[deployment.productTier]}</span>
+                    </div>
+                    <div id="pv__deployment-modified">
+                        Last modified: <span class="pv__header-span">${(deployment.dateModified).toLocaleString('default', dateOptions)}</span>
+                    </div>
+                    <div id="pv__print-date">
+                        Printed on: <span class="pv__header-span">${new Date().toLocaleString('default', dateOptions)}</span>
+                    </div>
                 </div>
-                <div id="pv__deployment-modified">
-                    Last modified:<span>${(deployment.dateModified).toLocaleString('default', dateOptions)}</span>
+                <div id="print-title">
+                   Milestone XProtect<sup>&reg;</sup> Deployment Checklist
                 </div>
-                <div id="pv__print-date">
-                    Printed on:<span>${new Date().toLocaleString('default', dateOptions)}</span>
-                </div>
-            </header>
+            </div>
     `
 }
 
@@ -102,7 +112,6 @@ const buildTaskForPrint = (task:Task, steps:Step[], items:DeploymentItem[]) => {
     return `
         <li class="pv__task">
             <div class="pv__task-title">${task.title}</div>
-            <span class="pv__task-line"></span>
             <ul class="pv__task-steps">
                 ${taskSteps
                     .map(step => buildStepForPrint(step, items))
@@ -151,8 +160,13 @@ const buildNotesForPrint = (stepData: DeploymentItem) => {
     } else {
         return `
         <div class="pv__step-notes">
-            <div>Integrator note:</div> ${decodeURIComponent(stepData.note)} 
-            <div>${buildNoteStatus(stepData)}</div>
+            <svg class="pv__note-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM11 5h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+            <span class="pv__note-label">Integrator note:</span>
+            <div class="pv__note-content">${decodeURIComponent(stepData.note)}</div>
+            <div><em>Written by ${buildNoteStatus(stepData)}</em></div> 
          </div>
         `
     }

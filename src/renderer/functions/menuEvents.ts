@@ -6,15 +6,16 @@ import { dbPromise } from '../data/db';
 import { Deployment } from '../models/deployment';
 import { updateDeployment, getItemsByDeploymentId } from './helpers/dbFunctions';
 import { renderChecklist } from './checklistBuilder';
-import {ipcRenderer} from 'electron';
+import {ipcRenderer, shell} from 'electron';
 import { showModal } from './modalBuilder';
 import { renderPrintView } from './printViewBuilder';
 import { renderImportDeployment } from './importDeploymentBuilder';
-import { encryptDecryptData } from './helpers/encryption';
+import { encryptDecryptData } from './helpers/encryptDecryptData';
 import { renderHelpPage } from './helpBuilder';
 
 
 //MAIN MENU EVENTS
+
 export const loadMainMenuEvents = () => {
 
     $('#menu_deployment-list').click(() => renderDeploymentList()); 
@@ -22,11 +23,12 @@ export const loadMainMenuEvents = () => {
     $('#menu_deployment-import').click(() => renderImportDeployment());
     $('#menu_about').click(() => renderHelpPage());
     
+    feedbackEvent(); 
     highlightSelectedMenuItems();
 }
 
-
 //PRINT MENU EVENTS
+
 export const loadPrintMenuEvents = (id:string, context:String) => {
     
     //make sure the back button takes you back to the correct previous screen
@@ -50,17 +52,25 @@ export const loadPrintMenuEvents = (id:string, context:String) => {
     //when clicking print to pdf, send a print to pdf command to execute in the main process
     $('#print-pdf').click(() => {
         const title = document.getElementById('pdf-title').innerHTML; 
-        ipcRenderer.send('print-to-pdf', title)
+        ipcRenderer.send('print-to-pdf', title);
     });
 
+    //open print options modal on Options click
+    $('#print-settings').on('click', () => { 
+        showModal(id, 'print-options');
+    })
+
+    //when print event signals completion, remove the highlight from Print to PDF menu option
     ipcRenderer.on('print-done', () => {
         $('#print-pdf').removeClass('current-menu-item');
     });
 
+    feedbackEvent(); 
     highlightSelectedMenuItems();
 }
 
 //CHECKLIST MENU EVENTS
+
 export const loadChecklistMenuEvents = async (deployment:Deployment) => {
     
     //get id from deployment passed into function 
@@ -86,11 +96,13 @@ export const loadChecklistMenuEvents = async (deployment:Deployment) => {
             name: deployment.name,
             currentPhaseId: phaseId, //update phaseId
             integrator: deployment.integrator,
-            productTier: deployment.productTier
+            productTier: deployment.productTier,
+            headerImage: deployment.headerImage,
+            printSignoff: deployment.printSignoff
         }
         dbPromise()
             .then(async db => {
-                await updateDeployment(deployment, db); 
+                await updateDeployment(deployment, db);
                 await renderChecklist(id); 
             })
     });
@@ -109,6 +121,7 @@ export const loadChecklistMenuEvents = async (deployment:Deployment) => {
         await renderPrintMenu(id, "checklist"); 
     })
 
+    feedbackEvent(); 
     highlightSelectedMenuItems();
 }
 
@@ -123,17 +136,20 @@ const highlightSelectedMenuItems = () => {
 
 const exportDeploymentData = async (deployment:Deployment) => {
 
-    let itemData = await generateItemDataForExport(deployment.id.toString());
+    const itemData = await generateItemDataForExport(deployment.id.toString());
+    const exportName = `${deployment.name} (Import)`
 
     let data = `
         { "deployment":
             {
-                "name": ${JSON.stringify(deployment.name)},
+                "name": ${JSON.stringify(exportName)},
                 "productTier": ${JSON.stringify(deployment.productTier)},
                 "integrator": ${JSON.stringify(deployment.integrator)},
                 "currentPhaseId": ${JSON.stringify(deployment.currentPhaseId)},
                 "dateCreated": ${JSON.stringify(deployment.dateCreated)},
-                "dateModified": ${JSON.stringify(deployment.dateModified)}
+                "dateModified": ${JSON.stringify(deployment.dateModified)},
+                "printSignoff":  ${JSON.stringify(deployment.printSignoff)},
+                "headerImage":  ${deployment.headerImage == null ? null : JSON.stringify(deployment.headerImage)}
             },
 
         "deploymentItems": [
@@ -141,10 +157,15 @@ const exportDeploymentData = async (deployment:Deployment) => {
             ]
         }
     `
+
+    //debug
+    //console.log(data);
+
     const encryptedData = encryptDecryptData(data, 'encrypt'); 
     ipcRenderer.send('export-data', encryptedData, deployment.name);
     ipcRenderer.on('export-done', () => {
-        renderChecklistMenu(deployment.id.toString());
+        $('.menu-item').removeClass('current-menu-item');
+        $('.menu-list').find(`[data-id='${deployment.currentPhaseId}']`).addClass('current-menu-item');
     })
     
 }
@@ -161,14 +182,22 @@ const generateItemDataForExport = (id:string) => {
                 {
                     "stepId": ${JSON.stringify(item.stepId)},
                     "itemState": ${JSON.stringify(item.itemState)},
-                    "itegrator": ${JSON.stringify(item.integrator)},
-                    "date": ${JSON.stringify(item.date)},
-                    "note": ${JSON.stringify(item.note)},
-                    "noteDate": ${JSON.stringify(item.noteDate)},
-                    "noteIntegrator": ${JSON.stringify(item.noteIntegrator)}
+                    "itegrator": ${item.integrator == null ? null : JSON.stringify(item.integrator)},
+                    "date": ${item.date == null ? null : JSON.stringify(item.date)},
+                    "note": ${item.note == null ? null : JSON.stringify(item.note)},
+                    "noteDate": ${item.noteDate == null ? null : JSON.stringify(item.noteDate)},
+                    "noteIntegrator": ${item.noteIntegrator == null ? null : JSON.stringify(item.noteIntegrator)}
                 }${index === (array.length - 1) ? '' : ','}
             `
         })
         return itemData;
     })
+}
+
+const feedbackEvent = () => {
+
+    $('#menu_feedback').on('click', function(){
+        shell.openExternal('mailto:deploymentfeedback@milestone.dk?subject=Milestone%20Deployment%20Assistant%20Feedback');
+    })
+
 }

@@ -10,7 +10,7 @@ export const addNewDeploymentEvents = () => {
     const name = document.getElementById('deploymentName') as HTMLInputElement;
     const integrator = document.getElementById('integratorName') as HTMLInputElement;
 
-    $('input').on('change', () => {
+    $('input').on('keyup change', () => {
         const product = document.querySelector('input[name="radio"]:checked') as HTMLInputElement;
         if (product != null && name.value.length >= 1 && integrator.value.length >= 1) {
             $('#newDeploymentBtn').removeAttr('disabled');    
@@ -42,7 +42,9 @@ const createDeployment = async (product: string, name: string, integrator: strin
         name: name,
         currentPhaseId: 1,
         integrator: integrator,
-        productTier: ProductTier[productTier as keyof typeof ProductTier]
+        productTier: ProductTier[productTier as keyof typeof ProductTier],
+        headerImage: null, 
+        printSignoff: false
     };
 
     //open the indexedDB

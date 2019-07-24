@@ -11,7 +11,7 @@ export interface MilestoneDB extends DBSchema {
     value: Deployment,
     indexes: {
       'dateModified': Date
-    };
+    }
   },
   'phases': {
     key: number,
@@ -19,7 +19,7 @@ export interface MilestoneDB extends DBSchema {
     indexes: {
       'title': string
     }
-  }
+  },
   'tasks': {
     key: number,
     value: Task,
@@ -33,7 +33,7 @@ export interface MilestoneDB extends DBSchema {
     indexes: {
       'taskId': number
     }
-  }
+  },
   'deployment-items':{
     key: number,
     value: DeploymentItem,

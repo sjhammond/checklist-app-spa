@@ -8,4 +8,6 @@ export class Deployment {
   currentPhaseId: number;
   dateCreated: Date;
   dateModified: Date;
+  headerImage: string;
+  printSignoff: boolean;
 }

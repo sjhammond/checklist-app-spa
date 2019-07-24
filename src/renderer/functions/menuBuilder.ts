@@ -18,13 +18,19 @@ export const renderMainMenu = () => {
     menu.innerHTML = `
         <div id="inner-menu">
             <ul class="menu-list" id="main-menu">
-                <li class="menu-item" id="menu_new-deployment">New Deployment</li>
-                <li class="menu-item" id="menu_deployment-list">Load Deployment</li>
-                <li class="menu-item" id="menu_deployment-import">Import Deployment</li>
-                <li class="menu-item" id="menu_about">About & Help</li>
+                <li class="menu-item" id="menu_new-deployment">New deployment</li>
+                <li class="menu-item" id="menu_deployment-list">Load deployment</li>
+                <li class="menu-item" id="menu_deployment-import">Import deployment</li>
+                <li class="menu-item" id="menu_about">About & help</li>
             </ul>
+            <span id="menu_feedback">
+                <svg id="feedback-mail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0z"/>
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                </svg>
+                Send Feedback
+            </span>
         </div>
-        <span id="menu_feedback">Send Feedback</span>
     `
     loadMainMenuEvents(); 
 }
@@ -54,7 +60,15 @@ export const renderPrintMenu = (id:string, context:String) => {
                         <li class="menu-item" id="print-pdf">Print to PDF</li>
                         <li class="menu-item" id="print-settings">Options</li>
                     </ul>
+                    <span id="menu_feedback">
+                        <svg id="feedback-mail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                        </svg>
+                        Send Feedback
+                    </span>
                 </div> 
+
             `
             loadPrintMenuEvents(deployment.id.toString(), context);
         });
@@ -101,10 +115,17 @@ export const renderChecklistMenu = (id:string) => {
                         .join('')
                         }
                     <li class="menu-subhead">Actions</li>
-                    <li class="menu-item" id="menu-edit">Edit Details</li>
-                    <li class="menu-item" id="menu-print">Print View</li>
-                    <li class="menu-item" id="menu-export">Export</li>
+                    <li class="menu-item" id="menu-edit">Edit details</li>
+                    <li class="menu-item" id="menu-print">Print view</li>
+                    <li class="menu-item" id="menu-export">Export data</li>
                 </ul>
+                <span id="menu_feedback">
+                    <svg id="feedback-mail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0z"/>
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                    </svg>
+                    Send Feedback
+                </span>
             </div> 
         `
         loadChecklistMenuEvents(deployment); 
@@ -146,15 +167,19 @@ const buildChecklistMenuItem = (deployment:Deployment, phase:Phase, tasks:Task[]
 }
 
 const showTopbar = (topbar:HTMLElement) => {
-
+    
     topbar.style.height = "32px";
     topbar.style.borderBottom = "1px solid #b0bdc6";
 
+    const menu = document.getElementById('menu');
+    menu.style.height = 'calc(100% - 32px)'
 }
 
 const hideTopbar = (topbar:HTMLElement) => {
 
+    const menu = document.getElementById('menu');
+    menu.style.height = '100%'
+
     topbar.style.height = "0";
     topbar.style.borderBottom = "none";
-
 }

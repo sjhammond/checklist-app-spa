@@ -3,7 +3,7 @@ import { dbPromise } from '../data/db';
 import { Deployment } from '../models/deployment';
 import { DeploymentImport } from '../models/deployment-import';
 import { DeploymentItem } from '../models/deployment-item';
-import { encryptDecryptData } from './helpers/encryption';
+import { encryptDecryptData } from './helpers/encryptDecryptData';
 
 export const addImportDeploymentEvents = () => {
     const fileInput = document.getElementById("select-file") as HTMLInputElement;
@@ -12,8 +12,8 @@ export const addImportDeploymentEvents = () => {
     $('form').submit(e => e.preventDefault());
 
     //when file upload completes, show filename in the custom field and enable the import button
-    $('#select-file').bind('change', function(){
-        if(fileInput.files.length > 0){
+    $('#select-file').bind('change', () => {
+        if(fileInput.files.length == 1){
             const fileName = fileInput.files[0].name; 
             $('#file-name').html(fileName);
              $('#importDeploymentBtn').removeAttr('disabled');
@@ -32,6 +32,10 @@ export const addImportDeploymentEvents = () => {
 
             try {
                 const decryptedData = encryptDecryptData(fr.result as string, 'decrypt');
+
+                //debug
+                //console.log(decryptedData);
+
                 const data:DeploymentImport = JSON.parse(decryptedData as string);
                 await importDeployment(data);
             } catch (error){
@@ -46,7 +50,7 @@ export const addImportDeploymentEvents = () => {
                 </span>
                 <div id="error_text"><em>${error}</em></div>
             `;
-
+            
             //clear the import file input and disbale the import button
             fileInput.value = null;
             $('#file-name').html(`<em>No file selected.</em>`);
@@ -67,7 +71,9 @@ const importDeployment = (data:DeploymentImport) => {
         name: data.deployment.name,
         currentPhaseId: data.deployment.currentPhaseId,
         integrator: data.deployment.integrator,
-        productTier: data.deployment.productTier
+        productTier: data.deployment.productTier,
+        headerImage: data.deployment.headerImage,
+        printSignoff: data.deployment.printSignoff
     };
 
     //open the indexedDB
@@ -96,10 +102,10 @@ const importDeployment = (data:DeploymentImport) => {
                 deploymentId: id,
                 stepId: item.stepId,
                 itemState: item.itemState,
-                integrator: item.itegrator,
+                integrator: (item.integrator == null ? null : item.integrator),
                 date: (item.date == null ? null : new Date(item.date)),
-                note: item.note,
-                noteIntegrator: item.noteIntegrator,
+                note: (item.note == null ? null : item.note),
+                noteIntegrator: (item.noteIntegrator == null ? null : item.noteIntegrator),
                 noteDate: (item.noteDate == null ? null : new Date(item.noteDate)) 
             }
 

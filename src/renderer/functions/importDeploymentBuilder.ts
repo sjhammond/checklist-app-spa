@@ -10,7 +10,7 @@ export const renderImportDeployment = () => {
     const main = document.getElementById('main-content')
     main.innerHTML = `
         <form id="import-deployment__form">
-            <h1 class="title">Import Deployment</h1>
+            <h1 class="title">Import deployment</h1>
             <span>Select a Milestone deployment data (.mddata) file to import:</span>
             <div id="select-file-container">
                 <label for="select-file" id="file-browser">Browse</label>

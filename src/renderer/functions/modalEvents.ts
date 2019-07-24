@@ -2,7 +2,7 @@ import $ from 'jquery'
 import { dbPromise } from '../data/db';
 import { renderDeploymentList } from './deploymentListBuilder';
 import { Deployment } from '../models/deployment';
-import { updateDeployment } from './helpers/dbFunctions';
+import { updateDeployment} from './helpers/dbFunctions';
 import { renderMainMenu, renderChecklistMenu } from './menuBuilder';
 import { renderChecklist } from './checklistBuilder';
 
@@ -11,36 +11,36 @@ import { renderChecklist } from './checklistBuilder';
 
 export const addDeleteModalEvents = (id: string) => {
 
-    //delete event
-    $('#modal__delete').click(async function () {
-        const modal = document.getElementById("modal");
+    const modal = document.getElementById("modal");
+
+    //click delete to delete deployment 
+    $('#modal__delete').click(async () => {
         await deleteDeployment(id);
         modal.style.display = 'none';
     })
 
     //close delete modal on cancel
-    $('#modal__cancel-delete, #modal-close').click(function () {
-        const modal = document.getElementById("modal");
-        modal.style.display = 'none';
-    })
+    $('#modal__cancel-delete, #modal-close').click(() => modal.style.display = 'none');
 }
 
 //EDIT MODAL EVENTS 
 
 export const addEditModalEvents = (deployment:Deployment, context:string) => {
+    
+    const modal = document.getElementById("modal");
+    const name = document.getElementById('edit__deployment-name') as HTMLInputElement;
+    const product = document.getElementById('edit__product') as HTMLSelectElement;
+    const integrator = document.getElementById('edit__integrator') as HTMLInputElement
+    
     //prevent form refresh
     $('form').submit(e => e.preventDefault());
 
-    //enable save button on change
-
+    //enable save button on field keyup or change
+    $('#edit__deployment-name,#edit__integrator').keyup(() => $('#modal__save-edit').removeAttr('disabled'));
+    $('#edit__product').change(() => $('#modal__save-edit').removeAttr('disabled')); 
 
     //update deployment info on save
-    $('#modal__save-edit').click(function() {
-        
-        const modal = document.getElementById("modal");
-        const name = document.getElementById('edit__deployment-name') as HTMLInputElement;
-        const product = document.getElementById('edit__product') as HTMLSelectElement;
-        const integrator = document.getElementById('edit__integrator') as HTMLInputElement;
+    $('#modal__save-edit').click(() => {
 
         const data = {
                 id: deployment.id,
@@ -49,7 +49,9 @@ export const addEditModalEvents = (deployment:Deployment, context:string) => {
                 integrator: integrator.value, //update
                 currentPhaseId: deployment.currentPhaseId,
                 dateCreated: deployment.dateCreated,
-                dateModified: deployment.dateModified   
+                dateModified: deployment.dateModified,
+                headerImage: deployment.headerImage,
+                printSignoff: deployment.printSignoff   
         }
 
         if(name.checkValidity() && integrator.checkValidity()){
@@ -71,9 +73,8 @@ export const addEditModalEvents = (deployment:Deployment, context:string) => {
     })
     
     //close edit modal on cancel
-    $('#modal__cancel-edit, #modal-close').click(function (e) {
+    $('#modal__cancel-edit, #modal-close').click(e => {
         e.preventDefault();
-        const modal = document.getElementById("modal");
         modal.style.display = 'none';
         if(context == "checklist"){
             renderChecklistMenu(deployment.id.toString());
@@ -81,6 +82,38 @@ export const addEditModalEvents = (deployment:Deployment, context:string) => {
     })
 
 }
+
+//PRINT MODAL EVENTS
+
+export const addPrintOptionsModalEvents = async (id:string) => {
+
+    const modal = document.getElementById("modal");
+    const fileInput = document.getElementById("image-upload") as HTMLInputElement; 
+
+    $('#image-upload').bind('change', async () => {
+        const file = fileInput.files[0];
+        const fr = new FileReader();
+        fr.onload = previewImageData; 
+        fr.readAsBinaryString(file); 
+        
+        async function previewImageData() {
+            const imgData = fr.result as string;
+            const imgPreview = document.getElementById('header-image-preview') as HTMLImageElement;
+            imgPreview.src = `data:${file.type};base64,${btoa(imgData)}`; 
+        }
+    })
+    
+    //prevent form refresh on submit
+    $('form').submit(e => e.preventDefault());
+
+    //close edit modal on cancel
+    $('#modal__cancel-edit, #modal-close').click(e => {
+        e.preventDefault();
+        modal.style.display = 'none';
+        $('#print-settings').removeClass('current-menu-item');
+    })
+}
+
 
 const deleteDeployment = (id: string) => {
     let deploymentId = parseInt(id);

@@ -8,7 +8,7 @@ import { Deployment } from "../models/deployment";
 import { Step } from "../models/step";
 import { DeploymentItem } from "../models/deployment-item";
 
-let deploymentData = '';
+
 let numberOfDeployments: number;
 
 export const renderDeploymentList = () => {
@@ -16,7 +16,7 @@ export const renderDeploymentList = () => {
     //reset scroll postiion of main-content component
     scrollToTop(); 
 
-    deploymentData = '';
+    let deploymentData = '';
     
     dbPromise().then(async db => {
         //get all deployment data
@@ -86,7 +86,7 @@ export const finalizeDeploymentList = (data: string): string => {
     if (numberOfDeployments > 0) {
         return `
             <div id="deployment-list">
-                    <h1 class="title"> Select a Deployment</h1>
+                    <h1 class="title"> Load deployment</h1>
                     <div id="deployment-list__body">
                         ${data}
                     </div>
@@ -95,7 +95,7 @@ export const finalizeDeploymentList = (data: string): string => {
     } else {
         return `
             <div id="no-deployments">
-                <h2>No deployments found.</h2> Select <b>New Deployment</b> to get started.
+                <h2>No deployments found.</h2> Select <b>New deployment</b> to get started.
             </div>
         `
     }

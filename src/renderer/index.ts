@@ -32,7 +32,7 @@ myApp.innerHTML = `
                         <rect x="265.75" y="665.97" width="54.67" height="54.67" transform="translate(321.65 -658.83) rotate(45)"/>
                     </svg>
                 </span>
-                <span id="splash-title">Deployment Assistant</span>
+                <span id="splash-title">Deployment assistant</span>
             </div>
             <div id="copyright">&copy; 2019 Milestone Systems, Inc.</div>
             <div id="version">Version ${remote.app.getVersion()}</div>

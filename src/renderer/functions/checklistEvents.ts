@@ -43,7 +43,7 @@ export const addCompleteStepEvents = async (id:string, db: IDBPDatabase<Mileston
             itemState: checkboxStatus,
             integrator: deployment.integrator,
             date: new Date(),
-            note: encodeURIComponent(item.note),
+            note: item.note == null ? null : encodeURIComponent(item.note),
             noteDate: item.noteDate,
             noteIntegrator: item.noteIntegrator
         }
@@ -100,7 +100,7 @@ export const addDisableStepEvents = async (id: string, db: IDBPDatabase<Mileston
             itemState: stepStatus, //update
             integrator: deployment.integrator, //update
             date: new Date(), //update
-            note: encodeURIComponent(item.note),
+            note: item.note == null ? null : encodeURIComponent(item.note),
             noteDate: item.noteDate,
             noteIntegrator: item.noteIntegrator
         }
@@ -132,6 +132,11 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
         saveButton.removeAttr('disabled');
     });
 
+    $('.close-note-btn').click(function(){
+        $(this).parent().parent().parent().find('.note-container').slideToggle('fast');
+        $(this).parent().parent().parent().find('.svg-note-icon').toggleClass('active');
+    })
+
     $('button[id$="__save-note"]').click(async function (e) {
         
         //get stepId from event target
@@ -151,7 +156,7 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
         const stepNote = noteInput.value; 
 
         //if the note is different, save the updated note
-        if (item.note == null || stepNote != item.note){
+        if (stepNote != item.note){
         
             //define the data to put to the db
             //pass though all the item attributes that are unchanged
@@ -162,7 +167,7 @@ export const addNoteEvents = async (id:string, db: IDBPDatabase<MilestoneDB>) =>
                 itemState: item.itemState,
                 integrator: item.integrator,
                 date: item.date,
-                note: encodeURIComponent(stepNote), //update
+                note: stepNote == null || stepNote == '' ? null : encodeURIComponent(stepNote), //update
                 noteDate: new Date(), //update
                 noteIntegrator: deployment.integrator //update
             };

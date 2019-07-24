@@ -10,7 +10,7 @@ export const renderCreateDeployment = () => {
     const main = document.getElementById('main-content')
     main.innerHTML = `
         <form id="new-deployment__form">
-            <h1 class="title">New Deployment</h1>
+            <h1 class="title">New deployment</h1>
             <span class="select-product">Select your XProtect&reg; product:</span>
             <div class="radio-tile-group">
                 <div class="input-container">

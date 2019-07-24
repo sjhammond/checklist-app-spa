@@ -46,7 +46,9 @@ export const updateDeploymentModifiedDate = (deployment: Deployment, db: IDBPDat
         integrator: deployment.integrator,
         currentPhaseId: deployment.currentPhaseId,
         dateCreated: deployment.dateCreated,
-        dateModified: new Date() //update date
+        dateModified: new Date(), //update date
+        headerImage: deployment.headerImage,
+        printSignoff: deployment.printSignoff
     }
 
     return db

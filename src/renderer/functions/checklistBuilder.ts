@@ -11,8 +11,8 @@ import { getDeployment, getItemsByDeploymentId } from "./helpers/dbFunctions";
 import { addCompleteStepEvents, addDisableStepEvents, addNoteEvents, progressBarEvents } from "./checklistEvents";
 import { includeHTML } from "./helpers/includeHtml";
 import { toggleInfo } from "./helpers/toggleInfo";
-import { transformLinks } from "./helpers/transformLinks";
-import { loadInfoContent } from "./helpers/loadInfoContent";
+import { openLinksExternally } from "./helpers/openLinksExternally";
+import { createStaticPath } from "./helpers/createStaticPath";
 import { scrollToTop } from "./helpers/scrollToTop";
 
 export const renderChecklist = (id:string) => {
@@ -20,6 +20,7 @@ export const renderChecklist = (id:string) => {
     let deployment: Deployment;
     let mainContent = '';
     let dbContext: IDBPDatabase<MilestoneDB>;
+    let taskCount: string; 
 
     //reset scroll postiion of main-content component
     scrollToTop(); 
@@ -55,8 +56,7 @@ export const renderChecklist = (id:string) => {
 
         //set task number equal to the number of tasks in previous phases
         tasksForNumbering = tasksForNumbering.filter(task => task.phaseId < deployment.currentPhaseId)
-        const taskCount = tasksForNumbering.length.toString(); 
-        document.getElementById('main-content').style.setProperty("--taskNumber", taskCount);
+        taskCount = tasksForNumbering.length.toString(); 
 
         //get the deployment items for this deployment
         const items = await getItemsByDeploymentId(id, db);
@@ -78,6 +78,7 @@ export const renderChecklist = (id:string) => {
 
     }).then(mainContent => {
         //display phase title and list
+        document.getElementById('main-content').style.setProperty("--taskNumber", taskCount);
         document.getElementById('main-content').innerHTML = mainContent;
 
     }).then(() => {
@@ -90,7 +91,7 @@ export const renderChecklist = (id:string) => {
         //load helper functions
         includeHTML();
         toggleInfo();
-        transformLinks();
+        openLinksExternally();
     });
 }
 
@@ -162,12 +163,13 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
                 <textarea class="note-field" rows="6" cols="1" maxlength="1000" id='step${step.id}__note' name='step${step.id}__note' data-step-id='${step.id}'>${item.note == null || item.note == '' ? '' : decodeURIComponent(item.note)}</textarea>
                 <div class="note-controls">
                     <span class="status" id='step${step.id}__note-status'>${buildNoteStatus(item)}</span>
+                    <button class="close-note-btn" type="button">Close</button>
                     <button class="save-note-btn" id="step${step.id}__save-note" type="button" data-step-id="${step.id}" disabled>Save Note</button>
                 </div>
             </div>
             <div class='info-container'>
                 <span class="status" id='step${step.id}__status'>${buildStatus(item)}</span>
-                <div class='info' include-html='${loadInfoContent(step.infoPath)}'></div>
+                <div class='info' include-html='${createStaticPath(`./info_content/${step.infoPath}.html`)}'></div>
             </div>
         </li>
     `

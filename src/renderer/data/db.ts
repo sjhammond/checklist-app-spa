@@ -58,7 +58,6 @@ export const dbPromise = async () => openDB<MilestoneDB>('appDB', 1, {
         unique: false
       });
     }
-
   }
 }).then(async appDB => {
 
