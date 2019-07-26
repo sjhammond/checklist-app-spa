@@ -51,14 +51,14 @@ export const loadPrintMenuEvents = (id:string, context:String) => {
 
     //when clicking print to pdf, send a print to pdf command to execute in the main process
     $('#print-pdf').click(() => {
-        const title = document.getElementById('pdf-title').innerHTML; 
-        ipcRenderer.send('print-to-pdf', title);
+            const title = document.getElementById('pdf-title').innerHTML; 
+            ipcRenderer.send('print-to-pdf', title);
     });
 
     //open print options modal on Options click
     $('#print-settings').on('click', () => { 
         showModal(id, 'print-options');
-    })
+    });
 
     //when print event signals completion, remove the highlight from Print to PDF menu option
     ipcRenderer.on('print-done', () => {

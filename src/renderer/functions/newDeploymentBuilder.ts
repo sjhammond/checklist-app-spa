@@ -98,7 +98,7 @@ export const renderCreateDeployment = () => {
             </div>
             <div class="text-field">
                 <span>Name the integrator working on this project:</span>
-                <input id="integratorName" type="text" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?\']+"/>
+                <input id="integratorName" type="text" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+"/>
             </div>
             <button id="newDeploymentBtn" class="primary-btn" type="submit" disabled>Create Deployment</button>
         </form>

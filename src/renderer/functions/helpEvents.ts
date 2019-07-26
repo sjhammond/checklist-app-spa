@@ -1,8 +1,10 @@
 import $ from 'jquery'
+import { includeHTML } from './helpers/includeHtml';
 
 export const loadHelpEvents = () => {
 
     $('.help-content').hide()
+    includeHTML();
 
     //toggle more information when clicking the "more info" icon
     $('.checklist-item__expand').on('click', function () {

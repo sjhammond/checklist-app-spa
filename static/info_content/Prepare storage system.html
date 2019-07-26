@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>4A. Prepare storage system</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">4A. Prepare storage system</h3>
+        <p>If you will be using RAID on your storage system, make sure it is set to a RAID stripe of 512kB or larger. Using a smaller block size may result in not getting the optimal performance out of the RAID system.</p>
+        <p>By default, Windows formats an NTFS disk with a 4 kB block size. For best performance, make sure your storage is formatted with NTFS 64 kB block size, regardless of the use of RAID and JBOD.</p>
+        <p>If you will be recording to a storage system running RAID 5 or RAID 6, you should take particular care to ensure the storage system has sufficient performance to meet the worst-case scenario of recording and playback while the RAID is recovering from a disk failure (rebuilding the RAID).</p>
+        <p>If the storage is intended for archiving only, it must have sufficient performance so that the recordings can be still transferred while the RAID is recovering from a disk failure. Milestone generally recommends you use archiving only if you will be storing the long-term storage on a physically different storage system than the recording database (for example, on a NAS system).</p>
+        <p class="Notetext"><span class="span_3">Note:</span> For performance and disk wear reasons, Milestone recommends you do not record or archive to the same physical disk that is used for the operating system (Windows), with the exception of high-performance, multi-disk RAID 10 systems. </p>
+        <p class="Notetext"><span class="span_3">Note: </span>For optimal performance, Milestone recommends you disable Windows indexing and disk compression on all video storage drives, as well as the drive containing the SQL database.</p>
+        <p class="Notetext"><span class="span_3">Note: </span>Milestone does not recommend using file systems other than NTFS, and explicitly does not recommend using Microsoft Resilient File System (ReFS) for the storage system at this time as it may result in degraded recording and playback performance over time.</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; About storage and archiving</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://force.milestonesys.com/support/articles/en_US/Hotfix/Media-overflow-error-messages-in-XProtect-Corporate-System-Log">KB000001845</a> (‘Media overflow’ error messages in XProtect<sup>®</sup> Corporate System Log)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; First time use</li>
+        </ul>
+    </body>
+</html>

@@ -18,8 +18,8 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                 <div id="modal__title">Confirm Delete</div>
                 <div id="modal__message">Are you sure you want to delete this deployment?</div>
                 <div id="modal__button-container">
-                    <button id="modal__delete">Delete</button>
-                    <button id="modal__cancel-delete">Cancel</button>
+                    <button class="modal-save" id="modal__delete">Delete</button>
+                    <button class="modal-cancel" id="modal__cancel-delete">Cancel</button>
                 </div>
             `
             //show the modal
@@ -56,8 +56,8 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                             <input type="text" id="edit__integrator" value="${deployment.integrator}" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+"/>
                         </div>
                         <div id="modal__button-container">
-                            <button id="modal__save-edit" type="submit" disabled>Save Changes</button>
-                            <button id="modal__cancel-edit">Cancel</button>
+                            <button class="modal-save" id="modal__save-edit" type="submit" disabled>Save Changes</button>
+                            <button class="modal-cancel" id="modal__cancel-edit">Cancel</button>
                         </div>
                     </form>
                 `
@@ -86,7 +86,7 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                                     <img id="header-image-preview" src=${deployment.headerImage != null ? deployment.headerImage : createStaticPath('./images/logo.png')}></img>
                                 </div>
                                 <input type="file" id="image-upload" accept="image/png,image/jpeg"></input>
-                                <label for="image-upload" id="custom-upload-btn">Select Image (.jpeg, .png)</label>
+                                <label for="image-upload" class="modal-save" id="custom-upload-btn">Select Image (.jpeg, .png)</label>
                                 <button id="reset-image">Reset to Default</button>
                             </div>
                             <div id="modal__signoff">
@@ -95,8 +95,8 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                                 <span>Include customer sign-off page</span> 
                             </div>
                             <div id="modal__button-container">
-                                <button id="modal__save-edit" type="submit">Save Changes</button>
-                                <button id="modal__cancel-edit">Cancel</button>
+                                <button class="modal-save" id="modal__save-options" type="submit" disabled>Save Changes</button>
+                                <button class="modal-cancel" id="modal__cancel-options">Cancel</button>
                             </div>
                         </form>
                     `

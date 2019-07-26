@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>5C. Run the Management Server installer</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">5C. </span>Run the Management Server installer</h3>
+        <p class="Bulletlistheading">When you run the installer on the management server, you have three options:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Single Computer</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Distributed</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Custom</li>
+        </ul>
+        <p class="Bulletlistheading">Single Computer:</p>
+        <p>Choose <span class="span_1">Single Computer</span> only if you are installing a single computer system or a small multi-server system where the management server will double as a Recording Server (this is generally not recommended). The installer will install SQL Express and give you the option to run the configuration wizard to set up a basic working system (first time installations only).</p>
+        <p class="Bulletlistheading">Distributed or Custom:</p>
+        <p>If you are installing the Management Server in a multi-server system, the best option depends on whether you will need to run the Management Server service under a specific user account or if it is sufficient to run under the NETWORK SERVICE system user account.</p>
+        <p>Choose <span class="span_1">Distributed</span> to install the Management Server to run under the NETWORK SERVICE system user account in a multi-server system.</p>
+        <p class="Bulletlistheading">This is generally recommended if:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The servers are part of a Windows domain.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The servers are running in a Workgroup environment, and the product version you are installing does not include the System Monitor or Customer Dashboard features—or this installation will not be using those functions—and none of the situations described under the Custom option apply.</li>
+        </ul>
+        <p>Choose <span class="span_1">Custom</span> to install the Management Server to run under a specific user account in a multi-server system.</p>
+        <p class="Bulletlistheading">This is the required option if any of these situations apply:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The servers are running in a Workgroup environment and you will be using the System Monitor or Customer Dashboard functions.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The servers are running in a Workgroup environment and you will be using Failover Recording Servers.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">You are using an existing SQL server on another server and need the Management Server service to run under a specific user to access the SQL server.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">The system will be part of a Milestone Federated Architecture (MFA) system.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">If any of the situations above may apply in the future.</li>
+        </ul>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Installation method</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Install the system</li>
+        </ul>
+        <p class="Bulletlistheading">&#160;</p>
+    </body>
+</html>

@@ -15,9 +15,7 @@ export const dbPromise = async () => openDB<MilestoneDB>('appDB', 1, {
       appDB.createObjectStore('deployments', {
         keyPath: 'id',
         autoIncrement: true
-      }).createIndex('dateModified', 'dateModified', {
-        unique: false
-      })
+      }).createIndex('dateModified', 'dateModified', {unique: false})
     }
 
     if(objectStoreNames.every(x => x !== 'deployment-items')) {
@@ -26,9 +24,7 @@ export const dbPromise = async () => openDB<MilestoneDB>('appDB', 1, {
         keyPath: 'id',
         autoIncrement: true
       }); 
-      deploymentStore.createIndex('stepId', 'stepId', {
-        unique: false
-      });
+      deploymentStore.createIndex('stepId', 'stepId', {unique: false});
       deploymentStore.createIndex('deploymentId', 'deploymentId', {unique: false});
     }
 
@@ -36,27 +32,21 @@ export const dbPromise = async () => openDB<MilestoneDB>('appDB', 1, {
       appDB.createObjectStore('phases', {
         keyPath: 'id',
         autoIncrement: true
-      }).createIndex('title', 'title', {
-        unique: true
-      });
+      }).createIndex('title', 'title', {unique: true});
     }
 
     if (objectStoreNames.every(x => x !== 'tasks')) {
       appDB.createObjectStore('tasks', {
         keyPath: 'id',
         autoIncrement: true
-      }).createIndex('phaseId', 'phaseId', {
-        unique: false
-      });
+      }).createIndex('phaseId', 'phaseId', {unique: false});
     }
 
     if (objectStoreNames.every(x => x !== 'steps')) {
       appDB.createObjectStore('steps', {
         keyPath: 'id',
         autoIncrement: true
-      }).createIndex('taskId', 'taskId', {
-        unique: false
-      });
+      }).createIndex('taskId', 'taskId', {unique: false});
     }
   }
 }).then(async appDB => {

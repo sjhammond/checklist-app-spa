@@ -1,5 +1,6 @@
 import { loadHelpEvents } from "./helpEvents";
 import { scrollToTop } from "./helpers/scrollToTop";
+import { createStaticPath } from "./helpers/createStaticPath";
 
 export const renderHelpPage = () => {
 
@@ -51,10 +52,33 @@ export const renderHelpPage = () => {
                 </button>
                 <div class='help-topic__title'>Accessing additonal resources</div>
             </div>
-            <div class='help-content'>
-                Test
+            <div class='help-content last-help-item'>
+                <div>
+                    <p>The task descriptions in this application are intended to be brief yet comprehensive. To accomplish this, most tasks include a list of additional resources for more in-depth information and background.</p>
+                    <p class="Bulletlistheading">There are four categories of additional resources: </p>
+                    <ul class="ul_2">
+                        <li class="ListParagraph" value="1">Milestone manuals and guides</li>
+                    </ul>
+                    <ul class="ul_2">
+                        <li class="ListParagraph" value="1">Milestone whitepapers and other Milestone documents</li>
+                    </ul>
+                    <ul class="ul_2">
+                        <li class="ListParagraph" value="1">Milestone eLearning courses</li>
+                    </ul>
+                    <ul class="ul_2">
+                        <li class="ListParagraph" value="1">Non-Milestone resources</li>
+                    </ul>
+                    <p>Refer to the descriptions below for details on how to access each of these resources.</p>        
+                </div>
+                <div class='help-resource-heading'>A. Milestone Manuals and Guides</div>
+                <div class='info' include-html="${createStaticPath('./info_content/Milestone manuals and guides.html')}"></div>
+                <div class='help-resource-heading'>B. Milestone whitepapers and other Milestone documents</div>
+                <div class='info' include-html="${createStaticPath('./info_content/Milestone whitepapers and other Milestone documents.html')}"></div>
+                <div class='help-resource-heading'>C. Milestone eLearning courses</div>
+                <div class='info' include-html="${createStaticPath('./info_content/Milestone eLearning courses.html')}"></div>
+                <div class='help-resource-heading'>D. Non-Milestone resources</div>
+                <div class='info' include-html="${createStaticPath('./info_content/Non-Milestone resources.html')}"></div>
             </div>
-        </div>
         </div>
     `
     loadHelpEvents();

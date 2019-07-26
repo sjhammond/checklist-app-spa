@@ -35,7 +35,7 @@ export const Tasks: Task[] = [
   {
     id: 6,
     phaseId: 1,
-    title: 'Install Milestone Mobile Server',
+    title: 'Install XPrtoect Mobile Server',
     productTier: ProductTier.Essential
   },
   {

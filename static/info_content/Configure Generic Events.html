@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>19B. Configure Generic Events</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">19<span class="span_2">B. </span>Configure Generic Events</h3>
+        <p>Generic events allow you to trigger actions in the XProtect VMS by sending simple strings from any server, client, or device via the IP network to the XProtect Event Server (usually installed on the management server).</p>
+        <h4 class="Heading4">Configure Generic Event data settings if not done under 10I</h4>
+        <p>To use Generic Events, you must enable Generic Events, specify event sources, and verify Generic Event settings under Tools &gt; Options &gt; Generic Events.</p>
+        <h4 class="Heading4">Create and define Generic Event</h4>
+        <p>Create and define Generic Events as necessary on the Rules and Events &gt; Generic Events node.</p>
+        <p>Verify if the expression matches the event string the external system is sending. If the system sends out several similar strings, verify that only the intended strings and string combinations give a positive match.</p>
+        <p>To determine the order in which the XProtect VMS searches for a match, assign the Generic Event a priority if you have multiple Generic Events and an event string is capable of triggering more than one of them. A higher number equals a higher priority.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> If there is no risk that a Generic Event may be triggered by the wrong string, there is no need to change the priority (leave it at the default value of 1).</p>
+        <p class="Notetext">There is no benefit or performance improvement of any kind in assigning a higher priority in those cases.</p>
+        <h4 class="Heading4">Test Generic Event</h4>
+        <p>Test the Generic Event.</p>
+        <p>There are many ways of detecting when a Generic Event has been recognized. For testing, the two easiest ways are:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Checking the Audit Log. This requires you to have User Access Logging enabled for the Audit Log.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph" value="1">Checking the Rule Log. This requires you to define a rule that activates when the Generic Event is received and makes an entry in the rule log.</li>
+        </ul>
+        <p>If you don’t have access to the external system that will generate the Generic Event string, you can test the Generic Event from a command prompt by opening a Telnet connection to the Event Server on the port used for the Generic Event.</p>
+        <p>Once the connection is established, you can type or paste in the event string. Note that, depending on the configuration on the Tools &gt; Options &gt; Generic Event tab, you may receive an echo (so each character is shown double) or no feedback at all (no characters show as you type). You must abstract from this and simply type the string as it would be sent. Close the command prompt once the string is complete to force the connection shut.</p>
+        <p>EXAMPLE:</p>
+        <p>Expression: "Temperature 1 Exceeded" AND "Temperature 2 Exceeded"</p>
+        <p>
+            <img src="../images/Configure Generic Events.png" style="width: 677;height: 97;" class="img_2" />
+        </p>
+        <p>
+            <img src="../images/Configure Generic Events_1.png" style="width: 677;height: 81;" class="img_2" />
+        </p>
+        <p class="Notetext"><span class="span_3">Note:</span> The Generic Event will trigger ONLY when the connection is closed (in this example, click the red X).</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Make sure the server/PC you are sending from is allowed as a Generic Event source in the Tools &gt; Options &gt; Generic Event tab.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Telnet is usually disabled in Windows by default. You must turn on the Telnet Client feature on the PC you are testing from to use this test method.</p>
+        <p class="Seealso">See also: <a href="Run the Management Server installer.html" class="MCXref_ParaTextOnly_0">5C. Run the Management Server installer</a>, <a href="Generic Event settings.html" class="MCXref_ParaTextOnly_0">10L. Generic Event settings</a>, <a href="Configure Log Server settings.html" class="MCXref_ParaTextOnly_0">10E. Configure Log Server settings</a>, <a href="../Tasks/Create rules.html" class="MCXref_ParaTextOnly_0">21. Create rules</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Generic events</li>
+        </ul>
+    </body>
+</html>

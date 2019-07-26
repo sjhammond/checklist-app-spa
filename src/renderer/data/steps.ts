@@ -7,7 +7,7 @@ export const Steps: Step[] = [
     taskId: 1,
     title: "Confirm passwords and settings on existing network and server equipment",
     productTier: ProductTier.Essential,
-    infoPath: "Confirm_passwords_and_settings_on_existing_network_and_server_equipment"
+    infoPath: "Confirm passwords and settings on existing network and server equipment"
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ export const Steps: Step[] = [
     taskId: 1,
     title: 'Verify Microsoft SQL server access and permissions',
     productTier: ProductTier.Professional,
-    infoPath: 'VerifyMicrosoftSQLserveraccessandpermissions'
+    infoPath: 'Verify Microsoft SQL server access and permissions'
   },
   {
     id: 9,
@@ -196,1000 +196,993 @@ export const Steps: Step[] = [
     taskId: 5,
     title: 'Prepare for installation',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Prepare for installation'
   },
   {
     id: 29,
     taskId: 5,
     title: 'Run the Management Server installer',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Run the Management Server installer'
   },
   {
     id: 30,
     taskId: 5,
     title: 'Verify the Management Server is running',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify the server is running (Mgmt Svr)'
   },
   {
     id: 31,
     taskId: 6,
     title: 'Download and run Milestone Mobile server software from the Management Server',
     productTier: ProductTier.Professional,
-    infoPath: ''
+    infoPath: 'Download and run XProtect Moble server software from the Management Server'
   },
   {
     id: 32,
     taskId: 6,
     title: 'Specify URL and credentials to connect to the Management Server',
     productTier: ProductTier.Professional,
-    infoPath: ''
+    infoPath: 'Specify URL and credentials to connect to the Management Server'
   },
   {
     id: 33,
     taskId: 6,
     title: 'Verify the Mobile Server is running',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify the server is running (Mobile Svr)'
   },
   {
     id: 34,
     taskId: 7,
     title: 'Prepare for installation',
     productTier: ProductTier.Professional,
-    infoPath: ''
+    infoPath: 'Prepare for installation (Rec Svr)'
   },
   {
     id: 35,
     taskId: 7,
     title: 'Download and run the XProtect Recording Server installer from the Management Server',
     productTier: ProductTier.Professional,
-    infoPath: ''
+    infoPath: 'Download and run the XProtect Recording Server installer from the Mgmt Server (Rec Svr)'
   },
   {
     id: 36,
     taskId: 7,
     title: 'Verify the server is running',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify the server is running (Rec Svr)'
   },
   {
     id: 37,
     taskId: 7,
     title: 'Install a different device pack',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Install a different device pack (Rec Svr)'
   },
   {
     id: 38,
     taskId: 7,
     title: 'Add anti-virus scan exceptions',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Add anti virus scan exceptions (Rec Svr)'
   },
   {
     id: 39,
     taskId: 8,
     title: 'Prepare for installation',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Prepare for installation (FO Svr)'
   },
   {
     id: 40,
     taskId: 8,
     title: 'Download and run the XProtect Recording Server installer from the Management Server',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Download and run the XProtect Recording Server installer from the Mgmt Server (FO Svr)'
   },
   {
     id: 41,
     taskId: 8,
     title: 'Verify the server is running',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Verify the server is running (Rec Svr)'
   },
   {
     id: 42,
     taskId: 8,
     title: 'Install a different device pack',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Install a different device pack (Rec Svr)'
   },
   {
     id: 43,
     taskId: 8,
     title: 'Add anti-virus scan exceptions',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Add anti virus scan exceptions (FO Svr)'
   },
   {
     id: 44,
     taskId: 9,
     title: 'Prepare for installation',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Prepare for installation (Mgmt Client)'
   },
   {
     id: 45,
     taskId: 9,
     title: 'Download and run the Management Client software from the Management Server',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Download and run the Management Client software from the Mgmt Server (Mgmt Client)'
   },
   {
     id: 46,
     taskId: 10,
     title: 'Log in with the Management Client',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Log in with the Management Client'
   },
   {
     id: 47,
     taskId: 10,
     title: 'Basic authentication',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Basic authentication'
   },
   {
     id: 48,
     taskId: 10,
     title: 'Configure Management Client behavior',
     productTier: ProductTier.Professional,
-    infoPath: ''
+    infoPath: 'Configure Management Client behavior'
   },
   {
     id: 49,
     taskId: 10,
     title: 'Configure Recording Server timeout settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure Recording Server timeout settings'
   },
   {
     id: 50,
     taskId: 10,
     title: 'Configure Log Server settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure Log Server settings'
   },
   {
     id: 51,
     taskId: 10,
     title: 'Configure email notification settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure email notification settings'
   },
   {
     id: 52,
     taskId: 10,
     title: 'Verify bookmark default behavior',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify bookmark default behavior'
   },
   {
     id: 53,
     taskId: 10,
     title: 'Create Evidence Lock profiles',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Create Evidence Lock profiles'
   },
   {
     id: 54,
     taskId: 10,
     title: 'Add Audio Messages',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Add Audio Messages'
   },
   {
     id: 55,
     taskId: 10,
     title: 'Configure Customer Dashboard connectivity',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Configure Customer Dashboard connectivity'
   },
   {
     id: 56,
     taskId: 10,
     title: 'Configure alarm and event settings',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Configure alarm and event settings'
   },
   {
     id: 57,
     taskId: 10,
     title: 'Generic Event settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Generic Event settings'
   },
   {
     id: 58,
     taskId: 11,
     title: 'Review license information',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Review license information'
   },
   {
     id: 59,
     taskId: 11,
     title: 'Activate license',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Activate license (Lic Site)'
   },
   {
     id: 60,
     taskId: 11,
     title: 'Enter and verify the site information',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Enter and verify the site information'
   },
   {
     id: 61,
     taskId: 12,
     title: 'Define failover servers',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Define failover servers'
   },
   {
     id: 62,
     taskId: 12,
     title: 'Review and update recording server information',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Review and update recording server information'
   },  
   {
     id: 63,
     taskId: 12,
     title: 'Configure Recording Server storage settings',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Configure Recording Server storage settings'
   },
   {
     id: 64,
     taskId: 12,
     title: 'Configure archiving',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Configure archiving'
   },
   {
     id: 65,
     taskId: 12,
     title: 'Assign Failover Servers to Recording Servers',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Assign Failover Servers to Recording Servers'
   },
   {
     id: 66,
     taskId: 13,
     title: 'Add and name hardware devices',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Add and name hardware devices'
   },
   {
     id: 67,
     taskId: 13,
     title: 'Disable all unused encoder video channels',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Disable all unused encoder video channels'
   },
   {
     id: 68,
     taskId: 14,
     title: 'Name hardware devices',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Name hardware devices'
   },
   {
     id: 69,
     taskId: 14,
     title: 'Name cameras',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Name cameras'
   },
   {
     id: 70,
     taskId: 14,
     title: 'Name microphones and speakers',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Name microphones and speakers'
   },
   {
     id: 71,
     taskId: 14,
     title: 'Name inputs and outputs',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Name inputs and outputs'
   },
   {
     id: 72,
     taskId: 14,
     title: 'Name metadata channels',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Name metadata channels'
   },
   {
     id: 73,
     taskId: 14,
     title: 'Disable unused devices',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Disable unused devices'
   },
   {
     id: 74,
     taskId: 14,
     title: 'Create additional camera, microphone, speaker, input, output, and metadata device groups',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create additional camera microphone speaker input output and metadata device'
   },
   {
     id: 75,
     taskId: 14,
     title: 'Add devices to the relevant groups',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Add devices to the relevant groups'
   },
   {
     id: 76,
     taskId: 15,
     title: 'Review and update device information',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Review and update device information'
   },
   {
     id: 77,
     taskId: 15,
     title: 'Configure device settings and define video streams',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure device settings and define video streams'
   },
   {
     id: 78,
     taskId: 15,
     title: 'Configure streams',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure streams'
   },
   {
     id: 79,
     taskId: 15,
     title: 'Configure recording',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure recording'
   },
   {
     id: 80,
     taskId: 15,
     title: 'Configure 360° lens settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure 360 lens settings'
   },
   {
     id: 81,
     taskId: 15,
     title: 'Configure privacy masking',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure privacy masking'
   },
   {
     id: 82,
     taskId: 15,
     title: 'Configure software Motion Detection',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure software Motion Detection'
   },
   {
     id: 83,
     taskId: 15,
     title: 'Configure camera events',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure camera events'
   },
   {
     id: 84,
     taskId: 15,
     title: 'Configure PTZ presets',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure PTZ presets'
   },
   {
     id: 85,
     taskId: 15,
     title: 'Configure PTZ patrolling',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure PTZ patrolling'
   },
   {
     id: 86,
     taskId: 16,
     title: 'Verify microphone settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify microphone settings'
   },
   {
     id: 87,
     taskId: 16,
     title: 'Verify and adjust microphone recording settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify and adjust microphone recording settings'
   },
   {
     id: 88,
     taskId: 16,
     title: 'Select microphone recording storage',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Select microphone recording storage'
   },
   {
     id: 89,
     taskId: 16,
     title: 'Configure microphone events',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure microphone events'
   },
   {
     id: 90,
     taskId: 16,
     title: 'Verify speaker settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify speaker settings'
   },
   {
     id: 91,
     taskId: 16,
     title: 'Verify and adjust speaker recording settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify and adjust speaker recording settings'
   },
   {
     id: 92,
     taskId: 16,
     title: 'Select speaker recording storage',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Select speaker recording storage'
   },
   {
     id: 93,
     taskId: 17,
     title: 'Verify input settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify input settings'
   },
   {
     id: 94,
     taskId: 17,
     title: 'Configure input events',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure input events'
   },
   {
     id: 95,
     taskId: 17,
     title: 'Verify output settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify output settings'
   },
   {
     id: 96,
     taskId: 17,
     title: 'Test inputs and outputs',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Test inputs and outputs'
   },
   {
     id: 97,
     taskId: 18,
     title: 'Create custom view groups',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create custom View Groups'
   },
   {
     id: 98,
     taskId: 18,
     title: 'Configure Smart Client Profiles',
     productTier: ProductTier.Professional,
-    infoPath: ''
+    infoPath: 'Configure Smart Client Profiles'
   },
   {
     id: 99,
     taskId: 18,
     title: 'Configure Matrix recipient details',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure Matrix recipient details'
   },
   {
     id: 100,
     taskId: 18,
     title: 'Configure Smart Walls',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Configure Smart Walls'
   },
   {
     id: 101,
     taskId: 19,
     title: 'Create User-defined Events',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create User-defined Events'
   },
   {
     id: 102,
     taskId: 19,
     title: 'Configure Generic Events',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure Generic Events'
   },
   {
     id: 103,
     taskId: 20,
     title: 'Define single and recurring Time Profiles',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Define single and recurring Time Profiles'
   },
   {
     id: 104,
     taskId: 20,
     title: 'Define Day Length time profiles',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Define Day Length time profiles'
   },
   {
     id: 105,
     taskId: 20,
     title: 'Create notification profiles',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create notification profiles'
   },
   {
     id: 106,
     taskId: 21,
     title: 'Verify defualt rules',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify default rules'
   },
   {
     id: 107,
     taskId: 21,
     title: 'Create video and audio feed start and recording rules',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create video and audio feed start and recording rules'
   },
   {
     id: 108,
     taskId: 21,
     title: 'Create other installation-specific rules',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create other installation specific rules'
   },
   {
     id: 109,
     taskId: 21,
     title: 'Create system administrator email notification rules',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create system administrator email notification rules'
   },
   {
     id: 110,
     taskId: 21,
     title: 'Validate all rules',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Validate all rules'
   },
   {
     id: 111,
     taskId: 22,
     title: 'Verify Windows users and groups',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify Windows users and groups'
   },
   {
     id: 112,
     taskId: 22,
     title: 'Create Basic Users',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create Basic Users'
   },
   {
     id: 113,
     taskId: 22,
     title: 'Create Roles',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create Roles'
   },
   {
     id: 114,
     taskId: 22,
     title: 'Assign client behavior and time profiles',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Assign client behavior and time profiles'
   },
   {
     id: 115,
     taskId: 22,
     title: 'Configure client permissions and login authorization requirements',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure client permissions and login authorization requirements'
   },
   {
     id: 116,
     taskId: 22,
     title: 'Assign users and groups to each role',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Assign users and groups to each role'
   },
   {
     id: 117,
     taskId: 22,
     title: 'Define overall security settings for each role',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Define overall security settings for each role'
   },
   {
     id: 118,
     taskId: 22,
     title: 'Define detail security settings for each role',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Define detail security settings for each role'
   },
   {
     id: 119,
     taskId: 22,
     title: 'Verify effective roles',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify effective roles'
   },
   {
     id: 120,
     taskId: 23,
     title: 'Add and remove alarm sounds',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Add and remove alarms sounds'
   },
   {
     id: 121,
     taskId: 23,
     title: 'Configure alarm data settings',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Configure alarm data settings'
   },
   {
     id: 122,
     taskId: 23,
     title: 'Define alarm definitions',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Define alarm definitions'
   },
   {
     id: 123,
     taskId: 24,
     title: 'Verify system performance via System Monitor',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Verify system performance via System Monitor'
   },
   {
     id: 124,
     taskId: 24,
     title: 'Verify connectivity to Customer Dashboard',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Verify connectivity to Customer Dashboard'
   },
   {
     id: 125,
     taskId: 24,
     title: 'Check log files',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Check log files'
   },
   {
     id: 126,
     taskId: 25,
-    title: 'Install Milestone Mobile server (if not done previously)',
+    title: 'Install XProtect Mobile server (if not done previously)',
     productTier: ProductTier.Professional,
-    infoPath: ''
+    infoPath: 'Install XProtect Mobile server'
   },
   {
     id: 127,
     taskId: 25,
     title: 'Configure general settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure general settings'
   },
   {
     id: 128,
     taskId: 25,
     title: 'Configure connectivity settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure connectivity settings'
   },
   {
     id: 129,
     taskId: 25,
     title: 'Configure performance settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure performance settings'
   },
   {
     id: 130,
     taskId: 25,
     title: 'Configure Investigation settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure Investigation settings'
   },
   {
     id: 131,
     taskId: 25,
     title: 'Configure Video Push',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure Video Push'
   },
   {
     id: 132,
     taskId: 25,
     title: 'Configure Push Notifications',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Configure Push Notifications'
   },
   {
     id: 133,
     taskId: 26,
     title: 'Add Interconnected systems',
     productTier: ProductTier.Corporate,
-    infoPath: ''
+    infoPath: 'Add Interconnected systems'
   },
   {
     id: 134,
     taskId: 26,
     title: 'Select Interconnected cameras',
     productTier: ProductTier.Corporate,
-    infoPath: ''
+    infoPath: 'Select Interconnected cameras'
   },
   {
     id: 135,
     taskId: 26,
     title: 'Verify feed start and recording rules for Interconnected cameras',
     productTier: ProductTier.Corporate,
-    infoPath: ''
+    infoPath: 'Verify feed start and recording rules for Interconnected cameras'
   },
   {
     id: 136,
     taskId: 26,
     title: 'Verify user permissions to Interconnected cameras',
     productTier: ProductTier.Corporate,
-    infoPath: ''
+    infoPath: 'Verify user permissions to Interconnected cameras'
   },
   {
     id: 137,
     taskId: 27,
     title: 'Activate license',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Activate license (Lic)'
   },
   {
     id: 138,
     taskId: 27,
     title: 'Enable automatic license activation',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Enable automatic license activation'
   },
   {
     id: 139,
     taskId: 27,
     title: 'Verify license information',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify license information'
   },
   {
     id: 140,
     taskId: 28,
     title: 'Check workstation hardware, software, and settings',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Check workstation hardware, software, and settings'
   },
   {
     id: 141,
     taskId: 28,
     title: 'Download and run Smart Client installer from the Management Server',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Download and run Smart Client installer from the Management Server'
   },
   {
     id: 142,
     taskId: 28,
     title: 'Create views for each view group',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create views for each view group'
   },
   {
     id: 143,
     taskId: 28,
     title: 'Verify hardware decoding/performance',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify hardware decoding and performance'
   },
   {
     id: 144,
     taskId: 28,
     title: 'Create maps and Smart Map',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create maps and Smart Map'
   },
   {
     id: 145,
     taskId: 28,
     title: 'Verify user logins and permissions',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify user logins and permissions'
   },
   {
     id: 146,
     taskId: 28,
     title: 'Verify audio permissions',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify audio permissions'
   },
   {
     id: 147,
     taskId: 28,
     title: 'Verify Smart Wall permissions',
     productTier: ProductTier.Expert,
-    infoPath: ''
+    infoPath: 'Verify Smart Wall permissions'
   },
   {
     id: 148,
     taskId: 28,
     title: 'Configure Smart Client Options',
     productTier: ProductTier.Essential,
-    infoPath: ''
-  },
-  {
-    id: 149,
-    taskId: 29,
-    title: 'Create browser shortcut',
-    productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure Smart Client Options'
   },
   {
     id: 150,
     taskId: 29,
     title: 'Create browser shortcut',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Create browser shortcut'
   },
   {
     id: 151,
     taskId: 29,
     title: 'Verify user logins',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify user logins (Web)'
   },
   {
     id: 152,
     taskId: 30,
     title: 'Install app from relevant online marketplace',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Install app from relevant online marketplace'
   },
   {
     id: 153,
     taskId: 30,
     title: 'Verify user logins',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Verify user logins (Mobile Client)'
   },
   {
     id: 154,
     taskId: 30,
     title: 'Test Video Push',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Test Video Push'
   },
   {
     id: 155,
     taskId: 30,
     title: 'Verify Push Notifications',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Verify Push Notifications'
   },
   {
     id: 156,
     taskId: 31,
     title: 'Perform a walk test for all cameras with motion detection',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Perform a walk test for all cameras with motion detection'
   },
   {
     id: 157,
     taskId: 31,
     title: 'Create a configuration report',
     productTier: ProductTier.Express,
-    infoPath: ''
+    infoPath: 'Create a configuration report'
   },
   {
     id: 158,
     taskId: 31,
     title: 'Make a configuration backup',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Make a configuration backup'
   },
   {
     id: 159,
     taskId: 31,
     title: 'Perform Final Acceptance Test',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Perform Final Acceptance Test'
   },
   {
     id: 160,
     taskId: 31,
     title: 'Perform customer operator and staff training',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Perform customer operator and staff training'
   },
   {
     id: 161,
     taskId: 31,
     title: 'Confirm Statement of Work fulfilment',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Confirm Statement of Work fulfilment'
   },
   {
     id: 162,
     taskId: 32,
     title: 'Replace a hardware device',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Replace a hardware device'
   },
   {
     id: 163,
     taskId: 32,
     title: 'Move a hardware device to another Recording Server',
     productTier: ProductTier.Professional,
-    infoPath: ''
+    infoPath: 'Move a hardware device to another Recording Server'
   },
   {
     id: 164,
     taskId: 32,
     title: 'Save and load a system configuration',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Save and load a system configuration'
   },
   {
     id: 165,
     taskId: 32,
     title: 'Configure the Download Manager',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Configure the Download Manager'
   },
   {
     id: 166,
     taskId: 32,
     title: 'Upgrade the system',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Upgrade the system'
   },
   {
     id: 167,
     taskId: 32,
     title: 'Explain and manage key system behaviors',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Explain and manage key system behaviors'
   },
   {
     id: 168,
     taskId: 32,
     title: 'Perform SQL server maintenance',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Perform SQL server maintenance'
   },
   {
     id: 169,
     taskId: 32,
     title: 'Perform critical server maintenance',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Perform critical server maintenance'
   },
   {
     id: 170,
     taskId: 32,
     title: 'Manage profitability and customer expectations',
     productTier: ProductTier.Essential,
-    infoPath: ''
+    infoPath: 'Manage profitability and customer expectations'
   },
 ];

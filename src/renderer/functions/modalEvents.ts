@@ -2,10 +2,10 @@ import $ from 'jquery'
 import { dbPromise } from '../data/db';
 import { renderDeploymentList } from './deploymentListBuilder';
 import { Deployment } from '../models/deployment';
-import { updateDeployment} from './helpers/dbFunctions';
+import { updateDeployment, getDeployment} from './helpers/dbFunctions';
 import { renderMainMenu, renderChecklistMenu } from './menuBuilder';
 import { renderChecklist } from './checklistBuilder';
-
+import { renderPrintView } from './printViewBuilder';
 
 //DELETE MODAL EVENTS 
 
@@ -89,31 +89,89 @@ export const addPrintOptionsModalEvents = async (id:string) => {
 
     const modal = document.getElementById("modal");
     const fileInput = document.getElementById("image-upload") as HTMLInputElement; 
+    const imgPreview = document.getElementById('header-image-preview') as HTMLImageElement;
 
-    $('#image-upload').bind('change', async () => {
-        const file = fileInput.files[0];
-        const fr = new FileReader();
-        fr.onload = previewImageData; 
-        fr.readAsBinaryString(file); 
-        
-        async function previewImageData() {
-            const imgData = fr.result as string;
-            const imgPreview = document.getElementById('header-image-preview') as HTMLImageElement;
-            imgPreview.src = `data:${file.type};base64,${btoa(imgData)}`; 
-        }
-    })
-    
+    const defaultImagePath = `${window.location.href}images/logo.png`;
+
+    let imgData:string;
+
     //prevent form refresh on submit
     $('form').submit(e => e.preventDefault());
 
+    //on image selection, read the uplaoded file and replace the preview area with the uploaded image 
+    $('#image-upload').bind('change', async () => {
+
+        const file = fileInput.files[0];
+        const fr = new FileReader();
+        fr.onload = await previewImageData; 
+        fr.readAsBinaryString(file); 
+        
+        async function previewImageData() {
+            //convert the image file binary string to base64 (btoa)
+            imgData = `data:${file.type};base64,${await btoa(fr.result as string)}`
+
+            //set the image element's src path to the file type and include the encoded data
+            imgPreview.src = imgData; 
+        }
+    })
+
+    $('#signoff-checkbox').change(() => $('.modal-save').removeAttr('disabled'))
+
+    new MutationObserver(() => {
+        $('.modal-save').removeAttr('disabled')
+    }).observe(imgPreview,{attributes:true,attributeFilter:['src']})
+
+    //on image reset, set preview to default and set imgData to null
+    $('#reset-image').click(() => {
+        if(imgPreview.src != defaultImagePath){
+            imgData = null;
+            imgPreview.src = defaultImagePath;
+        }
+    });
+
     //close edit modal on cancel
-    $('#modal__cancel-edit, #modal-close').click(e => {
+    $('#modal__cancel-options, #modal-close').click(e => {
         e.preventDefault();
         modal.style.display = 'none';
         $('#print-settings').removeClass('current-menu-item');
+    });
+
+    //save data to db
+    $('#modal__save-options').click(() => {
+
+        //get the signoff checkbox
+        const signoffBox = document.getElementById('signoff-checkbox') as HTMLInputElement;
+        let signoffVal:boolean;
+
+        //set the printsignoff boolean value based on the checkbox status
+        if(signoffBox.checked){
+            signoffVal = true;
+        } else {
+            signoffVal = false; 
+        }
+
+        //upadate the deployment data
+        dbPromise().then(async db => {
+            const deployment = await getDeployment(id, db);
+
+            const data:Deployment = {
+                id: deployment.id,
+                name: deployment.name,
+                productTier: deployment.productTier,
+                integrator: deployment.integrator,
+                currentPhaseId: deployment.currentPhaseId,
+                dateCreated: deployment.dateCreated,
+                dateModified: deployment.dateModified,
+                headerImage: (imgPreview.src == defaultImagePath ? null : imgPreview.src),
+                printSignoff: signoffVal
+            }
+
+            await updateDeployment(data, db);
+            modal.style.display = "none"; 
+            renderPrintView(id); 
+        })
     })
 }
-
 
 const deleteDeployment = (id: string) => {
     let deploymentId = parseInt(id);

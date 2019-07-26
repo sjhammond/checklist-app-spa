@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>3D. Check server access</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">3D. </span>Check server access</h3>
+        <h4 class="Heading4">Internet access</h4>
+        <p>In most cases, the XProtect VMS servers do not require internet access for any purpose other than installing Windows updates. In this situation, an easy way to help protect the server from malicious software or unauthorized access may be to simply not allow it to access the internet.</p>
+        <p>The management server must have access to the internet if you intend to use online or automatic license activation. In the case of manually initiated online activation, the server needs access for only the few minutes the activation takes.</p>
+        <p>The management server must also have internet access if you intend to use the Milestone Customer Dashboard.</p>
+        <p>The XProtect Mobile server must have internet access if you need mobile and web clients to access the system from outside the network.</p>
+        <p>If you need Smart Client users to access the system from outside the network, Milestone highly recommends using a VPN connection for network security reasons. But, if you want simply to set up direct access through port forwarding, all recording servers as well as the management server must be set up with internet access.</p>
+        <h4 class="Heading4">Hostname lookup</h4>
+        <p>All XProtect VMS server components and services, as well as Management Clients, must be able to successfully resolve the hostnames of any of the servers that host those services, even if the servers are added to the configuration using their IP address.</p>
+        <p>Therefore, when preparing a new server, it is good practice to verify it can resolve the hostnames of other servers and that other servers successfully resolve the hostname of the new server.</p>
+        <p>If the hostnames do not resolve through the DNS, or there is no DNS, you may edit the Windows HOSTS file manually. </p>
+        <p class="Seealso">See also: <a href="Activate license (Lic Site).html" class="MCXref_ParaTextOnly_0">11B. Activate license</a>, <a href="Verify connectivity to Customer Dashboard.html" class="MCXref_ParaTextOnly_0">24B. Verify connectivity to Customer Dashboard</a>, <a href="../Tasks/Configure Mobile servers.html" class="MCXref_ParaTextOnly_0">25. Configure Mobile servers</a>, <a href="Test the network.html" class="MCXref_ParaTextOnly_0">1E. Test the network</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://www.milestonesys.com/solutions/services/customer-dashboard/">Milestone Customer Dashboard</a>
+            </li>
+        </ul>
+    </body>
+</html>

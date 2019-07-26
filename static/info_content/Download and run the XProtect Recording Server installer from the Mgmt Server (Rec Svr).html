@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" />
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" type="text/css" /><title>7C. Download and run the XProtect Recording Server installer from the Management Server</title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">7C. </span>Download and run the XProtect Recording Server installer from the Management Server</h3>
+        <p>Unless you are installing a single server system, you must download and run the Recording Server installer on the server(s) you want to use as recording server(s).</p>
+        <p>The XProtect Recording Server installation file is available on the Management Server administrative installation page: <span class="span_5">http://&lt;management server&gt;/installation/admin</span></p>
+        <p>The typical installation option will install the Recording Server service under the NETWORK SERVICE user account. If you will be archiving recordings to a NAS or other external storage that requires user authentication, you must choose the custom installation option. This allows you to specify a user account for the Recording Server service that has access to the archive storage.</p>
+        <p>In all cases, you will need to specify a Recording Server name. The default option is the hostname of the recording server, but you can choose any name containing normal letters and numbers, including spaces. The name should ideally allow both system administrators and Smart Client users to easily identify the Recording Server by location or purpose.</p>
+        <p>You must also specify the hostname (or IP address) and port the Recording Server should use to contact the Management Server, as well as select a default path for recordings. Milestone recommends you do not store recordings on the physical drive that is used by the operating system (Windows).</p>
+        <p class="Notetext"><span class="span_3">Note:</span> If the servers are running in a Workgroup environment, Milestone recommends you install the Recording Servers to run under a user with the same user name as the Management Server, if possible. Alternatively, you can change the user running the Milestone Data Collector service after the installation completes to ensure the System Monitor function is able to receive performance data from the server.</p>
+        <p class="Seealso">See also: <a href="Tasks/Configure storage.htm" class="MCXref_ParaTextOnly_0">4. Configure storage</a>, <a href="Run the Management Server installer.html" class="MCXref_ParaTextOnly_0">5C. Run the Management Server installer</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Install the Recording Server</li>
+        </ul>
+    </body>
+</html>

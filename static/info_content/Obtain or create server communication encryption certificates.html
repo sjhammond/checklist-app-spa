@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>3A. Obtain or create server communication encryption certificates</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h3 class="Heading3">3A. Obtain or create server communication encryption certificates</h3>
+        <p>If encryption is required for one or more XProtect server communication flows, obtaining the certificates may take some time. Starting the process of obtaining certificates even before you start installing the operating system may save you time and delays later on.</p>
+        <p>Milestone recommends that you establish a Public Key Infrastructure (PKI) for creating and distributing certificates. In a Windows domain, it is recommended to establish a PKI using the Active Directory Certificate Services (AD CS).</p>
+        <p>If you are unable to use a PKI, you must manually create and distribute certificates to use server encryption.</p>
+        <p class="Notetext"><b>Note</b>: If you use manual distribution of certificates you are responsible for keeping the private certificates secure at all times. When you keep the private certificates secure, the client computers that trust the certificates are less vulnerable to attacks.</p>
+        <p class="Notetext"><b>Note</b>: Starting with XProtect VMS version 2019R2, XProtect Mobile no longer includes the option to use auto-generated self-signed certificates for HTTPS encryption for client communication. Instead, a certificate must be implemented using a trusted CA the same way as for other system components. Because manually installing your own CA certificates on mobile devices can be challenging and is not regarded as secure, Milestone recommends obtaining server certificates for the mobile servers from a CA that is natively trusted by the mobile devices.</p>
+        <p class="Notetext"><b>Note</b>: As server communication encryption is primarily relevant to services external to the management server, single-server installation can usually omit using management server communication encryption without compromising security.</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Secure communication (explained)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Certificates Guide</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">XProtect VMS Products - Hardening guide</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">eLearning: Identifying Cybersecurity Threats</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">eLearning: Recording Server Communication Encryption</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">https://en.wikipedia.org/wiki/Public_key_infrastructure</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Self-signed_certificate">https://en.wikipedia.org/wiki/Self-signed_certificate</a>
+            </li>
+        </ul>
+    </body>
+</html>

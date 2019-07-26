@@ -54,7 +54,10 @@ export const renderPrintView = (id:string) => {
     }).then(mainContent => {
 
         //add a closing div tag for print-view
-        mainContent += `</div>`
+        mainContent += `
+            ${deployment.printSignoff == true ? buildSignoffPage() : ''}
+            </div>
+        `
 
         //render html in the app container
         document.getElementById('main-content').innerHTML = mainContent;
@@ -170,4 +173,13 @@ const buildNotesForPrint = (stepData: DeploymentItem) => {
          </div>
         `
     }
+}
+
+const buildSignoffPage = () => {
+
+    return `
+        <div id='signoff-page'> 
+            This is the signoff page. Content TK
+        </div>
+    `
 }

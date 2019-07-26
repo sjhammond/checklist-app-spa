@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" type="text/css" /><title>6A. Prepare for installation</title>
+        <link href="../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">6A. Prepare for installation</h3>
+        <p>Unless you are installing a single-server system, if you need to enable Mobile or Web client access to the system, you must download and run the XProtect Mobile server installer on the server(s) where you want to run the XProtect Mobile server. In a system with only limited mobile access from internal WiFi or via VPN, this may be the management server itself if the server performance allows.</p>
+        <p>In installations where there will be a lot of mobile use, the XProtect Mobile server is usually installed on a separate server, or even multiple servers, for best performance and in order for the mobile traffic not to impact the performance of the management server.</p>
+        <p>In installations where mobile users will access the system from the internet directly (i.e., without a VPN), Milestone highly recommends locating the mobile server in the DMZ. The firewall should be configured to forward only the necessary ports originating from the mobile server to the XProtect VMS servers on the LAN.</p>
+    </body>
+</html>

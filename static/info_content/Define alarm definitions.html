@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>23C. Define alarm definitions</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3"><span class="span_2">23C. </span>Define alarm definitions</h3>
+        <p>Create the alarm under Alarms &gt; Alarm Definitions. Make sure to give it a descriptive name if your system design document doesn’t already specify the name for the alarm.</p>
+        <p>Provide detailed instructions in the Instructions field for the operator to follow when handing the alarm, as defined by the customer in the system design document.</p>
+        <h4 class="Heading4">Configure trigger</h4>
+        <p>Select the event that should trigger the alarm by selecting the event category, the event type, then the specific trigger event.</p>
+        <h4 class="Heading4">Configure activation period</h4>
+        <p>By default, the alarm will always be active. Select a different time profile if the system design document calls for the alarm to be active only at selected times or select start and stop events if the alarm should be active only after another event (often from a third-party system integrated with the XProtect VMS) has occurred.</p>
+        <h4 class="Heading4">Configure operator action requirements</h4>
+        <p>Some customers may have an alarm-handling workflow that requires the operator to react to an alarm within a certain time.</p>
+        <p>Select the required maximum reaction time in the Time Limit dropdown list, as specified by the customer in the system design document and select the event the XProtect VMS must trigger if the time is exceeded. The event is almost always a User-defined Event since this enables you, for example, to execute a rule to alert the operator or to send a notification to a supervisor.</p>
+        <h4 class="Heading4">Configure related cameras and maps</h4>
+        <p>Select any cameras that are related to the alarm and are not implicitly related to the alarm event (software motion detection, for example, already includes the camera that detects the motion). The related cameras will show automatically when the operator handles the alarm.</p>
+        <p>If you have maps defined in the XProtect VMS that are relevant for the alarm, you can associate the map with the alarm on the related map dropdown list, so that it is displayed to the operator when they manage the alarm.</p>
+        <p class="Notetext"><span class="span_3">Not</span><span class="span_3">e: </span>Maps are configured through the XProtect Smart Client.</p>
+        <h4 class="Heading4">Configure initial alarm owner, priority, and category</h4>
+        <p>Configure the initial alarm owner (optional), initial alarm priority, and initial alarm category (optional), as specified in the system design document.</p>
+        <h4 class="Heading4">Configure events triggered by alarm</h4>
+        <p>Select if other events should be triggered automatically when this alarm is triggered.</p>
+        <p>Also decide if the XProtect VMS should automatically close the alarm when the alarm condition is no longer relevant. For example, if the alarm is triggered by a “device not responding” event, auto-close will automatically close the alarm when the device starts responding. Note that not all events can auto-close, in which case the check box will be grayed out.</p>
+        <p class="Seealso">See also: <a href="Define single and recurring Time Profiles.html" class="MCXref_ParaTextOnly_0">20A. Define single and recurring Time Profiles</a>, <a href="Create User-defined Events.html" class="MCXref_ParaTextOnly_0">19A. Create User-defined Events</a>, <a href="Create maps and Smart Map.html" class="MCXref_ParaTextOnly_0">28F. Create maps and Smart Map</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; About alarm configuration</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Add an alarm</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Alarm Definitions (properties)</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">eLearning: Configuring and Using Alarms and Notifications</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>23B. Configure alarm data settings</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">23B. Configure alarm data settings</h3>
+        <h4 class="Heading4">Verify and create alarm priorities</h4>
+        <p>An alarm will always have an initial priority when triggered. Upon triggering, the associated sound file will play on the user workstations. Once triggered, users with permissions to manage the alarm can change the priority as needed to any other priority available in the list.</p>
+        <p>If the system design document requires additional or different alarm priorities, you must modify the settings on the Alarms &gt; Alarm Data Settings &gt; Alarm Data Levels tab.</p>
+        <p class="Notetext"><b>Note</b>: To remove an alarm priority, click in the left-most (unnamed) column to select the priority and press the &lt;delete&gt; key on the keyboard.</p>
+        <h4 class="Heading4">Verify and create alarm states</h4>
+        <p>The XProtect VMS has four built-in alarm states: new, in progress, on hold, and closed. In addition, you can add your own states to match the specific workflows used by the customer.</p>
+        <p>An alarm will always have an initial state of “New” when triggered. The alarm state will change to “In progress” once a user with permissions to manage the alarm selects it. The user can then change the state to any other priority available in the list as needed. The user closes the alarm by changing the state to “Closed”.</p>
+        <p>If the system design document requires additional or different alarm states, you must modify the settings on the Alarms &gt; Alarm Data Settings &gt; Alarm Data Levels tab.</p>
+        <p>To remove an alarm state, click in the left-most (unnamed) column to select the state and press the &lt;delete&gt; key on the keyboard. The built-in alarm states cannot be deleted.</p>
+        <h4 class="Heading4">Create alarm categories</h4>
+        <p>Alarm categories can be used as levels, in addition to the alarm priority and alarm status, to classify or categorize alarms. The XProtect VMS does not have any default alarm categories defined.</p>
+        <p>If the system design document requires additional or different alarm categories, you must modify the settings on the Alarms &gt; Alarm Data Settings &gt; Alarm Data Levels tab.</p>
+        <p>To remove an alarm category, click in the left-most (unnamed) column to select the category and press the &lt;delete&gt; key on the keyboard. </p>
+        <h4 class="Heading4">Define alarm list columns</h4>
+        <p>You can customize which information columns are available for the users when they view and manage alarms on the Alarms &gt; Alarm Data Settings &gt; Alarm List Configuration tab.</p>
+        <p>Edit the content of the “Selected columns” list to match the requirements in the system design document.</p>
+        <h4 class="Heading4">Enable and create reasons for closing alarms</h4>
+        <p>Some customers may have an alarm-handling workflow that requires the operator to submit a reason when closing the alarm.</p>
+        <p>Enable the option and add the valid closing reasons to the list on the Alarms &gt; Alarm Data Settings &gt; Reasons for Closing tab, as defined by the system design document.</p>
+        <p class="Seealso">See also: <a href="Configure alarm and event settings.html" class="MCXref_ParaTextOnly_0">10K. Configure alarm and event settings</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Alarm Data Settings</li>
+        </ul>
+    </body>
+</html>

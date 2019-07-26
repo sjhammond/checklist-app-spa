@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>28A. Check workstation hardware, software, and settings</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h3 class="Heading3">28A. Check workstation hardware, software, and settings</h3>
+        <h4 class="Heading4">Verify Windows version</h4>
+        <p>Make sure the Windows version is compatible with the XProtect Smart Client version you are installing.</p>
+        <p>Milestone recommends you always keep your system current by installing all important updates from Microsoft.</p>
+        <h4 class="Heading4">Verify .Net version </h4>
+        <p>Verify the required (or newer) .Net version is installed.</p>
+        <h4 class="Heading4">Verify DirectX version</h4>
+        <p>Verify the required (or newer) DirectX version is installed.</p>
+        <h4 class="Heading4">Verify Graphics card capabilities</h4>
+        <p>Verify the graphics card meets the requirements specified in the system design document.</p>
+        <h4 class="Heading4">Verify Intel Quicksync support</h4>
+        <p>Make sure Intel Quicksync is supported and enabled if the system design document specifies using hardware decoding (recommended for all systems using MPEG4 or H.264 camera streams).</p>
+        <h4 class="Heading4">Check NVIDIA graphic card drivers</h4>
+        <p>If the workstation has one or more NVIDIA graphics cards installed, the Smart Client may be able to use the NVIDIA GPU to decode the video streams. Verify the graphics card is identified as an NVIDIA card in the Windows Device Manager.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> The NVIDIA Maxwell platform includes two product lines: GM107 and GM108. The GM108 line, used mostly in laptops, does not support hardware encoding and decoding. You may verify which line a given GPU belongs to directly with NVIDIA or by checking with a third-party tool such as GPU-Z. The additional resources section also includes a link to a third-party list of GM108 models that may be helpful, though it is not guaranteed to be complete.</p>
+        <p class="Notetext"><span class="span_3">Note:</span> Users of NVIDIA Optimus GPUs, used mostly in laptops, may experience crashes or slow frame rates on additional monitors. Milestone has published a KB article describing a solution.</p>
+        <h4 class="Heading4">Check network connectivity</h4>
+        <p>Make sure the workstation can access the management server and all recording and failover recording servers. Also make sure the workstation has access to the internet, if this is a requirement.</p>
+        <h4 class="Heading4">Check workstation time</h4>
+        <p>Verify the workstation is set to the correct time and time zone. </p>
+        <p>If the workstation is more than five minutes off from the server, the Service Channel will not work, and the login may fail. Also, because the server time is converted to UTC time when stored and converted to the local time of the Smart Client (depending on your settings, this is the default behavior), all evidence search, and export will be incorrect if the workstation time is not correct, potentially rendering the evidence inadmissible in court.</p>
+        <p>If you use a common time source, such as internet time or a local NTP time server (recommended), you should verify that the time updates correctly. If the workstation is on a domain, it will automatically synchronize to the domain server time.</p>
+        <h4 class="Heading4">Check hostname lookup</h4>
+        <p>XProtect Smart Client and XProtect Management Clients must be able to successfully resolve the hostnames of all XProtect VMS servers, even if users use the management server IP address to log into the client.</p>
+        <p>Therefore, when preparing a new workstation, it is good practice to verify it can resolve the hostnames of the management server and all recording and failover recording servers.</p>
+        <p>If the hostnames do not resolve through the DNS, or there is no DNS, you may edit the Windows HOSTS file manually. </p>
+        <p class="Seealso">See also: <a href="Check Network Time Protocol (NTP) server.html" class="MCXref_ParaTextOnly_0">1F. Check Network Time Protocol (NTP) server</a>, <a href="Check server time.html" class="MCXref_ParaTextOnly_0">3G. Check server time</a>, <a href="Test the network.html" class="MCXref_ParaTextOnly_0">1E. Test the network</a> &gt; Dynamic Name Server (DNS)</p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone product system requirements</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect Smart Client User Manual &gt; Enabling hardware acceleration</li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://www.techpowerup.com/gpuz/">https://www.techpowerup.com/gpuz/</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://videocardz.net/gpu/nvidia-gm108/">https://videocardz.net/gpu/nvidia-gm108/</a>
+            </li>
+        </ul>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1"><a href="https://supportcommunity.milestonesys.com/s/article/run-Smart-Client-on-Nvidia-Optimus-hybrid-cards?language=en_US">KB000006212: How to run the XProtect Smart Client on Nvidia Optimus hybrid graphic cards</a>
+            </li>
+        </ul>
+    </body>
+</html>
