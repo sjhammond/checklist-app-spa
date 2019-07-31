@@ -599,7 +599,7 @@ DEPLOYMENT LIST
 }
 
 .deployment-button-container {
-	width: 100px;
+	width: 120px;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
@@ -627,7 +627,7 @@ DEPLOYMENT LIST
 }
 
 .deployment-name {
-	width: calc(100% - 100px);
+	width: calc(100% - 120px);
 	font-weight: 100;
 	font-size: 1.75em;
 	margin-bottom: 8px;
@@ -995,6 +995,21 @@ ABOUT & HELP
 	padding-bottom: 8px;
 	margin-top: 12px;
 	border-bottom: 2px solid #ced6db;
+}
+
+#howto__topic-list {
+	list-style-type: none;
+	padding-inline-start: 0;
+	margin-left: 0; 
+}
+
+#howto__topic-list > li {
+	margin-bottom: 12px;
+}
+
+#howto__topic-list > li > a {
+	text-decoration: none;
+	font-size: 1.1em;
 }
 
 .help-content p {

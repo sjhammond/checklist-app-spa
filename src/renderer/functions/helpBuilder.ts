@@ -42,7 +42,19 @@ export const renderHelpPage = () => {
                     <div class='help-topic__title'>How to use this application</div>
                 </div>
                 <div class='help-content'>
-                    Test
+                    <p>Select a "how-to" topic to jump to the relevant section.</p>
+                    <ul id="howto__topic-list"> 
+                        <li><a href='#howto__get-started'>How do I get started?</a></li>
+                        <li><a href='#howto__save'>How do I save my work?</a></li>
+                        <li><a href='#howto__load'>How do I load a deployment I was previously working on?</a></li>
+                        <li><a href='#howto__use-checklist'>How do I use the checklist?</a></li>
+                        <li><a href='#howto__edit-project'>How do I change the integrator, XProtect product, or the name for my deployment?</a></li>
+                        <li><a href='#howto__print'>How do I print the checklist for a customer?</a></li>
+                        <li><a href='#howto__delete'>How do I delete a deployment?</a></li>
+                        <li><a href='#howto__export'>How do I share a deployment so another team member can work on it?</a></li>
+                        <li><a href='#howto__import'>How do I import a deployment?</a></li>
+                    </ul>
+                    
                 </div>
             </div>
             <div class='help-topic'>
@@ -55,18 +67,12 @@ export const renderHelpPage = () => {
             <div class='help-content last-help-item'>
                 <div>
                     <p>The task descriptions in this application are intended to be brief yet comprehensive. To accomplish this, most tasks include a list of additional resources for more in-depth information and background.</p>
-                    <p class="Bulletlistheading">There are four categories of additional resources: </p>
-                    <ul class="ul_2">
-                        <li class="ListParagraph" value="1">Milestone manuals and guides</li>
-                    </ul>
-                    <ul class="ul_2">
-                        <li class="ListParagraph" value="1">Milestone whitepapers and other Milestone documents</li>
-                    </ul>
-                    <ul class="ul_2">
-                        <li class="ListParagraph" value="1">Milestone eLearning courses</li>
-                    </ul>
-                    <ul class="ul_2">
-                        <li class="ListParagraph" value="1">Non-Milestone resources</li>
+                    <p>There are four categories of additional resources: </p>
+                    <ul>
+                        <li>Milestone manuals and guides</li>
+                        <li>Milestone whitepapers and other Milestone documents</li>
+                        <li>Milestone eLearning courses</li>
+                        <li>Non-Milestone resources</li>
                     </ul>
                     <p>Refer to the descriptions below for details on how to access each of these resources.</p>        
                 </div>

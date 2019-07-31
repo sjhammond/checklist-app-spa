@@ -134,7 +134,7 @@ const highlightSelectedMenuItems = () => {
     });
 }
 
-const exportDeploymentData = async (deployment:Deployment) => {
+export const exportDeploymentData = async (deployment:Deployment) => {
 
     const itemData = await generateItemDataForExport(deployment.id.toString());
     const exportName = `${deployment.name} (Import)`
@@ -164,8 +164,10 @@ const exportDeploymentData = async (deployment:Deployment) => {
     const encryptedData = encryptDecryptData(data, 'encrypt'); 
     ipcRenderer.send('export-data', encryptedData, deployment.name);
     ipcRenderer.on('export-done', () => {
-        $('.menu-item').removeClass('current-menu-item');
-        $('.menu-list').find(`[data-id='${deployment.currentPhaseId}']`).addClass('current-menu-item');
+        if($('#checklist-menu')){
+            $('.menu-item').removeClass('current-menu-item');
+            $('.menu-list').find(`[data-id='${deployment.currentPhaseId}']`).addClass('current-menu-item');
+        }
     })
     
 }
