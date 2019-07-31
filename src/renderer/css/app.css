@@ -992,7 +992,7 @@ ABOUT & HELP
 	flex-flow: column nowrap;
 	width: 100%;
 	padding-left: 30px;
-	padding-bottom: 8px;
+	padding-bottom: 32px;
 	margin-top: 12px;
 	border-bottom: 2px solid #ced6db;
 }
@@ -1001,15 +1001,27 @@ ABOUT & HELP
 	list-style-type: none;
 	padding-inline-start: 0;
 	margin-left: 0; 
+	margin-top: 24px;;
 }
 
 #howto__topic-list > li {
 	margin-bottom: 12px;
 }
 
+#howto__topic-list > li:last-of-type {
+	margin-bottom: 0;
+}
+
 #howto__topic-list > li > a {
 	text-decoration: none;
 	font-size: 1.1em;
+}
+
+.howto__header { 
+	margin-top: 32px;
+	margin-bottom: 16px;
+	font-size: 1.3em;
+	font-weight: 500;
 }
 
 .help-content p {
