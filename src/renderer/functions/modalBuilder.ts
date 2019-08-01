@@ -39,7 +39,7 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                     <form>
                         <div class="modal__input-container">
                             <label for="edit__deployment-name">Deployment name:</label>
-                            <input type="text" id="edit__deployment-name" value="${deployment.name}" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+" />
+                            <input type="text" id="edit__deployment-name" value="${deployment.name}" required minlength="1" maxlength="50" pattern="[a-zA-ZÀ-ÿ- +.,()0-9#!*@&?/']+" />
                         </div>
                         <div class="modal__input-container">
                             <label for="edit__product">XProtect&reg; product:</label>
@@ -53,7 +53,7 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                         </div>
                         <div class="modal__input-container">
                             <label for="edit__integrator">Integrator name:</label>
-                            <input type="text" id="edit__integrator" value="${deployment.integrator}" required minlength="1" maxlength="50" pattern="[a-zA-Z- +.,()0-9#!*@&?/']+"/>
+                            <input type="text" id="edit__integrator" value="${deployment.integrator}" required minlength="1" maxlength="50" pattern="[a-zA-ZÀ-ÿ- +.,()0-9#!*@&?/']+"/>
                         </div>
                         <div id="modal__button-container">
                             <button class="modal-save" id="modal__save-edit" type="submit" disabled>Save Changes</button>
