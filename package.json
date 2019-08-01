@@ -11,7 +11,14 @@
     "dist:dir": "npm disnpmt --dir -c.compression=store -c.mac.identity=null"
   },
   "build": {
-    "productName": "Milestone Deployment Assistant"
+    "appId": "com.milestone.deployment-assistant",
+    "productName": "Milestone Deployment Assistant",
+    "directories": {
+        "buildResources": "build"
+    },
+    "win": {
+      "icon": "build/icon.ico"
+    }
   },
   "dependencies": {
     "cssnano": "^4.1.10",

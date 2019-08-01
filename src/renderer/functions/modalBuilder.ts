@@ -15,7 +15,7 @@ export const showModal = (id: string, modalType: string, context?: string) => {
         //DELETE MODAL
         case "delete":
             modalText.innerHTML = `
-                <div id="modal__title">Confirm Delete</div>
+                <div id="modal__title">Confirm delete</div>
                 <div id="modal__message">Are you sure you want to delete this deployment?</div>
                 <div id="modal__button-container">
                     <button class="modal-save" id="modal__delete">Delete</button>
@@ -35,7 +35,7 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                 .then(async db => {
                     const deployment = await getDeployment(id, db);
                     modalText.innerHTML = `
-                    <div id="modal__title">Edit Deployment Details</div>
+                    <div id="modal__title">Edit deployment details</div>
                     <form>
                         <div class="modal__input-container">
                             <label for="edit__deployment-name">Deployment name:</label>
@@ -77,7 +77,7 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                 .then(async db => {
                     const deployment = await getDeployment(id, db);
                     modalText.innerHTML = `
-                        <div id="modal__title">Print Options</div>
+                        <div id="modal__title">Print options</div>
                         <form>
                             <div id="modal__image-upload">
                                 <span>Change print header logo:</span>
