@@ -1644,6 +1644,32 @@ PRINT
 	margin-bottom: 2px;
 }
 
+#signoff-page > p {
+	margin: 24px 0;
+}
+
+#pv__signoff-header {
+	font-size: 1.25em;
+	font-weight: 200;
+}
+
+#signoff-page > ul {
+	margin-left: 32px;
+}
+
+#pv__date-line {
+	display: inline-block;
+	border-bottom: 1px solid #303436;
+	width: 48px;
+}
+
+#pv__signature-line {
+	display: inline-block;
+	border-bottom: 1px solid #303436;
+	width: 300px;
+}
+
+
 @media print {
 
 	#app {

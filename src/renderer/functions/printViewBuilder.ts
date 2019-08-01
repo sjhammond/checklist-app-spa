@@ -179,7 +179,18 @@ const buildSignoffPage = () => {
 
     return `
         <div id='signoff-page'> 
-            This is the signoff page. Content TK
+            <h2 id="pv__signoff-header">Customer Acknowledgement</h2>
+            <p>As the customer for this deployment, I certify that:</p> 
+            <ul>
+                <li>I have received a copy of this deployment checklist, and I have read and understood its contents.</il>
+                <li>To the best of my knowledge, the status of the tasks and steps listed in this document are accurate.</li> 
+                <li>To the best of my knowledge, the tasks and steps outlined in this document were sufficiently performed in accordance to the project specification.</li>
+            </ul>
+            <p>Signed on this <span id="pv__date-line"> </span> day of <span id="pv__signature-line"></span></p>
+            <p>Customer:</p>
+            <span id="pv__signature-line"> </span>
+            <p>Integrator:</p>
+            <span id="pv__signature-line"> </span>
         </div>
     `
 }

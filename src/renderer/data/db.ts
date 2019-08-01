@@ -5,8 +5,11 @@ import { Phases } from '../data/phases';
 import { Tasks } from '../data/tasks';
 import { Steps } from '../data/steps';
 
+//update the db version each time it changes (integer only)
+const dbVersion = 2; 
+
 //open appDB database
-export const dbPromise = async () => openDB<MilestoneDB>('appDB', 1, {
+export const dbPromise = async () => openDB<MilestoneDB>('appDB', dbVersion, {
   async upgrade(appDB) {
     console.log(`${appDB.name} upgrade required. Upgrading to version ${appDB.version}...`);
     const objectStoreNames = Array.from(appDB.objectStoreNames);
@@ -52,21 +55,15 @@ export const dbPromise = async () => openDB<MilestoneDB>('appDB', 1, {
 }).then(async appDB => {
 
   const phases = appDB.transaction('phases', 'readwrite');
-  if (await phases.store.count() === 0) {
-    await Promise.all(Phases.map(async phase => await phases.store.put(phase)));
-  }
+  await Promise.all(Phases.map(async phase => await phases.store.put(phase)));
   await phases.done;
 
   const tasks = appDB.transaction('tasks', 'readwrite');
-  if (await tasks.store.count() === 0) {
-    await Promise.all(Tasks.map(async task => await tasks.store.put(task)));
-  }
+  await Promise.all(Tasks.map(async task => await tasks.store.put(task)));
   await tasks.done;
 
   const steps = appDB.transaction('steps', 'readwrite');
-  if (await steps.store.count() === 0) {
-    await Promise.all(Steps.map(async step => await steps.store.put(step)));
-  }
+  await Promise.all(Steps.map(async step => await steps.store.put(step)));
   await steps.done;
 
   return appDB;

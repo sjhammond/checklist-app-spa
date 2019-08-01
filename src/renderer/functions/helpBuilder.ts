@@ -60,7 +60,7 @@ export const renderHelpPage = () => {
                         <ol>
                             <li>The Milestone XProtect<sup>&reg;</sup> product you will be deploying.</li>
                             <li>The name of your deployment.</li>
-                            <li>The name of the integratior working on the project.</li>
+                            <li>The name of the integrator working on the project.</li>
                         </ol>
                         <p>Once you fill out each of these fields, you can create the deployment. The deployment and integrator names can be a maximum of 50 characters. You can use letters, numbers, spaces, and the following special characters: <code>-+.,()#!*@&?/'</code></p>
                         <p>If you need assistance selecting the appropriate XProtect product for your project, consult the Milestone Product Index at <a href="https://www.milestonesys.com/solutions/platform/product-index/">https://www.milestonesys.com/solutions/platform/product-index/</a>.</p>
@@ -96,7 +96,7 @@ export const renderHelpPage = () => {
                                 <strong>Add note</strong>. The integrator name and date is automatically recorded along with the note.
                             </li>
                             <li>
-                                To specify that a given step doens't apply to this particular deployment, select 
+                                To specify that a given step doesn't apply to this particular deployment, select 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9C4.63 15.55 4 13.85 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1C19.37 8.45 20 10.15 20 12c0 4.42-3.58 8-8 8z"/></svg> 
                                 <strong>This step doesn't apply</strong>.
                             </li>
@@ -140,7 +140,7 @@ export const renderHelpPage = () => {
                     <div id="howto__delete">
                         <h2 class="howto__header">How do I delete a deployment?</h2>
                         <p>
-                            You can delete a deployment from the Load Deployment screen by selecting 
+                            You can delete a deployment from the Load deployment screen by selecting 
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/><path fill="none" d="M0 0h24v24H0z"/></svg> 
                             <strong>Delete</strong> on the deployment you want to delete.</p>
                     </div>
@@ -156,7 +156,7 @@ export const renderHelpPage = () => {
                         <h2 class="howto__header">How do I import a deployment?</h2>
                         <p>If you have a Milestone Deployment Data (.mddata) file you'd like to import, you can do so by selecting <strong>Import deployment</strong> from the main menu.</p>
                         <p>Select <strong>Browse</strong> to locate the .mddata file you want to import, then select <strong>Import Deployment</strong>. When the import completes, you'll receive a confirmation message.</p>
-                        <p>Once the deployment successfully imports, you can find in the deployment list on the Load deployment screen.</p>
+                        <p>Once the deployment successfully imports, you can find it in the deployment list on the Load deployment screen.</p>
                     </div>
                 </div>
             </div>
