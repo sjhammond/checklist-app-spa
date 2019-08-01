@@ -24,7 +24,7 @@ export const renderHelpPage = () => {
                 <div class='help-content'>
                     <p>Milestone Deployment Assistant is designed to assist technicians and engineers prepare, install, configure, and otherwise deploy Milestone XProtect VMS ${releaseVersion} systems. The application provides an interactive deployment checklist that refrences and supplements Milestone manuals, guides, and whitepapers with practical advice and suggestions on how to best deploy XProtect VMS.</p>
                     <p>The tasks and steps included in this application target the Milestone Certified Integration Technician (MCIT) level. In other words, this application is appropriate for single-server to multi-server medium-complexity installations.</p>
-                    <p>Milestone Certified Integration Technicians and Engineers can use this applicaiton as a technical design and installation reference for the following tasks:</p>
+                    <p>Milestone Certified Integration Technicians and Engineers can use this application as a technical design and installation reference for the following tasks:</p>
                     <ul>
                         <li>Planning</li>
                         <li>Installing</li>

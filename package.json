@@ -1,6 +1,6 @@
 {
   "name": "milestone-bpdc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Milestone Systems, Inc.",
   "repository": "https://github.com/sjhammond/checklist-app-spa",
@@ -17,7 +17,12 @@
         "buildResources": "build"
     },
     "win": {
+      "target": "nsis",
       "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": "false",
+      "allowToChangeInstallationDirectory": "true"
     }
   },
   "dependencies": {
