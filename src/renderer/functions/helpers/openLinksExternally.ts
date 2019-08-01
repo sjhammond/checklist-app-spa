@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { shell } from 'electron';
 
 export const openLinksExternally = (): void => {
