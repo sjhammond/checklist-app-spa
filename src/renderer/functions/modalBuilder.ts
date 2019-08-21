@@ -83,7 +83,7 @@ export const showModal = (id: string, modalType: string, context?: string) => {
                                 <span>Change print header logo:</span>
                                 <div id="image-preview-container">
                                     <span class="image-align-helper"></span>
-                                    <img id="header-image-preview" src=${deployment.headerImage != null ? deployment.headerImage : createStaticPath('./images/logo.png')}></img>
+                                    <img id="header-image-preview" src="${deployment.headerImage != null ? deployment.headerImage : createStaticPath('./images/logo.png')}">
                                 </div>
                                 <input type="file" id="image-upload" accept="image/png,image/jpeg"></input>
                                 <label for="image-upload" class="modal-save" id="custom-upload-btn">Select Image (.jpeg, .png)</label>

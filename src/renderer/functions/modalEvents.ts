@@ -6,6 +6,7 @@ import { updateDeployment, getDeployment} from './helpers/dbFunctions';
 import { renderMainMenu, renderChecklistMenu } from './menuBuilder';
 import { renderChecklist } from './checklistBuilder';
 import { renderPrintView } from './printViewBuilder';
+import { createStaticPath } from './helpers/createStaticPath';
 
 //DELETE MODAL EVENTS 
 
@@ -91,7 +92,7 @@ export const addPrintOptionsModalEvents = async (id:string) => {
     const fileInput = document.getElementById("image-upload") as HTMLInputElement; 
     const imgPreview = document.getElementById('header-image-preview') as HTMLImageElement;
 
-    const defaultImagePath = `${window.location.href}images/logo.png`;
+    const defaultImagePath = createStaticPath('./images/logo.png');
 
     let imgData:string;
 
