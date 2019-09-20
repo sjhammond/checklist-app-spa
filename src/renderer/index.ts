@@ -16,7 +16,7 @@ myApp.innerHTML = `
     <div id="menu" class="sidenav"></div>
     <main id="main-content" class="container">
         <div id="splash-banner">
-            <img id="splash-banner" src=${createStaticPath("/images/Deployment_banner_345.png")}>
+            <img id="splash-banner" src="${createStaticPath("./images/Deployment_banner_345.png")}">
         </div>
         <div id="splash-screen">
             <div id="splash-content">

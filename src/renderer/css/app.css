@@ -1302,6 +1302,10 @@ FLARE CONTENT IMPORTS
 	padding-left: 24px;
 }
 
+.info img {
+	max-width: 100%;
+}
+
 .ListParagraph {
 	list-style-type: disc;
 	margin-bottom: 8px;
