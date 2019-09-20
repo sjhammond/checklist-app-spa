@@ -312,7 +312,7 @@ TOPBAR
 	overflow: hidden;
 	background: #ffffff; 
 	transition: all ease-in-out 0.2s;
-	padding: 0 16px;
+	padding: 0 16px 0 12px;
 }
 
 #topbar-content {
@@ -325,11 +325,19 @@ TOPBAR
 	max-height: 1.25em;
 }
 
+#topbar-return {
+	cursor: pointer;
+	display: flex;
+}
+
 #topbar-back-icon {
 	height: 18px;
 	transition: fill 0.2s ease;
-	cursor: pointer;
 	fill: #303436;
+}
+
+#topbar-return:hover > #topbar-back-icon {
+	fill:#0099da; 
 }
 
 #topbar-back-icon:hover {
@@ -340,14 +348,12 @@ TOPBAR
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: calc(65% - 18px);
 }
 
 #pv_topbar-title {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: calc(100% - 18px);
 }
 
 #topbar-integrator{
@@ -374,6 +380,7 @@ SIDE NAVIGATION
 	z-index: 1;
 	overflow: hidden;
 	transition: all ease-in-out 0.2s;
+	border-right: 0.5px solid #b0bdc6;
 }
 
 #inner-menu {
@@ -382,7 +389,6 @@ SIDE NAVIGATION
 	flex-flow: column nowrap;
 	height: calc(100% - 24px);
 	width: 100%;
-	border-right: 1px solid #b0bdc6; 
 }
 
 .menu-list {
@@ -474,7 +480,7 @@ MAIN CONTNET
 
 #main-content {
 	max-height: 100vh;
-	padding-top: 18px;
+	padding-top: 24px;
 	display: flex;
 	margin-left: 180px; 
 	flex-direction: column;
@@ -503,11 +509,18 @@ SPLASH SCREEN
 ****************************************************************************
 */
 
+#splash-banner {
+	width: 100%;
+	height: auto;
+	margin-top: -12px;
+}
+
 #splash-screen {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 90%;
+	width: calc(100% - 24px);
+	margin-left: 24px;
 	margin-bottom: 1rem;
 	animation: fadein .3s;
 }
@@ -515,7 +528,7 @@ SPLASH SCREEN
 #splash-content {
 	display: flex;
 	flex-flow: row nowrap;
-	margin-top: 12px;
+	margin-top: 18px;
 	width: 100%;
 }
 
@@ -1140,7 +1153,35 @@ CHECKLIST
 	justify-content: flex-end;
 }
 
-.info-container, .note-container{
+.info-container {
+	max-width: inherit;
+	display: flex;
+	flex-flow: column nowrap;
+	flex: 1 0 100%;
+}
+
+.info-collapse-bar {
+	text-align: center;
+	border-bottom: 2px solid #ced6db;
+	margin-bottom: 18px;
+	transition: all 250ms ease;
+}
+
+.info-collapse-bar svg {
+	fill: #ced6db;
+	height: 18px;
+	width: 18px;
+}
+
+.info-collapse-bar:hover {
+	border-bottom: 2px solid #0099da;
+}
+
+.info-collapse-bar:hover > svg {
+	fill: #0099da;
+}
+
+.note-container {
 	max-width: inherit;
 	display: flex;
 	flex-flow: column nowrap;

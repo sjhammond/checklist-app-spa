@@ -34,7 +34,7 @@ export const loadPrintMenuEvents = (id:string, context:String) => {
     //make sure the back button takes you back to the correct previous screen
     switch (context) {
         case 'deploymentList':
-                $('#topbar-back-icon').click(() => {
+                $('#topbar-return').click(() => {
                     renderDeploymentList();
                     renderMainMenu();
                     $('#menu_deployment-list').addClass('current-menu-item');
@@ -42,7 +42,7 @@ export const loadPrintMenuEvents = (id:string, context:String) => {
         break;
 
         case 'checklist':
-                $('#topbar-back-icon').click(() => {
+                $('#topbar-return').click(() => {
                     renderChecklist(id);
                     renderChecklistMenu(id);
                     $('#menu_deployment-list').addClass('current-menu-item');
@@ -80,7 +80,7 @@ export const loadChecklistMenuEvents = async (deployment:Deployment) => {
     $('.menu-list').find(`[data-id='${deployment.currentPhaseId}']`).addClass('current-menu-item');
 
     //upon clicking the back button, load the deployment list and render main mainu
-    $('#topbar-back-icon').click(() => {
+    $('#topbar-return').click(() => {
         renderDeploymentList();
         renderMainMenu();
         $('#menu_deployment-list').addClass('current-menu-item'); //select 'load deployment' on the menu 

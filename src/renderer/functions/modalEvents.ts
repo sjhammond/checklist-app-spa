@@ -50,7 +50,7 @@ export const addEditModalEvents = (deployment:Deployment, context:string) => {
                 integrator: integrator.value, //update
                 currentPhaseId: deployment.currentPhaseId,
                 dateCreated: deployment.dateCreated,
-                dateModified: deployment.dateModified,
+                dateModified: new Date(), //update
                 headerImage: deployment.headerImage,
                 printSignoff: deployment.printSignoff   
         }
@@ -116,6 +116,7 @@ export const addPrintOptionsModalEvents = async (id:string) => {
         }
     })
 
+    //enable saving when the signoff checkbox is ticked/cleared 
     $('#signoff-checkbox').change(() => $('.modal-save').removeAttr('disabled'))
 
     new MutationObserver(() => {
@@ -162,9 +163,9 @@ export const addPrintOptionsModalEvents = async (id:string) => {
                 integrator: deployment.integrator,
                 currentPhaseId: deployment.currentPhaseId,
                 dateCreated: deployment.dateCreated,
-                dateModified: deployment.dateModified,
-                headerImage: (imgPreview.src == defaultImagePath ? null : imgPreview.src),
-                printSignoff: signoffVal
+                dateModified: new Date(), //update
+                headerImage: (imgPreview.src == defaultImagePath ? null : imgPreview.src), //update
+                printSignoff: signoffVal //update
             }
 
             await updateDeployment(data, db);

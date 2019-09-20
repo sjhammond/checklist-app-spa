@@ -46,10 +46,12 @@ export const renderPrintMenu = (id:string, context:String) => {
 
             topbar.innerHTML = `
                 <div id="topbar-content">
-                    <svg id="topbar-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"/>
-                    </svg>
-                    <span id="pv_topbar-title">${deployment.name} - Print View</span>
+                    <div id="topbar-return">
+                        <svg id="topbar-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"/>
+                        </svg>
+                        <span id="pv_topbar-title">${deployment.name} - Print View</span>
+                    </div>
                 </div>
             `
             showTopbar(topbar); 
@@ -97,10 +99,12 @@ export const renderChecklistMenu = (id:string) => {
 
         topbar.innerHTML = `
             <div id="topbar-content">
-                <svg id="topbar-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"/>
-                </svg>
-                <span id="topbar-title">${deployment.name} - Deployment Checklist</span>
+                <div id="topbar-return">
+                    <svg id="topbar-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"/>
+                    </svg>
+                    <span id="topbar-title">${deployment.name} - Deployment Checklist</span>
+                </div>
                 <span id="topbar-integrator">editing as ${deployment.integrator}</span>
             </div>
         `

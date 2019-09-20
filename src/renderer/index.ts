@@ -1,6 +1,7 @@
 import { renderMainMenu } from "./functions/menuBuilder";
 import { remote } from 'electron';
 import './css/app.css'
+import { createStaticPath } from "./functions/helpers/createStaticPath";
 
 const myApp = document.getElementById('app');
 myApp.innerHTML = `
@@ -14,6 +15,9 @@ myApp.innerHTML = `
     <div id="topbar" class="topnav"></div>
     <div id="menu" class="sidenav"></div>
     <main id="main-content" class="container">
+        <div id="splash-banner">
+            <img id="splash-banner" src=${createStaticPath("/images/Deployment_banner_345.png")}>
+        </div>
         <div id="splash-screen">
             <div id="splash-content">
                 <span id="logo-container">

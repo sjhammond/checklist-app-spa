@@ -6,7 +6,7 @@ import { Tasks } from '../data/tasks';
 import { Steps } from '../data/steps';
 
 //update the db version each time it changes (integer only)
-const dbVersion = 2; 
+const dbVersion = 3; 
 
 //open appDB database
 export const dbPromise = async () => openDB<MilestoneDB>('appDB', dbVersion, {

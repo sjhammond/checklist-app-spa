@@ -831,7 +831,7 @@ export const Steps: Step[] = [
   {
     id: 119,
     taskId: 21,
-    title: 'Verify defualt rules',
+    title: 'Verify default rules',
     productTier: ProductTier.Essential,
     infoPath: 'Verify default rules'
   },
