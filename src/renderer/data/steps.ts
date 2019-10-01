@@ -257,9 +257,9 @@ export const Steps: Step[] = [
   {
     id: 37,
     taskId: 6,
-    title: 'Download and run Milestone Mobile server software from the Management Server',
+    title: 'Download and run the XProtect Mobile server software from the Management Server',
     productTier: ProductTier.Professional,
-    infoPath: 'Download and run the XProtect Moble server software from the Management Server'
+    infoPath: 'Download and run the XProtect Mobile server software from the Management Server'
   },
   {
     id: 38,
