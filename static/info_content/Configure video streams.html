@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>15C. Configure video streams</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" type="text/css" />
+        <link href="../../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h3 class="Heading3">15C. Configure video streams</h3>
+        <p>Configure the camera video stream(s) for a camera or a camera group on the Devices &gt; Cameras &gt; Settings tab as required by the project documentation.</p>
+        <p>The video stream settings typically include resolution, frame rate, codec, and streaming mode such as RTP/RTSP/TCP, HTTP streaming, RTP/UDP, RTP/UDP multicast, etc.</p>
+        <p>Many cameras and encoders support setting up multiple streams to use for different purposes. The  XProtect Smart Client supports adaptive streaming which, if multiple live streams are available, allows the software to automatically request the live stream that is most optimal for a given view size and screen resolution.</p>
+        <p>EXAMPLE - Megapixel resolution:</p>
+        <p>When using megapixel resolutions in systems where the XProtect Smart Client is used to view the live stream from cameras, Milestone recommends defining one or more streams with a lower resolution—but typically the same codec, frame rate and streaming mode—if the camera supports this and the network bandwidth is available. Doing this will allow the Smart Client to automatically select the most optimal stream to display live for a given view and screen resolution.</p>
+        <p>EXAMPLE - Higher video quality for recorded video:</p>
+        <p>It may in some cases be desirable to record video in a higher resolution, a less compressed format (different codec), and/or different (often lower) frame rate than that used for live viewing. As this may greatly affect the amount of data recorded, this should be configured only if the project documentation specifies this or you can otherwise determine that the storage is dimensioned to accommodate this.</p>
+        <p>EXAMPLE - Lower latency video for PTZ cameras:</p>
+        <p>If operators will be manually controlling PTZ cameras, it may be desirable to use MJPEG compression for the live view stream(s) to lower the encoding and decoding latency. Depending on the maximum resolution of the monitors used on the Smart Client workstations, you may also be able to use a lower resolution for the live streams without it being visible to the operator.</p>
+        <p class="Notetext"><b>Note</b>: Not all XProtect VMS versions support multiple live streams to Smart Clients.</p>
+        <h4 class="Heading4">Video stream keyframe interval</h4>
+        <p>Specify the keyframe interval or GOP (Group of Pictures) length for the stream or streams for each camera or group of cameras if relevant, and if the setting is available.</p>
+        <p>Milestone recommends using a GOP length of one second for most situations, but other configurations may be desirable for specific situations such as if you need more frequent keyframes for motion detection or have set up grooming for the archive (if supported) and need to ensure you have a certain number of keyframes per second available to meet the grooming specification.</p>
+        <p>Milestone discourages using very long keyframe intervals for both performance and evidence integrity reasons:</p>
+        <ul style="list-style-type: square;">
+            <li value="1">The XProtect Smart Client requires a keyframe to start showing video, so a longer GOP may prolong the time before the video is displayed when changing views.</li>
+        </ul>
+        <ul style="list-style-type: square;">
+            <li value="1">The XProtect Smart Client needs to decode the entire GOP before showing the last frame when playing back video in reverse, so a longer keyframe interval may result in a sluggish playback performance.</li>
+            <li value="2">If the networks experience a packet drop, this will result in all video within the GOP being dropped, so a longer keyframe interval may result in evidence not being recorded. This will be especially pronounced if using a UDP streaming mode and the connection to the camera is poor.</li>
+        </ul>
+        <h4 class="Heading4">Video stream bitrate control, priority, and limits</h4>
+        <p>Verify and adjust bitrate controls, priorities, and limits for the stream or streams you need for each camera or group of cameras, if relevant, and if the setting is available.</p>
+        <p>Examples of bitrate control settings include fixed or variable bitrate, frame rate or image quality priority, target bitrate, and maximum bitrate.</p>
+        <p class="Seealso">See also: <a href="Configure streams.html" class="MCXref_ParaTextOnly_0">15D. Configure streams</a></p>
+        <p class="Addtionalresources">Additional resources:</p>
+        <ul class="ul_3">
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Settings tab (devices)</li>
+            <li class="AddlResBulletedList" value="2">Milestone XProtect VMS Products - Administrator manual &gt; Multi-streaming (explained)</li>
+        </ul>
+    </body>
+</html>

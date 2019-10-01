@@ -557,17 +557,25 @@ SPLASH SCREEN
 	height: 65px;
 }
 
+#release-version{
+	display: flex;
+	margin-top: 18px;
+	font-size: 1.25em;
+	font-weight: 300;
+	color: #303436;
+}
+
 #copyright{
 	display: flex;
-	margin-top: 32px;
-	font-size: .8em;
+	margin-top: 24px;
+	font-size: .75em;
 	color: #9dadb7;
 }
 
-#version{
+#build-version{
 	display: flex;
 	margin-top: 4px;
-	font-size: .8em;
+	font-size: .75em;
 	color: #9dadb7;
 }
 
@@ -1037,6 +1045,15 @@ ABOUT & HELP
 	font-weight: 500;
 }
 
+#help_back-icon {
+	margin-left: -4px;
+	margin-bottom: -2px;
+}
+
+.help_icon-span {
+	white-space: nowrap;
+}
+
 .help-content p {
 	margin: 6px 0;
 }
@@ -1330,6 +1347,10 @@ FLARE CONTENT IMPORTS
 .Notetext {
 	padding: 10px;
 	background-color:#dcf1fa;
+}
+
+.Tabletext_1 {
+	font-weight: bold; 
 }
  
 

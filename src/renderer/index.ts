@@ -3,6 +3,9 @@ import { remote } from 'electron';
 import './css/app.css'
 import { createStaticPath } from "./functions/helpers/createStaticPath";
 
+//set release version here
+export const releaseVersion:string = "XProtect VMS 2019 R3";
+
 const myApp = document.getElementById('app');
 myApp.innerHTML = `
     <div id="modal">
@@ -38,8 +41,9 @@ myApp.innerHTML = `
                 </span>
                 <span id="splash-title">Deployment assistant</span>
             </div>
+            <div id="release-version">${releaseVersion}</div>
             <div id="copyright">&copy; 2019 Milestone Systems, Inc.</div>
-            <div id="version">Version ${remote.app.getVersion()}</div>
+            <div id="build-version">Build version: ${remote.app.getVersion()}</div>
         <div>
     </main>
 `

@@ -26,7 +26,7 @@ export const toggleInfo = () => {
       $(this).parent().parent().find('.info-container').slideToggle('slow');
       $(this).parent().parent().find('.line').toggleClass('active');
       $('#main-content').animate({
-        scrollTop: ($('#main-content').scrollTop() + $(this).parent().parent().position().top)
+        scrollTop: ($('#main-content').scrollTop() + $(this).parent().parent().position().top - 36)
       }, 500)
     }
   });

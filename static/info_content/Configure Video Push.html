@@ -11,14 +11,15 @@
         <h3 class="Heading3"><span class="span_2">25F. </span>Configure Video Push</h3>
         <p>Video push lets a XProtect Mobile client user stream live video from the camera on their mobile device to an XProtect VMS Recoding Server via the XProtect Mobile server.</p>
         <p>Video Push requires a Hardware Device License per channel. A Video Push channel is assigned to a specific XProtect Mobile server as well as a specific user login. A Video Push channel cannot be shared among multiple user logins.</p>
-        <p>If two users log in with the same credentials, they can both access the Video Push channel, but only one at a time (first come, first serve). If one user is already using the Video Push, and a second user tries to start a Video Push stream, the second user will receive an error message.</p>
+        <p class="Notetext"><b>Note</b>: If two users log in with the same credentials, they can both access the Video Push channel, but only one at a time (first come, first serve). If one user is already using the Video Push, and a second user tries to start a Video Push stream, the second user will receive an error message.</p>
         <h4 class="Heading4">Enable Video Push and add Video Push channels</h4>
         <p>Enable Video Push on the Servers &gt; Mobile Servers &gt; Video Push tab, if required in the system design document, and add the number of Video Push channels you need.</p>
         <p>This step establishes the channel, the IP port used by the channel, and the association to the user login. You can change the port number, if required by the customer’s network design, but do not change the automatically generated MAC address.</p>
         <p class="Notetext"><span class="span_3">Note:</span> While the port must be unique for each Mobile server, if you have multiple Mobile servers, as with all IP ports you can, of course, use the same ports on each Mobile server.</p>
+        <p class="Notetext"><b>Note</b>: You can change the default password for the video push driver via the Change password button in the lower right-hand corner.</p>
         <h4 class="Heading4">Add Video Push device driver for each Video Push channel</h4>
         <p>Use the Add Hardware wizard to add a Video Push hardware device for each Video Push channel you created on the Recording Server where you want to record that channel.</p>
-        <p>You must use the manual detection method and specify the hostname (or IP address) of the Mobile server that will be hosting that Video Push channel, as well as the port number (defined above) for that channel. </p>
+        <p>You must use the manual detection method and specify the hostname (or IP address) of the Mobile server that will be hosting that Video Push channel, as well as the port number (defined above) for that channel. If you have changed the video push driver password, you must also specify this.</p>
         <p>Once added, verify the video push video and audio streams are recorded to the intended storage configuration.</p>
         <p class="Notetext"><b>Note</b>: Make sure you explicitly specify to use the Video Push Driver in the hardware model dropdown list (auto-detect does not work with Video Push and other specialized device drivers for non-physical devices).</p>
         <h4 class="Heading4">Find cameras for Video Push channels</h4>
@@ -28,7 +29,8 @@
         <p class="Seealso">See also: <a href="../Tasks/Add hardware devices.html" class="MCXref_ParaTextOnly_0">13. Add hardware devices</a></p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Set up Video Push to stream video</li>
+            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Using Video Push to stream video (explained)</li>
+            <li class="AddlResBulletedList" value="2">Milestone XProtect VMS Products - Administrator manual &gt; Set up Video Push to stream video</li>
         </ul>
         <ul class="ul_3">
             <li class="AddlResBulletedList" value="1"><a href="https://force.milestonesys.com/support/articles/en_US/How_To/About-the-MAC-address-used-for-Video-Push-driver">https://force.milestonesys.com/support/articles/en_US/How_To/About-the-MAC-address-used-for-Video-Push-driver</a>
