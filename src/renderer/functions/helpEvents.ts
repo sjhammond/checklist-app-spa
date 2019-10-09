@@ -1,12 +1,14 @@
 import $ from 'jquery'
 import { includeHTML } from './helpers/includeHtml';
 import { openLinksExternally } from './helpers/openLinksExternally';
+import { showLicenseModal } from './modalBuilder';
+import { createStaticPath } from './helpers/createStaticPath';
 
 export const loadHelpEvents = () => {
 
     $('.help-content').hide()
     includeHTML();
-    openLinksExternally(); 
+    openLinksExternally();
 
     //toggle more information when clicking the "more info" icon
     $('.checklist-item__expand').on('click', function () {
@@ -32,7 +34,7 @@ export const loadHelpEvents = () => {
     })
 
     // handle links with @href started with '#' only
-    $(document).on('click', 'a[href^="#"]', function(e) {
+    $(document).on('click', 'a[href^="#"]', function (e) {
         // target element id
         const id = $(this).attr('href');
 
@@ -49,8 +51,19 @@ export const loadHelpEvents = () => {
         var pos = $id.offset().top;
 
         // animated top scrolling
-        $('#main-content').animate({scrollTop: pos});
-});
+        $('#main-content').animate({ scrollTop: pos });
+    });
 
+    $('.view-license').on('click', function(){
+        showLicenseModal();
+        const modal = document.getElementById('license-text');
+        const file = createStaticPath("./licenses/" + this.getAttribute('file'));
+        //...fetch the file using the attribute path and read its text
+        fetch(file)
+          .then(response => response.text())
+          .then(text => {
+            modal.innerHTML = text;
+          })
+    }); 
 
 }

@@ -40,12 +40,12 @@ button {
 	padding: 0;
 }
 
-a {
+a, .view-license {
 	color: #0099da;
 	transition: color 0.2s ease;
 }
 
-a:hover {
+a:hover, .view-license:hover {
 	color: #0091cf; 
 }
 
@@ -55,7 +55,7 @@ a:hover {
 	text-shadow: none;
 }
 
-a::selection {
+a::selection, .view-license::selection {
 	color: #ffe700;
 }
 
@@ -295,6 +295,12 @@ MODAL
 
 #reset-image:hover {
 	background-color:#e1e7ea;
+}
+
+#license-text {
+	max-height: 400px;
+	width: calc(100% - 24px);
+	overflow: auto;
 }
 
 
@@ -1072,6 +1078,24 @@ ABOUT & HELP
 	margin-bottom: 100px;
 }
 
+.dependency {
+	margin: 16px 0; 
+}
+
+.dependency-name {
+	font-size: 1.05em;
+	font-weight: 600;
+}
+
+.dependency-info {
+	margin-top: 4px;
+	font-size: .85em;
+}
+
+.view-license {
+	text-decoration: underline; 
+	cursor: pointer;
+}
 
 /* 
 ****************************************************************************

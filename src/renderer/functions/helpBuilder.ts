@@ -2,6 +2,7 @@ import { loadHelpEvents } from "./helpEvents";
 import { scrollToTop } from "./helpers/scrollToTop";
 import { createStaticPath } from "./helpers/createStaticPath";
 import { releaseVersion } from "..";
+import { remote } from "electron";
 
 export const renderHelpPage = () => {
 
@@ -165,7 +166,7 @@ export const renderHelpPage = () => {
                 </button>
                 <div class='help-topic__title'>Accessing additional resources</div>
             </div>
-            <div class='help-content last-help-item'>
+            <div class='help-content'>
                 <div>
                     <p>The task descriptions in this application are intended to be brief yet comprehensive. To accomplish this, most tasks include a list of additional resources for more in-depth information and background.</p>
                     <p>There are four categories of additional resources: </p>
@@ -186,6 +187,218 @@ export const renderHelpPage = () => {
                 <div class='help-resource-heading'>D. Non-Milestone resources</div>
                 <div class='info' include-html="${createStaticPath('./info_content/Non-Milestone resources.html')}"></div>
             </div>
+            <div class='help-topic'>
+            <div class='topic-selector'>
+                <button class='checklist-item__expand' aria-label='Show topic' title='Show more information'>
+                    <span class='line'></span>
+                </button>
+                <div class='help-topic__title'>About this application</div>
+            </div>
+            <div class='help-content last-help-item'>
+                <div>
+                    <h3>Milestone Deployment Assistant</h3>
+                    <p>Build version: ${remote.app.getVersion()}</p>
+                    <p>&copy; 2019 Milestone Systems, Inc. All rights reserved.</p></br>
+                    <p>Milestone Deployment Assistant is made possible by <a href="https://nodejs.org/en/">Node.js</a> and the following open source software:</p>
+                    
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            @types/jquery
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="types-jquery.txt"> 
+                                 view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            cssnano
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="cssnano.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/cssnano/cssnano">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            electron
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="electron.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/electron/electron">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            electron-builder
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="electron-builder.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/electron-userland/electron-builder">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            electron-webpack
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="electron-webpack.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/electron-userland/electron-webpack">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            electron-webpack-ts
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="electron-webpack-ts.txt"> 
+                               view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/electron-userland/electron-webpack/tree/master/packages/electron-webpack-ts">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            idb
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="idb.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/jakearchibald/idb">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            jquery
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="jquery.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/jquery/jquery">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            js-yaml
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="js-yaml.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/nodeca/js-yaml">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            postcss-svgo
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="postcss-svgo.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/ben-eb/postcss-svgo">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            source-map-support
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="source-map-support.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/evanw/node-source-map-support">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            svgo
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="svgo.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/svg/svgo">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            typescript
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="typescript.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/microsoft/TypeScript">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dependency">
+                        <div class="dependency-name"> 
+                            webpack
+                        </div>
+                        <div class="dependency-info">
+                            <span class="view-license" file="webpack.txt"> 
+                                view license
+                            </span> |
+                            <span class="dependency-homepage">
+                                <a href="https://github.com/webpack/webpack">view homepage</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>       
         </div>
     `
     loadHelpEvents();

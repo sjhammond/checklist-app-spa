@@ -1,7 +1,7 @@
 {
   "name": "milestone-bpdc",
   "version": "1.0.5",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "author": "Milestone Systems, Inc.",
   "repository": "https://github.com/sjhammond/checklist-app-spa",
   "scripts": {

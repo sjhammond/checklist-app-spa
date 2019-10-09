@@ -1,4 +1,4 @@
-import { addEditModalEvents, addDeleteModalEvents, addPrintOptionsModalEvents } from "./modalEvents";
+import { addEditModalEvents, addDeleteModalEvents, addPrintOptionsModalEvents, addLicenseModalEvents } from "./modalEvents";
 import { dbPromise } from "../data/db";
 import { getDeployment } from "./helpers/dbFunctions";
 import { createStaticPath } from "./helpers/createStaticPath";
@@ -106,6 +106,24 @@ export const showModal = (id: string, modalType: string, context?: string) => {
 
                     //add event listeners
                     addPrintOptionsModalEvents(id);
+
                 })
     }
+}
+
+export const showLicenseModal = () => {
+
+    //get the modal elements in the app
+    const modal = document.getElementById("modal");
+    const modalText = document.getElementById("modal-content");
+
+    //serve up license text
+    modalText.innerHTML = `<pre id="license-text"></pre>`
+
+    //show the modal
+    modal.style.display = "flex";
+
+    //add event listeners
+    addLicenseModalEvents();
+
 }

@@ -175,6 +175,13 @@ export const addPrintOptionsModalEvents = async (id:string) => {
     })
 }
 
+//LICENSE MODAL EVENTS 
+
+export const addLicenseModalEvents = async () => {
+    const modal = document.getElementById("modal");
+    $('#modal-close').click(() => modal.style.display = 'none');
+}
+
 const deleteDeployment = (id: string) => {
     let deploymentId = parseInt(id);
 
