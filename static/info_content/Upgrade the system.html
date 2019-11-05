@@ -20,7 +20,7 @@
             <li class="ListParagraph" value="1">Verify if the newer XProtect VMS version requires upgrading other software, such as .NET or DirectX, on servers or workstations. Also, verify if the newer XProtect VMS version supports the version of SQL server currently installed (see below).</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Decide whether to upgrade XProtect Smart Clients to the new version ahead of installing the server software. This will allow you to upgrade clients at times convenient to users and, in most cases, ensure maximum compatibility with the different versions.</li>
+            <li class="ListParagraph" value="1">For systems where users are depending on accessing the servers immediately after the upgrade, you must upgrade all XProtect Smart Clients to the new version <b>before</b> installing the server software. This will allow you to upgrade clients at times convenient to users and, critically, ensure the clients will work with the new server versions.</li>
         </ul>
         <ul class="ul_2">
             <li class="ListParagraph" value="1">Save the system configuration and retain a copy in a safe location.</li>
@@ -72,7 +72,8 @@
         <h4 class="Heading4">Install (upgrade to) a new version</h4>
         <p class="Bulletlistheading">Milestone recommends you install the new version in this order to upgrade:</p>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) the Management Server. Make sure to select to re-use the existing SQL database.<br></br>Note that the user performing the install must have sysadmin privileges on the SQL server. </li>
+            <li class="ListParagraph" value="1">Upgrade all Smart Clients for all users depending on access to the system after the upgrade. Milestone recommends using the Download Manager and Software Upgrade Manager to more easily complete this.</li>
+            <li class="ListParagraph" value="2">Install (upgrade) the Management Server. Make sure to select to re-use the existing SQL database.<br></br>Note that the user performing the install must have sysadmin privileges on the SQL server. </li>
         </ul>
         <ul class="ul_2">
             <li class="ListParagraph" value="1">Install (upgrade) Management Clients on workstations you will be using during the upgrade.</li>
@@ -87,10 +88,10 @@
             <li class="ListParagraph" value="1">Install (upgrade) XProtect Mobile servers.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) XProtect Smart Clients (if not done earlier).</li>
+            <li class="ListParagraph" value="1">Install (upgrade) any remaining XProtect Smart Clients.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) Management Clients (if not done earlier).</li>
+            <li class="ListParagraph" value="1">Install (upgrade) any remaining Management Clients.</li>
         </ul>
         <ul class="ul_2">
             <li class="ListParagraph" value="1">Install (upgrade) XProtect Mobile clients.</li>

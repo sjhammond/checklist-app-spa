@@ -1,6 +1,6 @@
 {
   "name": "milestone-bpdc",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "UNLICENSED",
   "author": "Milestone Systems, Inc.",
   "repository": "https://github.com/sjhammond/checklist-app-spa",
@@ -14,7 +14,7 @@
     "appId": "com.milestone.deployment-assistant",
     "productName": "Milestone Deployment Assistant",
     "directories": {
-        "buildResources": "build"
+      "buildResources": "build"
     },
     "win": {
       "target": "nsis",
@@ -36,12 +36,13 @@
     "svgo": "^1.2.2"
   },
   "devDependencies": {
+    "@types/electron": "^1.6.10",
     "@types/jquery": "^3.3.29",
-    "electron": "4.0.1",
+    "electron": "7.0.0",
     "electron-builder": "20.38.4",
     "electron-webpack": "^2.7.4",
     "electron-webpack-ts": "^3.2.0",
     "typescript": "^3.4.5",
-    "webpack": "4.28.4"
+    "webpack": "4.41.2"
   }
 }
