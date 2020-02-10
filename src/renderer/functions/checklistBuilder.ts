@@ -167,6 +167,7 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
                     <button class="save-note-btn" id="step${step.id}__save-note" type="button" data-step-id="${step.id}" disabled>Save Note</button>
                 </div>
             </div>
+            <div class='info-parent'>
             <div class='info-container'>
                 <span class="status" id='step${step.id}__status'>${buildStatus(item)}</span>
                 <div class='info' include-html='${createStaticPath(`./info_content/${step.infoPath}.html`)}'></div>
@@ -175,6 +176,7 @@ const buildSteps = (step: Step, items: DeploymentItem[]): string => {
                         <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/><path d="M0 0h24v24H0z" fill="none"/>
                     </svg>
                 </div>
+            </div>
             </div>
         </li>
     `

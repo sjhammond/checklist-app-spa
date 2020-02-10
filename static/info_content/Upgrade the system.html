@@ -15,55 +15,33 @@
         <p class="Bulletlistheading">When upgrading the software, you should pay special attention to:</p>
         <ul class="ul_2">
             <li class="ListParagraph" value="1">Verify the newer XProtect VMS version is supported with the Windows version currently running on servers and workstations.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Verify if the newer XProtect VMS version requires upgrading other software, such as .NET or DirectX, on servers or workstations. Also, verify if the newer XProtect VMS version supports the version of SQL server currently installed (see below).</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">For systems where users are depending on accessing the servers immediately after the upgrade, you must upgrade all XProtect Smart Clients to the new version <b>before</b> installing the server software. This will allow you to upgrade clients at times convenient to users and, critically, ensure the clients will work with the new server versions.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Save the system configuration and retain a copy in a safe location.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Make or verify you have an up-to-date backup of the SQL database. </li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Verify what user accounts are currently used for the Management Server, Recording Server, and Failover Server services. If these differ from the default option (NETWORK SERVICE), you must select the custom installation option for that component and verify the new installation uses the same user.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Determine how to handle existing log files when upgrading from 2018R2 or older to 2018R3 or newer.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Determine if and when to enable management server and recording server communication encryption when upgrading from 2019R1 or older to 2019R2 or newer.</li>
+            <li class="ListParagraph" value="2">Verify if the newer XProtect VMS version requires upgrading other software, such as .NET or DirectX, on servers or workstations. Also, verify if the newer XProtect VMS version supports the version of SQL server currently installed (see below).</li>
+            <li class="ListParagraph" value="3">For systems where users are depending on accessing the servers immediately after the upgrade, you must upgrade all XProtect Smart Clients to the new version <b>before</b> installing the server software. This will allow you to upgrade clients at times convenient to users and, critically, ensure the clients will work with the new server versions.</li>
+            <li class="ListParagraph" value="4">Save the system configuration and retain a copy in a safe location.</li>
+            <li class="ListParagraph" value="5">Make or verify you have an up-to-date backup of the SQL database. </li>
+            <li class="ListParagraph" value="6">Verify what user accounts are currently used for the Management Server, Recording Server, and Failover Server services. If these differ from the default option (NETWORK SERVICE), you must select the custom installation option for that component and verify the new installation uses the same user.</li>
+            <li class="ListParagraph" value="7">Determine how to handle existing log files when upgrading from 2018R2 or older to 2018R3 or newer.</li>
+            <li class="ListParagraph" value="8">Determine if and when to enable management server and recording server communication encryption when upgrading from 2019R1 or older to 2019R2 or newer.</li>
         </ul>
         <p class="Notetext"><span class="span_3">Note:</span> If you are upgrading from XProtect VMS version 2017R3 or older to version 2018R1 or newer, make sure to determine if you need to install the legacy device pack before installing recording servers and failover recording servers.</p>
         <p class="Bulletlistheading">Additional considerations when upgrading a multi-server workgroup environment:</p>
         <ul class="ul_2">
             <li class="ListParagraph" value="1">In a multi-server workgroup installation, all server services (Management Server, Recording Servers, etc.) should usually be installed to run under user accounts with the same user name to ensure the System Monitor and Customer Dashboard functions work correctly. </li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">If the server services are currently running under different user account names for a reason—for example to have access to a NAS or and external SQL database—you should also verify what user account the Milestone Data Collector service is running under. This would usually be an account with the same user name as that used for the Management Server. Make sure to replicate these settings for the upgrade installation.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">If the server services are installed under the NETWORK SERVICE, the Data Collector service is likely not working (if the current version has that feature). To make it work after the upgrade (if that is required), make sure to install all servers to run under user accounts with the same user name, or manually change the user of the Data Collector service to match that of the Management Server after completing the installation.</li>
+            <li class="ListParagraph" value="2">If the server services are currently running under different user account names for a reason—for example to have access to a NAS or and external SQL database—you should also verify what user account the Milestone Data Collector service is running under. This would usually be an account with the same user name as that used for the Management Server. Make sure to replicate these settings for the upgrade installation.</li>
+            <li class="ListParagraph" value="3">If the server services are installed under the NETWORK SERVICE, the Data Collector service is likely not working (if the current version has that feature). To make it work after the upgrade (if that is required), make sure to install all servers to run under user accounts with the same user name, or manually change the user of the Data Collector service to match that of the Management Server after completing the installation.</li>
         </ul>
         <h4 class="Heading4">Upgrade the SQL server</h4>
         <p class="Bulletlistheading">If the SQL server needs to be upgraded (only necessary if the current version is not supported by the new version), the process depends on the circumstances for the installation:</p>
         <ul class="ul_2">
             <li class="ListParagraph" value="1">If you are currently using SQL Express installed on the management server itself, simply choose to install the new version and use the existing database in the Management Server installer.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">If you use a full version of SQL or if SQL Express is not installed on the management server itself, you must upgrade it manually prior to running the Management Server installer.</li>
+            <li class="ListParagraph" value="2">If you use a full version of SQL or if SQL Express is not installed on the management server itself, you must upgrade it manually prior to running the Management Server installer.</li>
         </ul>
         <p class="Notetext"><span class="span_3">Note:</span> In XProtect<sup>®</sup> 2018 R3 there is no option from the Management Server tray icon to change the location of the Log Server SQL. Milestone has published a KB describing a workaround.</p>
         <h4 class="Heading4">Handle old log entries</h4>
         <p class="Bulletlistheading">If you are upgrading from XProtect VMS version 2018R2 or older to version 2018R3 or newer, the old log files are not carried over due to new functionality added in 2018R3. This change has several implications when upgrading:</p>
         <ul class="ul_2">
             <li class="ListParagraph" value="1">If the old logs are important to you, Milestone recommends you export them before upgrading. They will not be accessible via the Management Client after the upgrade. If exporting the logs is not an option and access is nevertheless required after upgrading, Milestone has published a KB article describing a workaround to access the logs though a separate installation of a free XProtect Essential+ 2018R2.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">The old logs are not deleted automatically from SQL and will stay there until manually deleted. If you need to free up space before upgrading you can shrink the log files by setting the maximum number of log entries to “1” for each of the logs in Tools &gt; Options &gt; Server Logs and wait for an hour or so for the log cleanup process to execute before upgrading.</li>
+            <li class="ListParagraph" value="2">The old logs are not deleted automatically from SQL and will stay there until manually deleted. If you need to free up space before upgrading you can shrink the log files by setting the maximum number of log entries to “1” for each of the logs in Tools &gt; Options &gt; Server Logs and wait for an hour or so for the log cleanup process to execute before upgrading.</li>
         </ul>
         <p>If you are upgrading from XProtect VMS version 2019R1 or newer, and the system was previously upgraded from version 2018R2 or older, Milestone recommends checking whether the old log files are still present in the SQL database. If found, and if it there is no longer a requirement to retain them, the old log database should be deleted from the SQL server.</p>
         <h4 class="Heading4">Handle Mobile Server HTTPS certificates</h4>
@@ -74,36 +52,16 @@
         <ul class="ul_2">
             <li class="ListParagraph" value="1">Upgrade all Smart Clients for all users depending on access to the system after the upgrade. Milestone recommends using the Download Manager and Software Upgrade Manager to more easily complete this.</li>
             <li class="ListParagraph" value="2">Install (upgrade) the Management Server. Make sure to select to re-use the existing SQL database.<br></br>Note that the user performing the install must have sysadmin privileges on the SQL server. </li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) Management Clients on workstations you will be using during the upgrade.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) Failover Recording Servers.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) Recording Servers.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) XProtect Mobile servers.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) any remaining XProtect Smart Clients.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) any remaining Management Clients.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Install (upgrade) XProtect Mobile clients.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">In the Management Client Tools &gt; Options &gt; Server Logs, clear the “Allow 2018 R2 and earlier components to write logs” check box (if selected) unless it is still required.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Verify everything is working correctly.</li>
-        </ul>
-        <ul class="ul_2">
-            <li class="ListParagraph" value="1">Save the system configuration and retain a copy in a safe location.</li>
+            <li class="ListParagraph" value="3">Install (upgrade) Management Clients on workstations you will be using during the upgrade.</li>
+            <li class="ListParagraph" value="4">Install (upgrade) Failover Recording Servers.</li>
+            <li class="ListParagraph" value="5">Install (upgrade) Recording Servers.</li>
+            <li class="ListParagraph" value="6">Install (upgrade) XProtect Mobile servers.</li>
+            <li class="ListParagraph" value="7">Install (upgrade) any remaining XProtect Smart Clients.</li>
+            <li class="ListParagraph" value="8">Install (upgrade) any remaining Management Clients.</li>
+            <li class="ListParagraph" value="9">Install (upgrade) XProtect Mobile clients.</li>
+            <li class="ListParagraph" value="10">In the Management Client Tools &gt; Options &gt; Server Logs, clear the “Allow 2018 R2 and earlier components to write logs” check box (if selected) unless it is still required.</li>
+            <li class="ListParagraph" value="11">Verify everything is working correctly.</li>
+            <li class="ListParagraph" value="12">Save the system configuration and retain a copy in a safe location.</li>
         </ul>
         <p class="Notetext"><span class="span_3">Note: </span>If you are upgrading from XProtect VMS version 2018R1 or older to version 2018R2 or newer, all management and client access to older Recording Servers will be lost once the new Management Server is installed unless these have been patched with hotfix 162666. To avoid this, either install the hotfix or download and install the XProtect VMS 2018R2 Recording Servers before installing the Management Server.</p>
         <p class="Notetext"><span class="span_3">Note:</span> If the XProtect VMS version you are upgrading from is significantly older (e.g., several years) than the version you are upgrading to, you should contact Milestone Technical Support to verify what the best approach is.</p>
@@ -111,33 +69,23 @@
         <p class="Seealso">See also: <a href="Install operating system environment.html" class="MCXref_ParaTextOnly_0">3B. Install operating system environment</a>, <a href="Check additional server software and settings.html" class="MCXref_ParaTextOnly_0">3I. Check additional server software and settings</a>, <a href="Check workstation hardware, software, and settings.html" class="MCXref_ParaTextOnly_0">28A. Check workstation hardware, software, and settings</a>, <a href="Configure the Download Manager.html" class="MCXref_ParaTextOnly_0">32D. Configure the Download Manager</a>, <a href="Download and run Smart Client installer from the Management Server.html" class="MCXref_ParaTextOnly_0">28C. Download and run Smart Client installer from the Management Server</a>, <a href="Perform SQL server maintenance.html" class="MCXref_ParaTextOnly_0">32G. Perform SQL server maintenance</a>, <a href="Save and load a system configuration.html" class="MCXref_ParaTextOnly_0">32C. Save and load a system configuration</a>, 3A Obtain or create server communication encryption certificates, 12F enable certificates, <a href="../Tasks/Install XProtect Management Server.html" class="MCXref_ParaTextOnly_0">5. Install XProtect Management Server</a>, <a href="../Tasks/Install XProtect Management Clients.html" class="MCXref_ParaTextOnly_0">9. Install XProtect Management Clients</a>, <a href="../Tasks/Install XProtect Failover Recording Servers.html" class="MCXref_ParaTextOnly_0">8. Install XProtect Failover Recording Servers</a>, <a href="../Tasks/Install XProtect Recording Servers.html" class="MCXref_ParaTextOnly_0">7. Install XProtect Recording Servers</a>, <a href="../Tasks/Install XProtect Mobile server.html" class="MCXref_ParaTextOnly_0">6. Install XProtect Mobile server</a>, <a href="Install app from relevant online marketplace.html" class="MCXref_ParaTextOnly_0">30A. Install app from relevant online marketplace</a></p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Upgrade (explained)</li>
-        </ul>
-        <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Upgrade best practices</li>
-        </ul>
-        <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Device drivers (explained)</li>
-        </ul>
-        <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Export logs</li>
-        </ul>
-        <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1">Milestone XProtect VMS Products - Administrator manual &gt; Allow 2018 R2 and earlier components to write logs</li>
-        </ul>
-        <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1">XProtect Professional VMS Products to XProtect VMS Products - System migration guide</li>
-        </ul>
-        <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://supportcommunity.milestonesys.com/s/article/XProtect-VMS-NET-security-vulnerability-hotfixes-for-2016-R1-2018-R1">KB000004420: XProtect® VMS: .NET security vulnerability (hotfixes for 2016 R1 - 2018 R1)</a>
+            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r1/en-US/standard_features/sf_mc/sf_mcnodes/sf_8serverlogs/mc_serverlogs.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____23#Systemlogsproperties">XProtect VMS Administrator manual &gt; Upgrade (explained)</a>
             </li>
-        </ul>
-        <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><span class="Hyperlink">Milestone Support hotfix 261666 </span><a href="https://milestonesys.yonyx.com/y/conversation/?id=f1b63fe0-47f6-11e8-8196-bc764e10c19d">installation</a><span class="Hyperlink"> walkthrough</span>
+            <li class="AddlResBulletedList" value="2"><a href="https://doc.milestonesys.com/2020r1/en-US/standard_features/sf_mc/sf_upgrade/mc_upgradebestpractices.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CUpgrade%7C_____3">XProtect VMS Administrator manual &gt; Upgrade best practices</a>
             </li>
-        </ul>
-        <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://supportcommunity.milestonesys.com/s/article/how-to-access-old-logs-on-new-XProtect-2018R3-installation">KB000006988: How to access old logs on a new XProtect 2018 R3 installation</a>
+            <li class="AddlResBulletedList" value="3"><a href="https://doc.milestonesys.com/2020r1/en-US/standard_features/sf_mc/sf_considerationsrequirements/mc_beforeyoustartinstall.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CRequirements%20and%20considerations%7C_____10#Devicedriversexplained">XProtect VMS Administrator manual &gt; Before you start installation &gt; Device drivers (explained)</a>
+            </li>
+            <li class="AddlResBulletedList" value="4"><a href="https://doc.milestonesys.com/2020r1/en-US/standard_features/sf_mc/sf_mcnodes/sf_8serverlogs/mc_serverlogs.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____23#Exportlogs">XProtect VMS Administrator manual &gt; Site Navigation: Server logs &gt; Export logs</a>
+            </li>
+            <li class="AddlResBulletedList" value="5"><a href="https://doc.milestonesys.com/2020r1/en-US/standard_features/sf_mc/sf_mcnodes/sf_8serverlogs/mc_serverlogs.htm#MC_Allow2018R2EarlierComp.htm">XProtect VMS Administrator manual &gt; Site Navigation: Server logs &gt; Allow 2018 R2 and earlier components to write logs</a>
+            </li>
+            <li class="AddlResBulletedList" value="6"><a href="https://doc.milestonesys.com/2020r1/en-US/portal/htm/chapter-page-system-migration.htm?tocpath=Tools%20%26%20Architecture%7CXProtect%20VMS%20system%20migration%20guide%7C_____0">XProtect VMS system migration guide</a>
+            </li>
+            <li class="AddlResBulletedList" value="7"><a href="https://supportcommunity.milestonesys.com/s/article/XProtect-VMS-NET-security-vulnerability-hotfixes-for-2016-R1-2018-R1">Knowledge base article 000004420: XProtect® VMS: .NET security vulnerability (hotfixes for 2016 R1 - 2018 R1)</a>
+            </li>
+            <li class="AddlResBulletedList" value="8"><a href="https://milestonesys.yonyx.com/y/conversation/?id=f1b63fe0-47f6-11e8-8196-bc764e10c19d">Troubleshooting assistant: Milestone Support hotfix 261666 installation walkthrough</a>
+            </li>
+            <li class="AddlResBulletedList" value="9"><a href="https://supportcommunity.milestonesys.com/s/article/how-to-access-old-logs-on-new-XProtect-2018R3-installation">Knowledge base article 000006988: How to access old logs on a new XProtect 2018 R3 installation</a>
             </li>
         </ul>
     </body>
