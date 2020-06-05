@@ -4,22 +4,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>21E. Validate all rules</title>
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>22E. Validate all rules</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
     </head>
     <body>
-        <h3 class="Heading3"><span class="span_2">21E. </span>Validate all rules</h3>
+        <h3 class="Heading3"><span class="span_2">22E. </span>Validate all rules</h3>
         <p>When you create a rule, the wizard ensures that all the rule's elements make sense. When a rule has existed for some time, one or more of the rule's elements may have been affected by other configurations and the rule may no longer work. For example, if a rule is triggered by a particular time profile, the rule does not work if you have deleted that time profile or if you no longer have permissions to it.</p>
         <p>You can use rule validation to check the integrity of one or all rules by right-clicking on a rule and choosing to validate that rule or to validate all rules. If the rule (or any rules, if you choose to validate all rules) is missing information, the rule validation will point this out to you.</p>
         <p>Note that you cannot validate whether configuration of prerequisites outside the rule itself may prevent the rule from working. For example, a rule specifying that recording should take place when motion is detected by a particular camera validates OK if the elements in the rule itself are correct, even if motion detection (which is enabled on a camera level, not through rules) has not been enabled for the relevant camera.</p>
         <p>Also note that the rule validation can only check if each rule on its own is executable. Because the system cannot know when a rule may be triggered, it cannot tell you if any rules have conflicting actions. If you have conflicting rules, the software generally prioritizes an action over a non-action (such as recording over not recording) to help ensure the system will behave the same way at all times.</p>
         <p>Using simple rules and having a good naming convention, as described above, is the best way to ensure you do not create conflicting rules.</p>
-        <p class="Seealso">See also: <a href="Create other installation specific rules.html" class="MCXref_ParaTextOnly_0">21C. Create other installation-specific rules</a></p>
+        <p class="Seealso">See also: <a href="Create other installation specific rules.html" class="MCXref_ParaTextOnly_0">22C. Create other installation-specific rules</a></p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r1/en-US/standard_features/sf_mc/sf_mcnodes/sf_5rulesandevents/mc_rulesandevents.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____20#Validatingrulesexplained">XProtect VMS Administrator manual &gt; Site Navigation: Rules and events &gt; Rules &gt; Validating rules (explained)</a>
+            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_mcnodes/sf_5rulesandevents/mc_rulesandevents.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____20#Validatingrulesexplained">XProtect VMS Administrator manual &gt; Site Navigation: Rules and events &gt; Rules &gt; Validating rules (explained)</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://doc.milestonesys.com/2020r1/en-US/standard_features/sf_mc/sf_mcnodes/sf_5rulesandevents/mc_rulesandevents.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____20#Rulecomplexityexplained">XProtect VMS Administrator manual &gt; Site Navigation: Rules and events &gt; Rules &gt; Rule complexity (explained)</a>
+            <li class="AddlResBulletedList" value="2"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_mcnodes/sf_5rulesandevents/mc_rulesandevents.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____20#Rulecomplexityexplained">XProtect VMS Administrator manual &gt; Site Navigation: Rules and events &gt; Rules &gt; Rule complexity (explained)</a>
             </li>
         </ul>
         <p style="page-break-after: always;">

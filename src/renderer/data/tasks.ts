@@ -95,101 +95,107 @@ export const Tasks: Task[] = [
   {
     id: 16,
     phaseId: 2,
-    title: 'Configure microphones and speakers',
-    productTier: ProductTier.Essential
+    title: 'Configure metadata',
+    productTier: ProductTier.Expert
   },
   {
     id: 17,
     phaseId: 2,
-    title: 'Configure inputs and outputs',
+    title: 'Configure microphones and speakers',
     productTier: ProductTier.Essential
   },
   {
     id: 18,
     phaseId: 2,
-    title: 'Configure client settings',
+    title: 'Configure inputs and outputs',
     productTier: ProductTier.Essential
   },
   {
     id: 19,
     phaseId: 2,
-    title: 'Configure software events',
+    title: 'Configure client settings',
     productTier: ProductTier.Essential
   },
   {
     id: 20,
-    phaseId: 3,
-    title: 'Create time and notification profiles',
+    phaseId: 2,
+    title: 'Configure software events',
     productTier: ProductTier.Essential
   },
   {
     id: 21,
     phaseId: 3,
-    title: 'Create rules',
+    title: 'Create time and notification profiles',
     productTier: ProductTier.Essential
   },
   {
     id: 22,
     phaseId: 3,
-    title: 'Configure users and security',
+    title: 'Create rules',
     productTier: ProductTier.Essential
   },
   {
     id: 23,
     phaseId: 3,
+    title: 'Configure users and security',
+    productTier: ProductTier.Essential
+  },
+  {
+    id: 24,
+    phaseId: 3,
     title: 'Define alarms',
     productTier: ProductTier.Express
   },
   {
-    id: 24,
+    id: 25,
     phaseId: 3,
     title: 'System performance and alerting',
     productTier: ProductTier.Essential
   },
   {
-    id: 25,
+    id: 26,
     phaseId: 4,
     title: 'Configure Mobile servers',
     productTier: ProductTier.Essential
   },
   {
-    id: 26,
+    id: 27,
     phaseId: 4,
     title: 'Configure Milestone Interconnect',
     productTier: ProductTier.Corporate
   },
   {
-    id: 27,
+    id: 28,
     phaseId: 4,
     title: 'Activate license',
     productTier: ProductTier.Essential
   },
   {
-    id: 28,
+    id: 29,
     phaseId: 4,
     title: 'Configure the Smart Client',
     productTier: ProductTier.Essential
   },
   {
-    id: 29,
+    id: 30,
     phaseId: 4,
     title: 'Configure Web Client',
     productTier: ProductTier.Essential
   },
   {
-    id: 30,
+    id: 31,
     phaseId: 4,
     title: 'Configure Mobile Client',
     productTier: ProductTier.Essential
   },
   {
-    id: 31,
+    id: 32,
     phaseId: 4,
     title: 'Hand off to customer',
     productTier: ProductTier.Essential
   },
   {
-    id: 32, 
+    id: 33, 
     phaseId: 4,
     title: 'Additional XProtect VMS service, upgrade, and expansion proficiencies',
     productTier: ProductTier.Essential 

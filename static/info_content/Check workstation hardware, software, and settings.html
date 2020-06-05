@@ -5,11 +5,11 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" />
-        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" type="text/css" /><title>28A. Check workstation hardware, software, and settings</title>
+        <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" type="text/css" /><title>29A. Check workstation hardware, software, and settings</title>
         <link href="../../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
     </head>
     <body>
-        <h3 class="Heading3">28A. Check workstation hardware, software, and settings</h3>
+        <h3 class="Heading3">29A. Check workstation hardware, software, and settings</h3>
         <h4 class="Heading4">Verify Windows version</h4>
         <p>Make sure the Windows version is compatible with the XProtect Smart Client version you are installing.</p>
         <p>Milestone recommends you always keep your system current by installing all important updates from Microsoft.</p>
@@ -18,9 +18,9 @@
         <h4 class="Heading4">Verify DirectX version</h4>
         <p>Verify the required (or newer) DirectX version is installed.</p>
         <h4 class="Heading4">Verify Graphics card capabilities</h4>
-        <p>Verify the graphics card meets the requirements specified in the system design document.</p>
+        <p>Verify the graphics card meets the requirements specified in the design specification.</p>
         <h4 class="Heading4">Verify Intel Quicksync support</h4>
-        <p>Make sure Intel Quicksync is supported and enabled if the system design document specifies using hardware decoding (recommended for all systems using MPEG4 or H.264 camera streams).</p>
+        <p>Make sure Intel Quicksync is supported and enabled if the design specification specifies using hardware decoding (recommended for all systems using MPEG4 or H.264 camera streams).</p>
         <h4 class="Heading4">Check NVIDIA graphic card drivers</h4>
         <p>If the workstation has one or more NVIDIA graphics cards installed, the Smart Client may be able to use the NVIDIA GPU to decode the video streams. Verify the graphics card is identified as an NVIDIA card in the Windows Device Manager.</p>
         <p class="Notetext"><span class="span_3">Note:</span> The NVIDIA Maxwell platform includes two product lines: GM107 and GM108. The GM108 line, used mostly in laptops, does not support hardware encoding and decoding. You may verify which line a given GPU belongs to directly with NVIDIA or by checking with a third-party tool such as GPU-Z. The additional resources section also includes a link to a third-party list of GM108 models that may be helpful, though it is not guaranteed to be complete.</p>
@@ -40,7 +40,7 @@
         <ul class="ul_3">
             <li class="AddlResBulletedList" value="1"><a href="https://www.milestonesys.com/support/resources/system-requirements/">Milestone product system requirements - milestonesys.com</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://doc.milestonesys.com/2020r1/en-US/standard_features/sf_sc/sf_hardwareaccelerateddecoding/sc_enablinghardwareaccel.htm?tocpath=XProtect%20Smart%20Client%7CXProtect%20Smart%20Client%7COptimization%7C_____1">XProtect Smart Client User Manual &gt; Enabling hardware acceleration</a>
+            <li class="AddlResBulletedList" value="2"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_sc/sf_hardwareaccelerateddecoding/sc_enablinghardwareaccel.htm?tocpath=XProtect%20Smart%20Client%7CXProtect%20Smart%20Client%7COptimization%7C_____1">XProtect Smart Client User Manual &gt; Enabling hardware acceleration</a>
             </li>
             <li class="AddlResBulletedList" value="3"><a href="https://www.techpowerup.com/gpuz/">TechPowerUp GPU-Z - techpowerup.com</a>
             </li>

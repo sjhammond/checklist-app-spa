@@ -12,10 +12,12 @@
         <h4 class="Heading4">IP hardware devices</h4>
         <p>In most cases, IP cameras, and possibly IP encoders, are the only hardware devices you will be adding to a Recording Server. Depending on how those devices are supported, they will use either a dedicated driver or the ONVIF driver.</p>
         <p>Before installing, you should verify how the devices are supported and what firmware versions the driver supports. You can do this on the Milestone website: <a href="https://www.milestonesys.com/community/business-partner-tools/supported-devices/">https://www.milestonesys.com/community/business-partner-tools/supported-devices/</a></p>
-        <p>You can add devices by either IP address or hostname. If you will be adding the device by hostname, you must use the manual option.</p>
+        <p>You can add devices by either IP address or hostname. If you will be adding the device by hostname, or you are adding multiple devices that are configured to use different IP ports, you must use the manual option.</p>
         <p>After the hardware device has been detected, you have the option to select which functions you want to enable and to name both the hardware device and those device functions. Naming the device functions already at this point may be an advantage, especially if you are adding only a few devices or will be enabling audio or I/O functions, because you won’t need to get back to it and work it out later.</p>
         <p>The process is the same if you will be adding an IP I/O or audio-only device.</p>
         <p>Each hardware device you add will consume one hardware device license.</p>
+        <p class="Notetext"><b>Note</b>: To add a hardware device using HTTPS, the device must have a certificate configured and enabled within the hardware device before adding itbeing added to the XProtect VMS.</p>
+        <p class="Notetext"><b>Note</b>: Adding devices using HTTPS is not supported on all devices. Please refer to the Supported Devices list on the Milestone website for compatibility details. Devices not supported must be added to the Recording Server using HTTP. After installation you can then enable the HTTPS stream under the Settings tab for the hardware device.</p>
         <h4 class="Heading4">DirectShow device</h4>
         <p>If you will be adding a DirectShow device—for example, to play back pre-recorded video clips as part of a demo system or to record video through a webcam driver—you should follow the instructions in KB00001020. You must use the manual detection option and explicitly specify using the DirectShowDriver in the hardware model dropdown list.</p>
         <p>From there, the installation process and licensing are the same as for a physical hardware device. Once the DirectShow device has been added, you can specify the .AVI video file path, or webcam device or path, under the Settings tab.</p>
@@ -36,9 +38,13 @@
         <ul class="ul_3">
             <li class="AddlResBulletedList" value="1"><a href="https://www.milestonesys.com/solutions/hardware-and-add-ons/milestone-addons/screen-recorder/">XProtect Screen Recorder - milestonesys.com</a>
             </li>
+            <li class="AddlResBulletedList" value="2"><a href="https://force.milestonesys.com/support/articles/en_US/How_To/Set-up-DirectShow-Driver">KB00001020: Set up DirectShow Driver</a>
+            </li>
+            <li class="AddlResBulletedList" value="3"><a href="https://www.milestonesys.com/solutions/hardware-and-add-ons/milestone-addons/screen-recorder/">XProtect® Screen Recorder boilerplate</a>
+            </li>
         </ul>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r1/en-US/portal/htm/chapter-page-screen-recorder.htm">XProtect Screen Recorder Administrator's Manual</a>
+            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r2/en-US/portal/htm/chapter-page-screen-recorder.htm">XProtect Screen Recorder Administrator's Manual</a>
             </li>
         </ul>
     </body>

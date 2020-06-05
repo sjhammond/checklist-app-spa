@@ -4,7 +4,7 @@ import './css/app.css'
 import { createStaticPath } from "./functions/helpers/createStaticPath";
 
 //set release version here
-export const releaseVersion:string = "XProtect VMS 2020 R1";
+export const releaseVersion:string = "XProtect VMS 2020 R2";
 
 const myApp = document.getElementById('app');
 myApp.innerHTML = `
