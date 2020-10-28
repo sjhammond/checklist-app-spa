@@ -6,21 +6,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>1E. Test the network</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+        <meta name="tocPath" content="Preparing and Installing|1. Configure the network|1E. Test the network" />
     </head>
     <body>
         <h3 class="Heading3"><span class="span_2">1E. </span>Test the network</h3>
         <h4 class="Heading4">Internet access</h4>
         <p class="Bulletlistheading">Internet access may be relevant in several respects with a Milestone XProtect system for:</p>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Software license registration</li>
-            <li class="ListParagraph" value="2">Mobile client access (Mobile devices and browser-based access) from outside the LAN</li>
-            <li class="ListParagraph" value="3">Smart Client or Management Client access from outside the LAN</li>
-            <li class="ListParagraph" value="4">Access to devices (such as cameras) or recording servers located in other locations</li>
+            <li class="ListParagraph">Software license registration</li>
+            <li class="ListParagraph">Mobile client access (Mobile devices and browser-based access) from outside the LAN</li>
+            <li class="ListParagraph">Smart Client or Management Client access from outside the LAN</li>
+            <li class="ListParagraph">Access to devices (such as cameras) or recording servers located in other locations</li>
         </ul>
         <p class="Bulletlistheading">Software license registration:</p>
         <p>If possible, the Management Server should be set up so it can access the internet to enable online/automatic authentication of the license and the configuration. If this is not possible, manual offline authentication is possible.</p>
         <p class="Bulletlistheading">Mobile client access:</p>
-        <p>If users should be able to access the system from mobile devices on the internet, port forwarding must be set up to allow the incoming connection to the XProtect Mobile server. In this case, Milestone highly recommends the XProtect Mobile server service be installed on a server in the DMZ for network security reasons.</p>
+        <p>If users should be able to access the system from mobile devices on the internet, port forwarding must be set up to allow the incoming connection to XProtect Mobile server. In this case, Milestone highly recommends the XProtect Mobile server service be installed on a server in the DMZ for network security reasons.</p>
         <p class="Bulletlistheading">Smart Client and Management Client access:</p>
         <p>It is possible to set up access for these clients from the internet by configuring the necessary port forward rules in the edge router/firewall. However, because doing this will inevitably make the system vulnerable to unauthorized access, Milestone highly recommends using a secure VPN solution rather than simple port forwarding in these situations.</p>
         <p class="Bulletlistheading">Remote devices or recording servers:</p>
@@ -28,13 +29,13 @@
         <p class="Seealso">See also: <a href="Configure the network.html" class="MCXref_ParaTextOnly_0">1D. Configure the network</a>.</p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_mcnodes/sf_1basics/mc_basics_mcelements.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____5#Licenseinformation">XProtect VMS Administrator manual &gt; Site Navigation: Basics &gt; License Information</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_mcnodes/sf_1basics/mc_basics_mcelements.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____5#Licenseinformation">XProtect VMS Administrator manual &gt; Site Navigation: Basics &gt; License Information</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="http://System Architecture Guide for IT Professionals">System Architecture Guide for IT Professionals</a>
+            <li class="AddlResBulletedList"><a href="http://System Architecture Guide for IT Professionals">System Architecture Guide for IT Professionals</a>
             </li>
-            <li class="AddlResBulletedList" value="3"><a href="https://en.wikipedia.org/wiki/DMZ_(computing)">DMZ (computing) - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/DMZ_(computing)">DMZ (computing) - Wikipedia.org</a>
             </li>
-            <li class="AddlResBulletedList" value="4"><a href="https://en.wikipedia.org/wiki/Virtual_private_network">Virtual private network  - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/Virtual_private_network">Virtual private network  - Wikipedia.org</a>
             </li>
         </ul>
         <h4 class="Heading4">Dynamic Host Configuration Protocol (DHCP)</h4>
@@ -45,32 +46,32 @@
         <p>Milestone recommends always using static IP addresses for servers, per standard IT practice.</p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="elearning: Milestone Fundamentals of IP Surveillance Systems">eLearning: Milestone Fundamentals of IP Surveillance Systems</a>
+            <li class="AddlResBulletedList"><a href="elearning: Milestone Fundamentals of IP Surveillance Systems">eLearning: Milestone Fundamentals of IP Surveillance Systems</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="http://Connecting XProtect VMS to the Internet Guide">Connecting XProtect VMS to the Internet Guide</a>
+            <li class="AddlResBulletedList"><a href="http://Connecting XProtect VMS to the Internet Guide">Connecting XProtect VMS to the Internet Guide</a>
             </li>
-            <li class="AddlResBulletedList" value="3"><a href="http://whatismyipaddress.com/dynamic-static">Static vs. Dynamic IP Addresses - whatismyipaddress.com</a>
+            <li class="AddlResBulletedList"><a href="http://whatismyipaddress.com/dynamic-static">Static vs. Dynamic IP Addresses - whatismyipaddress.com</a>
             </li>
-            <li class="AddlResBulletedList" value="4"><a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">Dynamic Host Configuration Protocol - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">Dynamic Host Configuration Protocol - Wikipedia.org</a>
             </li>
-            <li class="AddlResBulletedList" value="5"><a href="https://en.wikipedia.org/wiki/Hostname">Hostname - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/Hostname">Hostname - Wikipedia.org</a>
             </li>
-            <li class="AddlResBulletedList" value="6"><a href="https://en.wikipedia.org/wiki/NetBIOS">NetBIOS - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/NetBIOS">NetBIOS - Wikipedia.org</a>
             </li>
-            <li class="AddlResBulletedList" value="7"><a href="http://www.techrepublic.com/article/how-netbios-name-resolution-really-works/">How NetBIOS name resolution really works - techrepublic.com</a>
+            <li class="AddlResBulletedList"><a href="http://www.techrepublic.com/article/how-netbios-name-resolution-really-works/">How NetBIOS name resolution really works - techrepublic.com</a>
             </li>
         </ul>
         <h4 class="Heading4">Domain Name Server (DNS)</h4>
-        <p>If the installation depends on resolving device hostnames through a DNS server, you should verify that hostnames resolve correctly from the recording server before proceeding to install the device in the XProtect VMS. If the recording server cannot resolve the device IP address from the hostname, it will not be able to install the device.</p>
+        <p>If the installation depends on resolving device hostnames through a DNS server, you should verify that hostnames resolve correctly from the recording server before proceeding to install the device in XProtect VMS. If the recording server cannot resolve the device IP address from the hostname, it will not be able to install the device.</p>
         <p>It is possible to force a host (such as a workstation or server) to override the DNS lookup and resolve a domain- or hostname to a specific IP address. In Windows this is done by adding the domain- or hostname and IP address to the HOSTS file in %SystemRoot%\System32\drivers\etc\hosts. (Doing this requires administrator-level privileges.)</p>
         <p class="Seealso">See also: 1E Test the network &gt; Dynamic Host Configuration Protocol (DHCP)</p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://en.wikipedia.org/wiki/Domain_Name_System">Domain Name System - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/Domain_Name_System">Domain Name System - Wikipedia.org</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://en.wikipedia.org/wiki/Hosts_(file)">Hosts (file) - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/Hosts_(file)">Hosts (file) - Wikipedia.org</a>
             </li>
-            <li class="AddlResBulletedList" value="3"><a href="http://www.thewindowsclub.com/elevated-privileges-windows">How to grant elevated privileges in Windows 10 - thewindowsclub.com</a>
+            <li class="AddlResBulletedList"><a href="http://www.thewindowsclub.com/elevated-privileges-windows">How to grant elevated privileges in Windows 10 - thewindowsclub.com</a>
             </li>
         </ul>
     </body>

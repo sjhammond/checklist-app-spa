@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>13A. Add and name hardware devices</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+        <meta name="tocPath" content="Configuring and Organizing|13. Add hardware devices|13A. Add and name hardware devices" />
     </head>
     <body>
         <h3 class="Heading3">13A. Add and name hardware devices</h3>
@@ -16,35 +17,35 @@
         <p>After the hardware device has been detected, you have the option to select which functions you want to enable and to name both the hardware device and those device functions. Naming the device functions already at this point may be an advantage, especially if you are adding only a few devices or will be enabling audio or I/O functions, because you won’t need to get back to it and work it out later.</p>
         <p>The process is the same if you will be adding an IP I/O or audio-only device.</p>
         <p>Each hardware device you add will consume one hardware device license.</p>
-        <p class="Notetext"><b>Note</b>: To add a hardware device using HTTPS, the device must have a certificate configured and enabled within the hardware device before adding itbeing added to the XProtect VMS.</p>
+        <p class="Notetext"><b>Note</b>: To add a hardware device using HTTPS, the device must have a certificate configured and enabled within the hardware device before adding it being added to XProtect VMS.</p>
         <p class="Notetext"><b>Note</b>: Adding devices using HTTPS is not supported on all devices. Please refer to the Supported Devices list on the Milestone website for compatibility details. Devices not supported must be added to the Recording Server using HTTP. After installation you can then enable the HTTPS stream under the Settings tab for the hardware device.</p>
         <h4 class="Heading4">DirectShow device</h4>
         <p>If you will be adding a DirectShow device—for example, to play back pre-recorded video clips as part of a demo system or to record video through a webcam driver—you should follow the instructions in KB00001020. You must use the manual detection option and explicitly specify using the DirectShowDriver in the hardware model dropdown list.</p>
         <p>From there, the installation process and licensing are the same as for a physical hardware device. Once the DirectShow device has been added, you can specify the .AVI video file path, or webcam device or path, under the Settings tab.</p>
-        <p>Note that you can add only one DirectShow device to an XProtect VMS Recording Server, giving you up to eight video and audio channels.</p>
+        <p class="Notetext"><b>Note</b>: You can add only one DirectShow device to an XProtect VMS Recording Server, giving you up to eight video and audio channels.</p>
         <h4 class="Heading4">Screen Recorders</h4>
         <p>XProtect Screen Recorder is a function that enables Milestone video management software (VMS) to inconspicuously capture screen recordings of any Microsoft<sup>®</sup> Windows-based PC or point-of-sale (POS) terminal. XProtect Screen Recorder is easily installed on computers that you want to monitor and recordings are fully synchronized with other video data.</p>
         <p>Captured screen recordings are managed in the same way as video camera data in the software. Camera recordings can be viewed in live and playback mode and exported for evidence.</p>
         <p>You can download the XProtect Screen Recorder software and manual from the Milestone website.</p>
-        <p>After the XProtect Screen Recorder is installed and configured on the PC you want to record, you can install the Screen Recorder driver on the Recording Server.</p>
+        <p>After XProtect Screen Recorder is installed and configured on the PC you want to record, you can install the Screen Recorder driver on the Recording Server.</p>
         <p>You must use the manual detection option and explicitly specify using the Screen Recorder driver in the hardware model dropdown list. Also remember to specify the correct password (leave the username blank) and the IP port. The default is port 52111.</p>
         <p>From there, the installation process and licensing are the same as for a physical hardware device.</p>
         <p class="Seealso">See also: <a href="Verify firmware version with Milestone Supported Devices list.html" class="MCXref_ParaTextOnly_0">2C. Verify firmware version with Milestone Supported Devices list</a>,<a href="Set a static IP address or configure DHCP and hostname.html" class="MCXref_ParaTextOnly_0">2A. Set a static IP address or configure DHCP and hostname</a>, <a href="Name hardware devices.html" class="MCXref_ParaTextOnly_0">14A. Name hardware devices</a></p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://supportcommunity.milestonesys.com/s/article/Set-up-DirectShow-Driver?language=en_US">Knowledge base article 000001020: Set up DirectShow Driver</a>
+            <li class="AddlResBulletedList"><a href="https://supportcommunity.milestonesys.com/s/article/Set-up-DirectShow-Driver?language=en_US">Knowledge base article 000001020: Set up DirectShow Driver</a>
             </li>
         </ul>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://www.milestonesys.com/solutions/hardware-and-add-ons/milestone-addons/screen-recorder/">XProtect Screen Recorder - milestonesys.com</a>
+            <li class="AddlResBulletedList"><a href="https://www.milestonesys.com/solutions/hardware-and-add-ons/milestone-addons/screen-recorder/">XProtect Screen Recorder - milestonesys.com</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://force.milestonesys.com/support/articles/en_US/How_To/Set-up-DirectShow-Driver">KB00001020: Set up DirectShow Driver</a>
+            <li class="AddlResBulletedList"><a href="https://force.milestonesys.com/support/articles/en_US/How_To/Set-up-DirectShow-Driver">KB00001020: Set up DirectShow Driver</a>
             </li>
-            <li class="AddlResBulletedList" value="3"><a href="https://www.milestonesys.com/solutions/hardware-and-add-ons/milestone-addons/screen-recorder/">XProtect® Screen Recorder boilerplate</a>
+            <li class="AddlResBulletedList"><a href="https://www.milestonesys.com/solutions/hardware-and-add-ons/milestone-addons/screen-recorder/">XProtect® Screen Recorder boilerplate</a>
             </li>
         </ul>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r2/en-US/portal/htm/chapter-page-screen-recorder.htm">XProtect Screen Recorder Administrator's Manual</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/portal/htm/chapter-page-screen-recorder.htm">XProtect Screen Recorder Administrator's Manual</a>
             </li>
         </ul>
     </body>

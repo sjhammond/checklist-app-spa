@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>15H. Configure software Motion Detection</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+        <meta name="tocPath" content="Configuring and Organizing|15. Configure cameras|15H. Configure software Motion Detection" />
     </head>
     <body>
         <h3 class="Heading3"><span class="span_2">15H. </span>Configure software Motion Detection</h3>
@@ -16,7 +17,7 @@
         <p>Verify motion detection (VMD) is enabled (default setting)/disabled as desired for each camera or group of cameras.</p>
         <p>If the server has one or more NVIDIA graphics cards and/or supports Intel Quick Sync, the Recording Server will use the graphics processing units (GPUs) for VMD when set to automatic (default setting). This will reduce the CPU load on the recording server during video motion analysis and improve the general performance of the recording server.</p>
         <p>Since hardware acceleration is subject to the actual server and NVIDIA graphics card hardware and BIOS configuration, you should verify that each recording server is, in fact, using hardware acceleration as intended by verifying the CPU and GPU load on each recording server.</p>
-        <p>You can view the GPU load through the XProtect VMS System Monitor, Windows Task Manager or by using a third-party tool such as GPU-z.</p>
+        <p>You can view the GPU load through XProtect VMS System Monitor, Windows Task Manager or by using a third-party tool such as GPU-z.</p>
         <h4 class="Heading4">Configure exclusion regions</h4>
         <p>Enable exclude regions and configure any area you prefer to except from VMD on each camera.</p>
         <p>Areas covered by a permanent privacy masking are automatically exempted from VMD.</p>
@@ -36,17 +37,17 @@
         <p class="Seealso">See also: <a href="Configure video streams.html" class="MCXref_ParaTextOnly_0">15C. Configure video streams</a>, <a href="Perform a walk test for all cameras with motion detection.html" class="MCXref_ParaTextOnly_0">32A. Perform a walk test for all cameras with motion detection</a></p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_mcnodes/sf_3devices/mc_sitenavigationdevices.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____13#Motiontabdevices">XProtect VMS Administrator manual &gt; Site Navigation: Devices tabs &gt; Motion tab (devices)</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_mcnodes/sf_3devices/mc_sitenavigationdevices.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____13#Motiontabdevices">XProtect VMS Administrator manual &gt; Site Navigation: Devices tabs &gt; Motion tab (devices)</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://content.milestonesys.com/media/?mediaId=25E688E0-D0B2-4D2A-B8D100F7FD1277D7">XProtect Smart Client - Hardware acceleration guide</a>
+            <li class="AddlResBulletedList"><a href="https://content.milestonesys.com/media/?mediaId=25E688E0-D0B2-4D2A-B8D100F7FD1277D7">XProtect Smart Client - Hardware acceleration guide</a>
             </li>
-            <li class="AddlResBulletedList" value="3"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_mcnodes/sf_3devices/mc_sitenavigationdevices.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____13#Hardwareaccelerationexplained">XProtect VMS Administrator manual &gt; Site Navigation: Devices tabs &gt; Motion tab (devices) &gt; Hardware acceleration (explained)</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_mcnodes/sf_3devices/mc_sitenavigationdevices.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____13#Hardwareaccelerationexplained">XProtect VMS Administrator manual &gt; Site Navigation: Devices tabs &gt; Motion tab (devices) &gt; Hardware acceleration (explained)</a>
             </li>
-            <li class="AddlResBulletedList" value="4"><a href="https://content.milestonesys.com/media/?mediaId=ADF95B50-9A79-44FB-92762AF5B0FE7D62">Intel Quick Sync Video and Milestone White Paper</a>
+            <li class="AddlResBulletedList"><a href="https://content.milestonesys.com/media/?mediaId=ADF95B50-9A79-44FB-92762AF5B0FE7D62">Intel Quick Sync Video and Milestone White Paper</a>
             </li>
-            <li class="AddlResBulletedList" value="5"><a href="https://www.milestonesys.com/globalassets/materials/documents/product_updates/productupdate_r1_2017_everythingyouneedtoknow.pdf">Product Update: Changing the industry with hardware accelerated decoding</a>
+            <li class="AddlResBulletedList"><a href="https://www.milestonesys.com/globalassets/materials/documents/product_updates/productupdate_r1_2017_everythingyouneedtoknow.pdf">Product Update: Changing the industry with hardware accelerated decoding</a>
             </li>
-            <li class="AddlResBulletedList" value="6"><a href="https://www.techpowerup.com/gpuz/">TechPowerUp GPU-Z - techpowerup.com</a>
+            <li class="AddlResBulletedList"><a href="https://www.techpowerup.com/gpuz/">TechPowerUp GPU-Z - techpowerup.com</a>
             </li>
         </ul>
     </body>

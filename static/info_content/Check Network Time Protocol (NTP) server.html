@@ -5,37 +5,38 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>1F. Check Network Time Protocol (NTP) server</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+        <meta name="tocPath" content="Preparing and Installing|1. Configure the network|1F. Check Network Time Protocol (NTP) server" />
     </head>
     <body>
         <h3 class="Heading3"><span class="span_2">1F. </span>Check Network Time Protocol (NTP) server</h3>
         <p>It is critical for the correct operation of a Milestone system that the date and time of all servers and workstations are accurate to within five minutes. If the installation makes use of onboard edge storage on devices (such as cameras), or if you intend to use the cameras’ on-screen date and time stamps, it is further critical that the date and time in the edge device are as closely synchronized with the recording server as possible.</p>
-        <p>The XProtect VMS uses UTC time internally, so hosts can be in different time zones as long as the time zone is set correctly and the host or device is using the correct time for their time zone.</p>
+        <p>XProtect VMS uses UTC time internally, so hosts can be in different time zones as long as the time zone is set correctly and the host or device is using the correct time for their time zone.</p>
         <p>Milestone recommends always using an NTP time source for all time-critical hosts and devices. This may be either a public NTP server, such as time.microsoft.com, or a local time server. If a workstation or server is a member of a domain, it will usually synchronize to the domain server time automatically.</p>
         <p>If a host does not have internet access and the host is not a member of a domain, Milestone recommends installing a local NTP server, either as a software or hardware solution. Similarly, it may be necessary to install a local NTP server for devices (such as cameras) to synchronize to, especially in systems where devices are isolated on a separate network where the Milestone Recording Servers are the only host they can access.</p>
         <p>In this latter case, very often the only way to enable devices to synchronize their internal clocks is to install a software NTP on the recording server or add a hardware NTP server to the camera network.</p>
         <p class="Bulletlistheading">Examples of local time servers are:</p>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">NetTime (<a href="http://www.timesynctool.com">http://www.timesynctool.com</a>) is a local time server application that can itself synchronize to one or more external sources or work as a free-running clock based on the host computer's internal clock.</li>
+            <li class="ListParagraph">NetTime (<a href="http://www.timesynctool.com">http://www.timesynctool.com</a>) is a local time server application that can itself synchronize to one or more external sources or work as a free-running clock based on the host computer's internal clock.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Ese ES-192/ES-194 (<a href="http://www.ese-web.com/es192.htm">http://www.ese-web.com/es192.htm</a>) is a stand-alone master clock network appliance that, once set, maintains time accuracy through the precision of the 50Hz/60Hz AC line frequency.</li>
+            <li class="ListParagraph">Ese ES-192/ES-194 (<a href="http://www.ese-web.com/es192.htm">http://www.ese-web.com/es192.htm</a>) is a stand-alone master clock network appliance that, once set, maintains time accuracy through the precision of the 50Hz/60Hz AC line frequency.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Veracity Timenet Pro (<a href="http://www.veracityglobal.com/products/networked-video-integration-devices/timenet-pro.aspx">http://www.veracityglobal.com/products/networked-video-integration-devices/timenet-pro.aspx</a>) is a stand-alone master NTP reference clock network appliance that uses precision GPS satellite time as its reference signal.</li>
+            <li class="ListParagraph">Veracity Timenet Pro (<a href="http://www.veracityglobal.com/products/networked-video-integration-devices/timenet-pro.aspx">http://www.veracityglobal.com/products/networked-video-integration-devices/timenet-pro.aspx</a>) is a stand-alone master NTP reference clock network appliance that uses precision GPS satellite time as its reference signal.</li>
         </ul>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_considerationsrequirements/mc_timeserversexplained.htm">XProtect VMS Administrator manual &gt; Time servers (explained)</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_considerationsrequirements/mc_timeserversexplained.htm">XProtect VMS Administrator manual &gt; Time servers (explained)</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://en.wikipedia.org/wiki/Network_Time_Protocol">Network Time Protocol - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/Network_Time_Protocol">Network Time Protocol - Wikipedia.org</a>
             </li>
-            <li class="AddlResBulletedList" value="3"><a href="https://en.wikipedia.org/wiki/Time_server">Time server - Wikipedia.org</a>
+            <li class="AddlResBulletedList"><a href="https://en.wikipedia.org/wiki/Time_server">Time server - Wikipedia.org</a>
             </li>
-            <li class="AddlResBulletedList" value="4"><a href="http://tf.nist.gov/tf-cgi/servers.cgi">NIST Internet Time Servers - tf.nist.gov</a>
+            <li class="AddlResBulletedList"><a href="http://tf.nist.gov/tf-cgi/servers.cgi">NIST Internet Time Servers - tf.nist.gov</a>
             </li>
-            <li class="AddlResBulletedList" value="5"><a href="https://docs.microsoft.com/en-us/archive/blogs/nepapfe/its-simple-time-configuration-in-active-directory">"It's Simple!" - Time Configuration in Active Directory - docs.microsoft.com</a>
+            <li class="AddlResBulletedList"><a href="https://docs.microsoft.com/en-us/archive/blogs/nepapfe/its-simple-time-configuration-in-active-directory">"It's Simple!" - Time Configuration in Active Directory - docs.microsoft.com</a>
             </li>
-            <li class="AddlResBulletedList" value="6"><a href="https://content.milestonesys.com/media/?mediaId=3B565268-FC36-4709-8C6D849AEB8906E5">System Architecture Guide for IT Professionals</a>
+            <li class="AddlResBulletedList"><a href="https://content.milestonesys.com/media/?mediaId=3B565268-FC36-4709-8C6D849AEB8906E5">System Architecture Guide for IT Professionals</a>
             </li>
         </ul>
     </body>

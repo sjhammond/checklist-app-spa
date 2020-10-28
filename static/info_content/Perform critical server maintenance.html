@@ -6,46 +6,56 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>33H. Perform critical server maintenance</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+        <meta name="tocPath" content="Extending and Maintaining|33. Additional XProtect VMS service, upgrade, and expansion proficiencies|33H. Perform critical server maintenance" />
     </head>
     <body>
         <h3 class="Heading3"><span class="span_2">33H. </span>Perform critical server maintenance</h3>
         <p>Milestone has identified a number of critical maintenance tasks you should be prepared to execute as part of a planned system maintenance or expansion, or in case of a major failure.</p>
         <h4 class="Heading4">Replace a (failed) management server</h4>
-        <p>If the XProtect Management Server is running in a virtualized environment, using the tools available within this environment is usually the fastest way to migrate the Management Server.</p>
-        <p>If the XProtect Management Server is running in a non-virtual environment, and the server is still running (or you have a current backup) and the hardware and software configuration should remain the same, backing up and restoring the entire server installation may be the easiest and fastest way to migrate to a new server.</p>
-        <p class="Bulletlistheading">If none of these situations apply:</p>
+        <p>If XProtect Management Server and SQL Sserver are running in a virtualized environment, using the tools available within this environment is usually the fastest way to migrate the Management Server.</p>
+        <p>If XProtect Management Server is running in a non-virtual environment, and the server is still running (or you have a current backup) and the hardware and software configuration should remain the same, backing up and restoring the entire server installation may be the easiest and fastest way to migrate to a new server.</p>
+        <p class="Bulletlistheading">If the above situations do not apply, and the SQL server installed on a different server is still working:</p>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Make a configuration backup or locate the most recent configuration backup file.</li>
-            <li class="ListParagraph" value="2">Install the XProtect Management Server on the new server.</li>
-            <li class="ListParagraph" value="3">Restore the backed-up system configuration to the new system.</li>
+            <li class="ListParagraph">Install XProtect Management Server on the new server and point it to the existing SQL server during the install. Specify the system configuration password during the install if the SQL database is encrypted.</li>
+        </ul>
+        <p class="Bulletlistheading">If SQL Server Express is installed on the old (failed) management server:</p>
+        <ul class="ul_2">
+            <li class="ListParagraph">Locate the most recent full SQL database backup.</li>
+            <li class="ListParagraph">Install XProtect Management Server and SQL Express on the new server.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph">Restore the SQL Server backup to the new SQL server.</li>
+        </ul>
+        <ul class="ul_2">
+            <li class="ListParagraph">Specify the system configuration password via the Management Server system tray, if the SQL database is encrypted.</li>
         </ul>
         <h4 class="Heading4">Replace a (failed) recording server</h4>
         <p>If the recording server is still working and you simply want to replace it with different hardware, the best approach is to install the Recording Server as a new server, configure the storage, and move the hardware devices to the new server using the Move Hardware wizard. </p>
         <p>Once you reach the maximum retention time of all the storage configurations on the old server, you should use the Management Client to delete it from the system before taking the old server offline.</p>
         <p>If a recording server is malfunctioning and you want to replace it with a new server that inherits the settings of the old Recording Server, follow these steps:</p>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Remove the old recording server from the network or take other steps to make sure it will never be online at the same time as the new recording server.</li>
-            <li class="ListParagraph" value="2">Retrieve the Recording Server ID from the old recording server (the server does not need to be online).</li>
-            <li class="ListParagraph" value="3">Install the XProtect Recording Server software on the new recording server.</li>
-            <li class="ListParagraph" value="4">Stop the Recording Server service on the new recording server.</li>
-            <li class="ListParagraph" value="5">Replace the Recording Server ID on the new recording server.</li>
-            <li class="ListParagraph" value="6">Start the Recording Server service on the new recording server. The new Recording Server will automatically retrieve the configuration of the old Recording Server from the Management Server. </li>
-            <li class="ListParagraph" value="7">Verify everything is working as intended. Make particularly sure the storage configuration matches the hardware and storage configuration on the new recording server.</li>
+            <li class="ListParagraph">Remove the old recording server from the network or take other steps to make sure it will never be online at the same time as the new recording server.</li>
+            <li class="ListParagraph">Retrieve the Recording Server ID from the old recording server (the server does not need to be online).</li>
+            <li class="ListParagraph">Install XProtect Recording Server software on the new recording server.</li>
+            <li class="ListParagraph">Stop the Recording Server service on the new recording server.</li>
+            <li class="ListParagraph">Replace the Recording Server ID on the new recording server.</li>
+            <li class="ListParagraph">Start the Recording Server service on the new recording server. The new Recording Server will automatically retrieve the configuration of the old Recording Server from the Management Server. </li>
+            <li class="ListParagraph">Verify everything is working as intended. Make particularly sure the storage configuration matches the hardware and storage configuration on the new recording server.</li>
         </ul>
         <h4 class="Heading4">Replace a storage system</h4>
         <p>When replacing a storage system on a running recording server, Milestone recommends you keep the existing storage system running in parallel and follow these steps to ensure all recordings remain intact and available to users:</p>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Create new storage configuration settings on the Servers &gt; Recording Servers &gt; Storage tab for the new storage system.</li>
-            <li class="ListParagraph" value="2">Move all devices to the new storage system (on the Record tab for each device or device group).</li>
-            <li class="ListParagraph" value="3">After you reach the maximum retention time of all the storage configurations on the old storage system, you can remove the storage configurations from the Recording Server and take the old storage system offline.</li>
+            <li class="ListParagraph">Create new storage configuration settings on the Servers &gt; Recording Servers &gt; Storage tab for the new storage system.</li>
+            <li class="ListParagraph">Move all devices to the new storage system (on the Record tab for each device or device group).</li>
+            <li class="ListParagraph">After you reach the maximum retention time of all the storage configurations on the old storage system, you can remove the storage configurations from the Recording Server and take the old storage system offline.</li>
         </ul>
         <p>If a storage system has experienced a catastrophic failure and you are unable to bring it back online, do the first two steps. The final step does not apply since the storage no longer is available and all recordings are lost. </p>
         <p class="Seealso">See also: <a href="../Tasks/Configure Windows servers.html" class="MCXref_ParaTextOnly_0">3. Configure Windows servers</a>, <a href="../Tasks/Install XProtect Management Server.html" class="MCXref_ParaTextOnly_0">5. Install XProtect Management Server</a>, <a href="Save and load a system configuration.html" class="MCXref_ParaTextOnly_0">33C. Save and load a system configuration</a>, <a href="../Tasks/Install XProtect Recording Servers.html" class="MCXref_ParaTextOnly_0">7. Install XProtect Recording Servers</a>, <a href="Move a hardware device to another Recording Server.html" class="MCXref_ParaTextOnly_0">33B. Move a hardware device to another Recording Server</a>, <a href="Configure Recording Server storage settings.html" class="MCXref_ParaTextOnly_0">12C. Configure Recording Server storage settings</a>, <a href="Configure recording.html" class="MCXref_ParaTextOnly_0">15E. Configure recording</a> &gt; Select recording storage</p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_maintenance/mc_movingthemanagementse.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____2#Movingthemanagementserver">XProtect VMS Administrator manual &gt; Moving the management server</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_maintenance/mc_movingthemanagementse.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____2#Movingthemanagementserver">XProtect VMS Administrator manual &gt; Moving the management server</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_maintenance/mc_replacearecordingserv.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____3">XProtect VMS Administrator manual &gt; Replace a recording server</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_maintenance/mc_replacearecordingserv.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____3">XProtect VMS Administrator manual &gt; Replace a recording server</a>
             </li>
         </ul>
     </body>

@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" /><title>3B. Install operating system environment</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+        <meta name="tocPath" content="Preparing and Installing|3. Configure Windows servers|3B. Install operating system environment" />
     </head>
     <body>
         <h3 class="Heading3">3B. Install operating system environment</h3>
@@ -13,7 +14,7 @@
         <h4 class="Heading4">Virtualization</h4>
         <p>All Milestone components can be deployed in a virtual environment, with various advantages and disadvantages.</p>
         <p>Virtualization is often used to utilize hardware resources better, because typically the different virtual servers running on the hardware host server do not load the virtual server extensively and often not at the same time. This is also true for the Management Server and its various dependencies.</p>
-        <p>By contrast, the XProtect Recording Server service that records all the cameras and streaming video to clients is a comparatively high resource-demanding service that will consistently put a high load on CPU, memory, network, and the storage system. </p>
+        <p>By contrast, XProtect Recording Server service that records all the cameras and streaming video to clients is a comparatively high resource-demanding service that will consistently put a high load on CPU, memory, network, and the storage system. </p>
         <p>Therefore, a usual advantage of using virtualization to a large extent does not apply to a recording server because, in most cases, it will use all available resources all the time, leaving nothing for other virtual servers to use.</p>
         <h4 class="Heading4">Microsoft<sup>®</sup> Windows</h4>
         <p>Make sure the Windows version is supported for the component you are installing.</p>
@@ -25,17 +26,17 @@
         <p class="Seealso">See also: <a href="Test the network.html" class="MCXref_ParaTextOnly_0">1E. Test the network</a> &gt; Domain Name Server (DNS)</p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://www.milestonesys.com/support/resources/system-requirements/">Milestone product system requirements - milestonesys.com</a>
+            <li class="AddlResBulletedList"><a href="https://www.milestonesys.com/support/resources/system-requirements/">Milestone product system requirements - milestonesys.com</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_maintenance/mc_managingregisteredservices.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____8#Managingregisteredservices">XProtect VMS Administrator manual &gt; Managing registered services</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_maintenance/mc_managingregisteredservices.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____8#Managingregisteredservices">XProtect VMS Administrator manual &gt; Managing registered services</a>
             </li>
-            <li class="AddlResBulletedList" value="3"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_maintenance/mc_managingthesqlserver.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____6#ChangingtheSQLServeranddatabaseaddressesexplained">XProtect VMS Administrator manual &gt; Managing the SQL Server and databases &gt; Changing the SQL Server and database addresses (explained)</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_maintenance/mc_managingthesqlserver.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____6#ChangingtheSQLServeranddatabaseaddressesexplained">XProtect VMS Administrator manual &gt; Managing the SQL Server and databases &gt; Changing the SQL Server and database addresses (explained)</a>
             </li>
-            <li class="AddlResBulletedList" value="4"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_maintenance/mc_movingthemanagementse.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____2">XProtect VMS Administrator manual &gt; Moving the management server</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_maintenance/mc_movingthemanagementse.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CMaintenance%7C_____2">XProtect VMS Administrator manual &gt; Moving the management server</a>
             </li>
-            <li class="AddlResBulletedList" value="5"><a href="https://doc.milestonesys.com/2020r2/en-US/standard_features/sf_mc/sf_mcnodes/sf_2serversandhardware/mc_recordingservers.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____7#Changeorverifythebasicconfigurationofarecordingserver">XProtect VMS Administrator manual &gt; Site Navigation: Servers and hardware: Recording servers &gt; Change or verify the basic configuration of a recording server</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/standard_features/sf_mc/sf_mcnodes/sf_2serversandhardware/mc_recordingservers.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____7#Changeorverifythebasicconfigurationofarecordingserver">XProtect VMS Administrator manual &gt; Site Navigation: Servers and hardware: Recording servers &gt; Change or verify the basic configuration of a recording server</a>
             </li>
-            <li class="AddlResBulletedList" value="6"><a href="https://doc.milestonesys.com/2020r2/en-US/feature_flags/ff_recordingserverfailover/mc_failoverservers.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____8#Changethemanagementserveraddress">XProtect VMS Administrator manual &gt; Site Navigation: Servers and hardware: Failover servers &gt; Change the management server address</a>
+            <li class="AddlResBulletedList"><a href="https://doc.milestonesys.com/2020r3/en-US/feature_flags/ff_recordingserverfailover/mc_failoverservers.htm?tocpath=XProtect%20VMS%20products%7CXProtect%20VMS%20Administrator%20manual%7CConfiguration%7C_____8#Changethemanagementserveraddress">XProtect VMS Administrator manual &gt; Site Navigation: Servers and hardware: Failover servers &gt; Change the management server address</a>
             </li>
         </ul>
     </body>

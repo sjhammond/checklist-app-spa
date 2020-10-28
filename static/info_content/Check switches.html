@@ -5,30 +5,31 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>1B. Check switches</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+        <meta name="tocPath" content="Preparing and Installing|1. Configure the network|1B. Check switches" />
     </head>
     <body>
         <h3 class="Heading3"><span class="span_2">1B. </span>Check switches</h3>
         <p>Depending on the choices made by the system designer, a Milestone XProtect<sup>®</sup> installation may use a dedicated network for surveillance devices (such as cameras) to insulate them from the client network where user workstations are connected, or devices and users may share the same network.</p>
         <p class="Bulletlistheading">Separating the client network from the camera network and using a separate network interface card (NIC) for each network increases performance, stability, and security and makes it easier to dimension the network:</p>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Performance is increased by separating the traffic to and from recording servers so any high load on the client network does not impact the recording performance.</li>
+            <li class="ListParagraph">Performance is increased by separating the traffic to and from recording servers so any high load on the client network does not impact the recording performance.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Stability is increased because any network interference on the client network does not affect the camera network.</li>
+            <li class="ListParagraph">Stability is increased because any network interference on the client network does not affect the camera network.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Security is increased because users or equipment on the client network cannot contact the camera directly. This effectively prevents them from accidentally or intentionally interfering with the camera operation or gaining unauthorized access to the video feeds or camera settings. Further, isolating the camera network eliminates the possibility of devices sending any kind of information via the internet without your knowledge or permission.</li>
+            <li class="ListParagraph">Security is increased because users or equipment on the client network cannot contact the camera directly. This effectively prevents them from accidentally or intentionally interfering with the camera operation or gaining unauthorized access to the video feeds or camera settings. Further, isolating the camera network eliminates the possibility of devices sending any kind of information via the internet without your knowledge or permission.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">Dimensioning of the network is made easier because the load is separated onto several different networks, making it easier to calculate and measure the bandwidth usage, particularly on the critical camera network.</li>
+            <li class="ListParagraph">Dimensioning of the network is made easier because the load is separated onto several different networks, making it easier to calculate and measure the bandwidth usage, particularly on the critical camera network.</li>
         </ul>
         <p>Systems that will be using external networked storage, such as a network attached storage (NAS) or storage area network (SAN), will also benefit from this connection using a dedicated NIC and being separate from other networks.</p>
         <p>Before beginning the installation, it is best practice to verify both the existing and planned new network structure correspond to the design assumptions, that each network interface is capable of passing the calculated or estimated bandwidth, and that the required PoE budget is within the capabilities of each switch.</p>
         <p class="Addtionalresources">Additional resources:</p>
         <ul class="ul_3">
-            <li class="AddlResBulletedList" value="1"><a href="https://content.milestonesys.com/media/?mediaId=3B565268-FC36-4709-8C6D849AEB8906E5">System Architecture Guide for IT Professionals</a>
+            <li class="AddlResBulletedList"><a href="https://content.milestonesys.com/media/?mediaId=3B565268-FC36-4709-8C6D849AEB8906E5">System Architecture Guide for IT Professionals</a>
             </li>
-            <li class="AddlResBulletedList" value="2"><a href="https://go.bluevolt.com/Milestone/s/coursedetail/96718">eLearning: Exploring XProtect VMS System Architecture and Communication</a>
+            <li class="AddlResBulletedList"><a href="https://go.bluevolt.com/Milestone/s/coursedetail/96718">eLearning: Exploring XProtect VMS System Architecture and Communication</a>
             </li>
         </ul>
     </body>

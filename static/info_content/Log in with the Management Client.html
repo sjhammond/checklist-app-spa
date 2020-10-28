@@ -5,38 +5,39 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>10A. Log in with the Management Client</title>
         <link href="../../Resources/Stylesheets/XProtect VMS deployment best practice v1.2.css" rel="stylesheet" />
+        <meta name="tocPath" content="Configuring and Organizing|10. Configure global settings and behaviors|10A. Log in with the Management Client" />
     </head>
     <body>
         <h3 class="Heading3">10A. Log in with the Management Client</h3>
-        <p>With the Management Server installed, you can log in with the XProtect Management Client.</p>
+        <p>With the Management Server installed, you can log in with XProtect Management Client.</p>
         <h4 class="Heading4">Windows Authentication and Windows Authentication (current user)</h4>
-        <p>By default, only Windows users that are members of the Windows User Management Administrators user group on the server running the Management Server service are able to log into the XProtect VMS. To ensure you are never left with a system you cannot log into, this setting cannot be changed. You will typically want to make sure you limit this access as much as possible.</p>
+        <p>By default, only Windows users that are members of the Windows User Management Administrators user group on the server running the Management Server service are able to log into XProtect VMS. To ensure you are never left with a system you cannot log into, this setting cannot be changed. You will typically want to make sure you limit this access as much as possible.</p>
         <p>You can log in either with the Management Client installed on the server or one installed elsewhere, typically your normal workstation or laptop.</p>
         <p>If you are already logged into Windows with credentials that meet the requirements described above, you can use the Windows Authentication (current user) option. Otherwise, you must choose Windows Authentication and specify those credentials. If you are not working directly on the management server, you may need to prefix the username with the hostname (or domain name) of the management server.</p>
         <p class="Bulletlistheading">Common reasons why login fails:</p>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">The time difference between the workstation and the management server is more than 5 minutes.</li>
+            <li class="ListParagraph">The time difference between the workstation and the management server is more than 5 minutes.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">The time zone settings are not correct on either the workstation or the server.</li>
+            <li class="ListParagraph">The time zone settings are not correct on either the workstation or the server.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">The management server hostname does not resolve correctly from the workstation.</li>
+            <li class="ListParagraph">The management server hostname does not resolve correctly from the workstation.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">The user is not a member of the Administrators group on the management server.</li>
+            <li class="ListParagraph">The user is not a member of the Administrators group on the management server.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">You need to prefix the username with the server hostname (or domain name).</li>
+            <li class="ListParagraph">You need to prefix the username with the server hostname (or domain name).</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">A firewall on the management server is blocking access.</li>
+            <li class="ListParagraph">A firewall on the management server is blocking access.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">The Management Server service is not started.</li>
+            <li class="ListParagraph">The Management Server service is not started.</li>
         </ul>
         <ul class="ul_2">
-            <li class="ListParagraph" value="1">The password is not correct.</li>
+            <li class="ListParagraph">The password is not correct.</li>
         </ul>
     </body>
 </html>
