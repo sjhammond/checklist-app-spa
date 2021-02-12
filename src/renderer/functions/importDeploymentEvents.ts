@@ -34,7 +34,7 @@ export const addImportDeploymentEvents = () => {
                 const decryptedData = encryptDecryptData(fr.result as string, 'decrypt');
 
                 //debug
-                //console.log(decryptedData);
+                console.log(decryptedData);
 
                 const data:DeploymentImport = JSON.parse(decryptedData as string);
                 await importDeployment(data);

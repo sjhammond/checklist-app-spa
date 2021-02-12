@@ -184,7 +184,7 @@ const generateItemDataForExport = (id:string) => {
                 {
                     "stepId": ${JSON.stringify(item.stepId)},
                     "itemState": ${JSON.stringify(item.itemState)},
-                    "itegrator": ${item.integrator == null ? null : JSON.stringify(item.integrator)},
+                    "integrator": ${item.integrator == null ? null : JSON.stringify(item.integrator)},
                     "date": ${item.date == null ? null : JSON.stringify(item.date)},
                     "note": ${item.note == null ? null : JSON.stringify(item.note)},
                     "noteDate": ${item.noteDate == null ? null : JSON.stringify(item.noteDate)},
