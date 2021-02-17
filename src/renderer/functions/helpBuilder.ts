@@ -4,6 +4,8 @@ import { createStaticPath } from "./helpers/createStaticPath";
 import { releaseVersion } from "..";
 import { remote } from "electron";
 
+let copyrightDate = "2019-2021";
+
 export const renderHelpPage = () => {
 
     scrollToTop(); 
@@ -199,7 +201,7 @@ export const renderHelpPage = () => {
                     <div>
                         <h3>Milestone Deployment Assistant</h3>
                         <p>Build version: ${remote.app.getVersion()}</p>
-                        <p>&copy; 2019 Milestone Systems, Inc. All rights reserved.</p></br>
+                        <p>&copy; ${copyrightDate} Milestone Systems, Inc. All rights reserved.</p></br>
                         <p>Milestone Deployment Assistant is made possible by <a href="https://nodejs.org/en/">Node.js</a> and the following open source software:</p>
                         
                         <div class="dependency">
